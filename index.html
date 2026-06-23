@@ -190,16 +190,6 @@ section{position:relative}
 .plan-done .di{width:64px;height:64px;border:1.5px solid var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 22px;color:var(--gold)}
 .plan-done h3{color:#fff;font-size:34px}
 
-/* ===== DESTINATIONS ===== */
-.dest-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:56px}
-.dcard{position:relative;border-radius:5px;overflow:hidden;height:360px;cursor:pointer}
-.dcard img{width:100%;height:100%;object-fit:cover;transition:transform 1.1s cubic-bezier(.2,.7,.2,1)}
-.dcard:hover img{transform:scale(1.07)}
-.dcard:hover{box-shadow:0 24px 56px rgba(0,0,0,.32)}
-.dcard .dov{position:absolute;inset:0;background:linear-gradient(180deg,transparent 38%,rgba(8,18,28,.88));padding:26px;display:flex;flex-direction:column;justify-content:flex-end}
-.dcard h3{color:#fff;font-size:26px;text-shadow:0 2px 12px rgba(0,0,0,.4)}
-.dcard span{color:var(--sand);font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;font-weight:600}
-
 /* ===== MAP / TICKER ===== */
 .map{background:linear-gradient(135deg,#0E1C2C 0%,var(--ink) 100%);color:#fff;padding-bottom:100px;overflow:hidden}
 .map h2{color:#fff}
@@ -320,7 +310,7 @@ section{position:relative}
   .proc{margin-top:0}
   .exp-grid{grid-template-columns:1fr}.e-a,.e-b,.e-c,.e-d,.e-e{grid-column:span 1;height:340px}
   .svc-grid{grid-template-columns:1fr}
-  .dest-grid,.jrn-grid,.soc-grid{grid-template-columns:1fr}
+  .jrn-grid,.soc-grid{grid-template-columns:1fr}
   .ft-top{grid-template-columns:1fr 1fr;gap:30px}
   .plan-box{padding:30px 22px}
   .wrap{padding:0 22px}
@@ -351,7 +341,6 @@ section{position:relative}
     </a>
     <nav class="nav">
       <a class="lnk" href="#experiencias" data-i18n="navExp">Experiencias</a>
-      <a class="lnk" href="#destinos" data-i18n="navDest">Destinos</a>
       <a class="lnk" href="#medida" data-i18n="navTailor">Viajes a medida</a>
       <a class="lnk" href="#servicios" data-i18n="navSvc">Servicios</a>
       <a class="lnk" href="#nosotros" data-i18n="navAbout">Nosotros</a>
@@ -367,7 +356,6 @@ section{position:relative}
 <div class="menu-mask" id="menu">
   <button class="menu-close" id="menuClose" aria-label="Cerrar">×</button>
   <a class="ml" href="#experiencias" data-i18n="navExp">Experiencias</a>
-  <a class="ml" href="#destinos" data-i18n="navDest">Destinos</a>
   <a class="ml" href="#medida" data-i18n="navTailor">Viajes a medida</a>
   <a class="ml" href="#servicios" data-i18n="navSvc">Servicios</a>
   <a class="ml" href="#cruceros" data-i18n="navCruise">Cruceros</a>
@@ -559,24 +547,6 @@ section{position:relative}
   </div>
 </section>
 
-<!-- ===== DESTINATIONS ===== -->
-<section class="sec wrap" id="destinos">
-  <div data-reveal style="max-width:620px">
-    <h2 style="font-size:clamp(32px,4vw,52px)" data-i18n="destTitle">Destinos que inspiran</h2>
-  </div>
-  <div class="dest-grid">
-    <div class="dcard" data-reveal><img src="assets/buddha-thailand.jpg" alt="Asia"><div class="dov"><span data-i18n="rAsia">Asia</span><h3 data-i18n="dThai">Tailandia</h3></div></div>
-    <div class="dcard" data-reveal data-d="1"><img src="assets/lucerne.jpg" alt="Europa"><div class="dov"><span data-i18n="rEur">Europa</span><h3 data-i18n="dSwiss">Suiza</h3></div></div>
-    <div class="dcard" data-reveal data-d="2"><img src="assets/founder-rio.jpg" alt="Latinoamérica"><div class="dov"><span data-i18n="rLat">Latinoamérica</span><h3 data-i18n="dRio">Río de Janeiro</h3></div></div>
-    <div class="dcard" data-reveal><img src="assets/cruise-aida.jpg" alt="Caribe"><div class="dov"><span data-i18n="rCar">Caribe</span><h3 data-i18n="dCaribe">Islas del Caribe</h3></div></div>
-    <div class="dcard" data-reveal data-d="1"><img src="assets/nyc.jpg" alt="Nueva York"><div class="dov"><span data-i18n="rNa">Norteamérica</span><h3 data-i18n="dNyc">Nueva York</h3></div></div>
-    <div class="dcard" data-reveal data-d="2"><img src="assets/turkey.jpg" alt="Turquía"><div class="dov"><span data-i18n="rEur">Europa</span><h3 data-i18n="dTurkey">Ölüdeniz, Turquía</h3></div></div>
-    <div class="dcard" data-reveal><img src="assets/puntacana.jpg" alt="Punta Cana"><div class="dov"><span data-i18n="rCar">Caribe</span><h3 data-i18n="dPunta">Punta Cana</h3></div></div>
-    <div class="dcard" data-reveal data-d="1"><img src="assets/greece.jpg" alt="Grecia"><div class="dov"><span data-i18n="rEur">Europa</span><h3 data-i18n="dGreece">Islas griegas</h3></div></div>
-    <div class="dcard" data-reveal data-d="2"><img src="assets/cartagena.jpg" alt="Cartagena"><div class="dov"><span data-i18n="rLat">Latinoamérica</span><h3 data-i18n="dCartagena">Cartagena</h3></div></div>
-  </div>
-</section>
-
 <!-- ===== MAP / TICKER ===== -->
 <section class="sec map">
   <div class="wrap">
@@ -710,7 +680,6 @@ section{position:relative}
       <div>
         <h4 data-i18n="ftExplore">Explorar</h4>
         <a href="#experiencias" data-i18n="navExp">Experiencias</a>
-        <a href="#destinos" data-i18n="navDest">Destinos</a>
         <a href="#medida" data-i18n="navTailor">Viajes a medida</a>
         <a href="#cruceros" data-i18n="navCruise">Cruceros</a>
         <a href="#social" data-i18n="navJournal">Diario</a>
@@ -762,7 +731,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   /* ===== i18n ===== */
   const T = {
-    navExp:["Experiencias","Experiences"], navDest:["Destinos","Destinations"], navTailor:["Viajes a medida","Tailor-made"],
+    navExp:["Experiencias","Experiences"], navTailor:["Viajes a medida","Tailor-made"],
     navSvc:["Servicios","Services"], navAbout:["Nosotros","About"], navJournal:["Diario","Journal"], navCruise:["Cruceros","Cruises"],
     ctaDesign:["Diseñar mi viaje","Design my trip"], ctaExplore:["Explorar experiencias","Explore experiences"],
     ctaAdvisor:["Hablar con un asesor","Talk to an advisor"], ctaWhats:["Hablar por WhatsApp","Chat on WhatsApp"],
@@ -806,10 +775,6 @@ document.addEventListener('DOMContentLoaded', function() {
     plDoneT:["Tu próxima experiencia comienza aquí.","Your next experience begins here."],
     plDoneP:["Recibimos tu solicitud. Pulsa el botón para enviarnos los detalles y un asesor te responderá en breve.","We've got your request. Tap the button to send us the details and an advisor will reply shortly."],
     plSend:["Enviar solicitud","Send request"], back:["← Anterior","← Back"], next:["Siguiente","Next"], finish:["Finalizar","Finish"],
-    destEye:["El mundo Viarevex","The Viarevex world"], destTitle:["Destinos que inspiran","Destinations that inspire"],
-    rAsia:["Asia","Asia"], rEur:["Europa","Europe"], rLat:["Latinoamérica","Latin America"], rCar:["Caribe","Caribbean"], rNa:["Norteamérica","North America"],
-    dThai:["Tailandia","Thailand"], dSwiss:["Suiza","Switzerland"], dRio:["Río de Janeiro","Rio de Janeiro"], dCaribe:["Islas del Caribe","Caribbean Islands"], dNyc:["Nueva York","New York"],
-    dTurkey:["Ölüdeniz, Turquía","Ölüdeniz, Türkiye"], dPunta:["Punta Cana","Punta Cana"], dGreece:["Islas griegas","Greek Islands"], dCartagena:["Cartagena","Cartagena"],
     mapEye:["Dónde hemos estado","Where we've been"], mapTitle:["Destinos vividos, no inventados","Lived destinations, not invented ones"],
     mapSub:["Cada lugar que recomendamos lo conocemos de primera mano. Estas son las historias detrás de los itinerarios.","Every destination we recommend, we know first-hand. These are the stories behind the itineraries."],
     fEye:["El fundador","The founder"], fTitle:["Una vida viajando. Una forma diferente de asesorar.","A life of travel. A different way to advise."],
