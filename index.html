@@ -7,16 +7,16 @@
 <meta name="description" content="Travel Advisory & Bespoke Experiences. Diseñamos viajes a medida, gestionamos cada detalle y te acompañamos para que vivas el destino, no la logística.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700&family=Spectral:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&display=swap" rel="stylesheet">
 <style>
 :root {
   --carbon:#0B1520; --ink:#183042; --ink-deep:#0E1C2C; --ink-mid:#1A3550;
-  --ivory:#F7F3EC; --white:#FFFFFF;
-  --sand:#D7C7AD; --sand-soft:#EAE2D2;
+  --ivory:#F5F5F5; --white:#FFFFFF;
+  --sand:#D7C7AD; --sand-soft:#EBEBEB;
   --gold:#C49A3C; --gold-lt:#DDB94E; --gold-glow:rgba(196,154,60,.38);
   --red:#D23B33;
-  --serif:'Cormorant Garamond',Georgia,serif;
-  --sans:'Hanken Grotesk',system-ui,sans-serif;
+  --serif:'Spectral',Georgia,serif;
+  --sans:'Barlow',system-ui,sans-serif;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth;overflow-x:hidden}
@@ -52,9 +52,9 @@ section{position:relative}
 [data-reveal][data-d="3"]{transition-delay:.38s}[data-reveal][data-d="4"]{transition-delay:.5s}
 
 /* ===== HEADER ===== */
-.hdr{position:fixed;top:0;left:0;right:0;z-index:60;transition:background .45s,box-shadow .45s,padding .45s;padding:26px 0}
+.hdr{position:fixed;top:0;left:0;right:0;z-index:60;transition:background .45s,box-shadow .45s;padding:26px 0}
 .hdr-in{display:flex;align-items:center;justify-content:space-between}
-.hdr.solid{background:rgba(247,243,236,.95);backdrop-filter:blur(18px);padding:14px 0;box-shadow:0 1px 0 rgba(24,48,66,.1)}
+.hdr.solid{background:rgba(245,245,245,.96);backdrop-filter:blur(18px);padding:14px 0;box-shadow:0 1px 0 rgba(24,48,66,.1)}
 .brand{display:flex;align-items:center;gap:12px}
 .brand .mark{width:36px;height:36px;flex:none;border-radius:4px}
 .brand .nm{font-family:var(--serif);font-weight:700;font-size:22px;letter-spacing:.14em;color:#fff;transition:color .4s}
@@ -62,8 +62,8 @@ section{position:relative}
 .hdr.solid .brand .nm{color:var(--ink)}
 .nav{display:flex;align-items:center;gap:30px}
 .nav a.lnk{font-size:13.5px;font-weight:500;color:rgba(255,255,255,.9);position:relative;letter-spacing:.01em;transition:color .3s}
-.nav a.lnk::after{content:"";position:absolute;left:0;bottom:-5px;height:1.5px;width:0;background:var(--gold);transition:width .35s}
-.nav a.lnk:hover::after{width:100%}
+.nav a.lnk::after{content:"";position:absolute;left:0;bottom:-5px;height:1.5px;width:100%;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .35s}
+.nav a.lnk:hover::after{transform:scaleX(1)}
 .hdr.solid .nav a.lnk{color:var(--ink)}.hdr.solid .nav a.lnk:hover{color:var(--gold)}
 .lang{display:flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:rgba(255,255,255,.9)}
 .hdr.solid .lang{color:var(--ink)}
@@ -102,18 +102,17 @@ section{position:relative}
 @keyframes sd{0%{opacity:0;transform:translateY(-4px)}40%{opacity:1}100%{opacity:0;transform:translateY(10px)}}
 
 /* ===== STATS BAR ===== */
-.stats-bar{background:linear-gradient(135deg,var(--ink-deep) 0%,var(--ink) 60%,var(--ink-mid) 100%);border-top:1px solid rgba(196,154,60,.3);border-bottom:1px solid rgba(255,255,255,.06);padding:44px 0}
-.stats-in{display:flex;justify-content:center;align-items:center}
-.stat-item{text-align:center;padding:0 52px;display:flex;flex-direction:column;align-items:center}
-.snum{font-family:var(--serif);font-size:58px;font-weight:600;color:var(--gold);line-height:1;display:inline-block}
-.stat-item sup{font-family:var(--serif);font-size:28px;color:var(--gold-lt);vertical-align:super;line-height:0;margin-left:1px}
-.slbl{display:block;font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.55);font-weight:600;margin-top:8px}
-.stat-sep{width:1px;height:60px;background:rgba(255,255,255,.12);flex-shrink:0}
+.stats-bar{background:var(--ink-deep);border-top:1px solid rgba(196,154,60,.22);padding:22px 0}
+.stats-in{display:flex;justify-content:center;align-items:center;flex-wrap:wrap}
+.stat-item{padding:10px 36px;display:flex;align-items:baseline;gap:7px}
+.snum{font-family:var(--sans);font-size:26px;font-weight:700;color:var(--gold);line-height:1;display:inline-block}
+.stat-item sup{font-family:var(--sans);font-size:15px;color:var(--gold-lt);line-height:0}
+.slbl{font-size:15px;color:rgba(255,255,255,.78);font-weight:400;display:inline}
+.stat-sep{width:1px;height:24px;background:rgba(255,255,255,.15);flex-shrink:0}
 
 /* ===== VALUE PROP ===== */
 .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:32px;margin-top:64px}
-.step .no{font-family:var(--serif);font-size:60px;color:var(--gold);line-height:1;font-weight:300}
-.step h3{font-size:24px;margin:16px 0 8px}
+.step h3{font-size:24px;margin:0 0 8px}
 .step p{font-size:15px;color:#5b574e}
 .step .div{height:2px;background:linear-gradient(90deg,var(--gold),transparent);margin-top:22px;border-radius:2px}
 
@@ -149,7 +148,7 @@ section{position:relative}
 .tailor-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:flex-start}
 .proc{position:relative;margin-top:64px}
 .proc-line{position:absolute;left:31px;top:10px;bottom:10px;width:2px;background:rgba(24,48,66,.12)}
-.proc-fill{position:absolute;left:0;top:0;width:100%;height:0;background:linear-gradient(180deg,var(--gold),var(--gold-lt));transition:height .1s linear;border-radius:2px}
+.proc-fill{position:absolute;left:0;top:0;width:100%;height:100%;background:linear-gradient(180deg,var(--gold),var(--gold-lt));transition:transform .1s linear;border-radius:2px;transform:scaleY(0);transform-origin:top}
 .pstep{display:grid;grid-template-columns:64px 1fr;gap:24px;padding:22px 0}
 .pdot{width:64px;display:flex;justify-content:center}
 .pdot b{width:14px;height:14px;border-radius:50%;background:var(--ivory);border:2px solid var(--gold);margin-top:6px;z-index:2}
@@ -158,10 +157,8 @@ section{position:relative}
 /* ===== SERVICES ===== */
 .svc{background:var(--sand-soft)}
 .svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(24,48,66,.1);margin-top:56px;border:1px solid rgba(24,48,66,.1);border-radius:4px;overflow:hidden}
-.svc-card{background:var(--ivory);padding:40px 34px;transition:background .4s;position:relative;overflow:hidden}
-.svc-card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(180deg,var(--gold),var(--gold-lt));transform:scaleY(0);transform-origin:bottom;transition:transform .4s cubic-bezier(.2,.7,.2,1)}
-.svc-card:hover{background:#fff}
-.svc-card:hover::before{transform:scaleY(1)}
+.svc-card{background:var(--ivory);padding:40px 34px;transition:background .4s,box-shadow .4s;position:relative;overflow:hidden}
+.svc-card:hover{background:#fff;box-shadow:inset 0 3px 0 var(--gold)}
 .svc-card .ic{width:40px;height:40px;color:var(--gold)}
 .svc-card h3{font-size:25px;margin:20px 0 12px}
 .svc-card ul{list-style:none;display:flex;flex-direction:column;gap:7px}
@@ -171,16 +168,16 @@ section{position:relative}
 /* ===== PLANNER ===== */
 .plan{background:linear-gradient(135deg,#0E1C2C 0%,var(--ink) 60%,#142B40 100%);color:#fff;overflow:hidden}
 .plan h2{color:#fff}
-.plan-box{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);border-radius:8px;margin-top:48px;padding:48px;max-width:760px;backdrop-filter:blur(4px)}
+.plan-box{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);border-radius:8px;margin-top:48px;padding:48px;max-width:760px}
 .prog{height:3px;background:rgba(255,255,255,.12);border-radius:3px;overflow:hidden;margin-bottom:34px}
-.prog i{display:block;height:100%;background:linear-gradient(90deg,var(--gold),var(--gold-lt));width:12%;transition:width .5s cubic-bezier(.2,.7,.2,1);border-radius:3px}
+.prog i{display:block;height:100%;background:linear-gradient(90deg,var(--gold),var(--gold-lt));width:100%;transform:scaleX(.12);transform-origin:left;transition:transform .5s cubic-bezier(.2,.7,.2,1);border-radius:3px}
 .q{display:none;animation:qin .5s ease}.q.on{display:block}
 @keyframes qin{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
 .q .qno{font-size:12px;letter-spacing:.22em;color:var(--gold);text-transform:uppercase;font-weight:600}
 .q h3{color:#fff;font-size:30px;margin:10px 0 26px}
 .fld{width:100%;background:transparent;border:none;border-bottom:1.5px solid rgba(255,255,255,.28);color:#fff;font-family:var(--sans);font-size:18px;padding:12px 2px;outline:none;transition:border-color .3s}
 .fld:focus{border-color:var(--gold)}
-.fld::placeholder{color:rgba(255,255,255,.35)}
+.fld::placeholder{color:rgba(255,255,255,.62)}
 .opts{display:flex;flex-wrap:wrap;gap:10px}
 .opt{padding:12px 20px;border:1px solid rgba(255,255,255,.22);border-radius:30px;cursor:pointer;font-size:14.5px;color:rgba(255,255,255,.8);transition:.25s}
 .opt:hover{border-color:var(--gold);color:#fff}
@@ -258,10 +255,10 @@ section{position:relative}
 .fq h3{font-size:21px;transition:color .3s}
 .fitem:hover .fq h3{color:var(--gold)}
 .fq .pm{font-size:24px;color:var(--gold);transition:transform .35s;flex:none}
-.fa{max-height:0;overflow:hidden;transition:max-height .45s ease,padding .45s}
-.fa p{font-size:15px;color:#5b574e;padding-bottom:0}
-.fitem.open .fa{max-height:240px}
-.fitem.open .fa p{padding-bottom:24px}
+.fa{display:grid;grid-template-rows:0fr;transition:grid-template-rows .4s ease}
+.fa>p{overflow:hidden;min-height:0;font-size:15px;color:#5b574e;padding-bottom:0}
+.fitem.open .fa{grid-template-rows:1fr}
+.fitem.open .fa>p{padding-bottom:24px}
 .fitem.open .fq .pm{transform:rotate(45deg)}
 .fitem.open .fq h3{color:var(--gold)}
 
@@ -281,9 +278,9 @@ section{position:relative}
 .ft h4{font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:18px;font-weight:600}
 .ft a{display:block;font-size:14px;color:rgba(255,255,255,.6);padding:5px 0;transition:color .3s}
 .ft a:hover{color:#fff}
-.ft-bot{display:flex;justify-content:space-between;align-items:center;gap:20px;padding-top:30px;flex-wrap:wrap;font-size:12.5px;color:rgba(255,255,255,.4)}
+.ft-bot{display:flex;justify-content:space-between;align-items:center;gap:20px;padding-top:30px;flex-wrap:wrap;font-size:12.5px;color:rgba(255,255,255,.58)}
 .ft-bot a{color:rgba(255,255,255,.55);display:inline}.ft-bot .lnks{display:flex;gap:18px;flex-wrap:wrap}
-.disc{font-size:12px;color:rgba(255,255,255,.38);margin-top:14px;max-width:640px}
+.disc{font-size:12px;color:rgba(255,255,255,.6);margin-top:14px;max-width:640px}
 
 /* ===== WA FAB ===== */
 .wa{position:fixed;right:24px;bottom:24px;z-index:55;width:60px;height:60px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 32px rgba(37,211,102,.35),0 2px 8px rgba(0,0,0,.2);transition:transform .3s,bottom .4s;cursor:pointer}
@@ -397,8 +394,7 @@ section{position:relative}
   <div class="hero-scrim"></div>
   <div class="hero-content">
     <div class="wrap">
-      <div class="eyebrow fadein" style="animation-delay:.5s;color:var(--sand)" data-i18n="heroEyebrow">Travel Advisory &amp; Bespoke Experiences</div>
-      <h1 style="margin-top:22px">
+      <h1>
         <span class="ln"><span data-i18n="heroT1">El mundo,</span></span>
         <span class="ln"><span data-i18n="heroT2">curado para ti.</span></span>
       </h1>
@@ -429,15 +425,14 @@ section{position:relative}
 <!-- ===== VALUE PROP ===== -->
 <section class="sec wrap">
   <div data-reveal style="max-width:680px">
-    <div class="eyebrow"><span class="hl"></span><span data-i18n="vpEye">Cómo trabajamos</span></div>
-    <h2 style="font-size:clamp(34px,4.5vw,58px);margin-top:20px" data-i18n="vpTitle">Viajar bien comienza mucho antes de despegar.</h2>
+    <h2 style="font-size:clamp(34px,4.5vw,58px)" data-i18n="vpTitle">Viajar bien comienza mucho antes de despegar.</h2>
     <p style="margin-top:18px;font-size:17px;color:#5b574e" data-i18n="vpSub">Viarevex convierte una intención de viaje en una experiencia organizada. No vendemos un catálogo: construimos una ruta alrededor de tu manera de viajar.</p>
   </div>
   <div class="steps">
-    <div class="step" data-reveal data-d="1"><div class="no">01</div><h3 data-i18n="vp1t">Te escuchamos</h3><p data-i18n="vp1p">Entendemos a quién acompañas, qué te mueve y cómo te gusta viajar.</p><div class="div"></div></div>
-    <div class="step" data-reveal data-d="2"><div class="no">02</div><h3 data-i18n="vp2t">Diseñamos tu viaje</h3><p data-i18n="vp2p">Creamos un itinerario a medida con criterio y conocimiento real del destino.</p><div class="div"></div></div>
-    <div class="step" data-reveal data-d="3"><div class="no">03</div><h3 data-i18n="vp3t">Coordinamos cada detalle</h3><p data-i18n="vp3p">Vuelos, hoteles, traslados y experiencias, gestionados de principio a fin.</p><div class="div"></div></div>
-    <div class="step" data-reveal data-d="4"><div class="no">04</div><h3 data-i18n="vp4t">Te acompañamos</h3><p data-i18n="vp4p">Antes, durante y después del viaje. Siempre hay alguien del otro lado.</p><div class="div"></div></div>
+    <div class="step" data-reveal data-d="1"><h3 data-i18n="vp1t">Te escuchamos</h3><p data-i18n="vp1p">Entendemos a quién acompañas, qué te mueve y cómo te gusta viajar.</p><div class="div"></div></div>
+    <div class="step" data-reveal data-d="2"><h3 data-i18n="vp2t">Diseñamos tu viaje</h3><p data-i18n="vp2p">Creamos un itinerario a medida con criterio y conocimiento real del destino.</p><div class="div"></div></div>
+    <div class="step" data-reveal data-d="3"><h3 data-i18n="vp3t">Coordinamos cada detalle</h3><p data-i18n="vp3p">Vuelos, hoteles, traslados y experiencias, gestionados de principio a fin.</p><div class="div"></div></div>
+    <div class="step" data-reveal data-d="4"><h3 data-i18n="vp4t">Te acompañamos</h3><p data-i18n="vp4p">Antes, durante y después del viaje. Siempre hay alguien del otro lado.</p><div class="div"></div></div>
   </div>
 </section>
 
@@ -445,8 +440,7 @@ section{position:relative}
 <section class="sec mood">
   <div class="wrap">
     <div data-reveal style="max-width:640px">
-      <div class="eyebrow"><span class="hl"></span><span data-i18n="moodEye">Encuentra tu forma de viajar</span></div>
-      <h2 style="font-size:clamp(32px,4vw,52px);margin-top:18px" data-i18n="moodTitle">¿Cómo quieres sentir tu próximo viaje?</h2>
+      <h2 style="font-size:clamp(32px,4vw,52px)" data-i18n="moodTitle">¿Cómo quieres sentir tu próximo viaje?</h2>
     </div>
     <div class="mood-grid">
       <div data-reveal>
@@ -463,8 +457,7 @@ section{position:relative}
 <section class="sec wrap" id="experiencias">
   <div data-reveal style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:20px">
     <div style="max-width:560px">
-      <div class="eyebrow"><span class="hl"></span><span data-i18n="expEye">Selección Viarevex</span></div>
-      <h2 style="font-size:clamp(32px,4.2vw,54px);margin-top:18px" data-i18n="expTitle">Experiencias destacadas</h2>
+      <h2 style="font-size:clamp(32px,4.2vw,54px)" data-i18n="expTitle">Experiencias destacadas</h2>
     </div>
     <p style="font-size:15px;color:#5b574e;max-width:340px" data-i18n="expSub">Una muestra de rutas reales. Cada una se rediseña por completo según quién viaja.</p>
   </div>
@@ -504,8 +497,7 @@ section{position:relative}
 <section class="sec svc" id="servicios">
   <div class="wrap">
     <div data-reveal style="max-width:620px">
-      <div class="eyebrow"><span class="hl"></span><span data-i18n="svcEye">Lo que hacemos</span></div>
-      <h2 style="font-size:clamp(32px,4vw,52px);margin-top:18px" data-i18n="svcTitle">Servicios</h2>
+      <h2 style="font-size:clamp(32px,4vw,52px)" data-i18n="svcTitle">Servicios</h2>
     </div>
     <div class="svc-grid">
       <div class="svc-card" data-reveal id="cruceros">
@@ -546,8 +538,7 @@ section{position:relative}
 <section class="sec plan" id="planificador">
   <div class="wrap">
     <div data-reveal style="max-width:620px">
-      <div class="eyebrow"><span class="hl"></span><span data-i18n="plEye">Planificador interactivo</span></div>
-      <h2 style="font-size:clamp(32px,4vw,52px);margin-top:18px" data-i18n="plTitle">Empecemos a diseñar tu viaje</h2>
+      <h2 style="font-size:clamp(32px,4vw,52px)" data-i18n="plTitle">Empecemos a diseñar tu viaje</h2>
       <p style="color:rgba(255,255,255,.72);margin-top:16px;font-size:16px" data-i18n="plSub">Unas pocas preguntas, como una conversación. Al final lo enviamos por WhatsApp o correo, como prefieras.</p>
     </div>
     <div class="plan-box" data-reveal data-d="1">
@@ -570,8 +561,7 @@ section{position:relative}
 <!-- ===== DESTINATIONS ===== -->
 <section class="sec wrap" id="destinos">
   <div data-reveal style="max-width:620px">
-    <div class="eyebrow"><span class="hl"></span><span data-i18n="destEye">El mundo Viarevex</span></div>
-    <h2 style="font-size:clamp(32px,4vw,52px);margin-top:18px" data-i18n="destTitle">Destinos que inspiran</h2>
+    <h2 style="font-size:clamp(32px,4vw,52px)" data-i18n="destTitle">Destinos que inspiran</h2>
   </div>
   <div class="dest-grid">
     <div class="dcard" data-reveal><img src="assets/buddha-thailand.jpg" alt="Asia"><div class="dov"><span data-i18n="rAsia">Asia</span><h3 data-i18n="dThai">Tailandia</h3></div></div>
@@ -654,8 +644,7 @@ section{position:relative}
 <section class="sec svc" style="background:var(--sand-soft)">
   <div class="wrap">
     <div data-reveal style="max-width:620px">
-      <div class="eyebrow"><span class="hl"></span><span data-i18n="socEye">Viaja con nosotros todos los días</span></div>
-      <h2 style="font-size:clamp(30px,3.8vw,50px);margin-top:18px" data-i18n="socTitle">Recomendamos desde la experiencia.</h2>
+      <h2 style="font-size:clamp(30px,3.8vw,50px)" data-i18n="socTitle">Recomendamos desde la experiencia.</h2>
       <p style="margin-top:16px;font-size:16px;color:#5b574e" data-i18n="socSub">Descubre destinos, consejos, hoteles, vuelos y momentos reales alrededor del mundo.</p>
     </div>
     <div class="soc-grid">
@@ -684,8 +673,7 @@ section{position:relative}
 <section class="sec svc" style="background:var(--ivory)">
   <div class="wrap">
     <div data-reveal style="text-align:center;max-width:620px;margin:0 auto">
-      <div class="eyebrow"><span data-i18n="faqEye">Preguntas frecuentes</span></div>
-      <h2 style="font-size:clamp(30px,3.8vw,50px);margin-top:14px" data-i18n="faqTitle">Antes de empezar</h2>
+      <h2 style="font-size:clamp(30px,3.8vw,50px)" data-i18n="faqTitle">Antes de empezar</h2>
     </div>
     <div class="faq" id="faq" data-reveal data-d="1"></div>
   </div>
@@ -915,7 +903,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (pf && proc) {
       const r = proc.getBoundingClientRect(), vh = window.innerHeight;
       const p = Math.max(0, Math.min(1, (vh * 0.7 - r.top) / r.height));
-      pf.style.height = (p * 100) + "%";
+      pf.style.transform = "scaleY(" + p + ")";
     }
     const wa = $("#wa"), ck = $("#cookie");
     if (wa && ck) wa.classList.toggle("lift", ck.classList.contains("show"));
@@ -1008,7 +996,7 @@ document.addEventListener('DOMContentLoaded', function() {
       });
       q.classList.toggle("on", i === step);
     });
-    const pg = $("#prog"); if (pg) pg.style.width = ((step+1) / STEPS.length * 100) + "%";
+    const pg = $("#prog"); if (pg) pg.style.transform = "scaleX(" + (step+1) / STEPS.length + ")";
     const back = $("#planBack"); if (back) back.style.visibility = step === 0 ? "hidden" : "visible";
     const nb = $("#planNext span:first-child");
     if (nb) nb.textContent = step === STEPS.length-1 ? T.finish[lang === "es" ? 0 : 1] : T.next[lang === "es" ? 0 : 1];
