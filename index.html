@@ -19,15 +19,16 @@
   --sans:'Barlow',system-ui,sans-serif;
 }
 *{margin:0;padding:0;box-sizing:border-box}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:2px}
 html{scroll-behavior:smooth;overflow-x:hidden}
-body{font-family:var(--sans);color:var(--carbon);background:var(--ivory);-webkit-font-smoothing:antialiased;line-height:1.55;overflow-x:hidden}
+body{font-family:var(--sans);color:var(--carbon);background:var(--ivory);-webkit-font-smoothing:antialiased;line-height:1.65;overflow-x:hidden}
 img{display:block;max-width:100%}
 a{color:inherit;text-decoration:none}
 .serif{font-family:var(--serif)}
 .wrap{max-width:1240px;margin:0 auto;padding:0 32px}
 .eyebrow{font-size:11.5px;letter-spacing:.3em;text-transform:uppercase;font-weight:600;color:var(--gold)}
 .hl{display:inline-block;width:46px;height:1px;background:var(--gold);vertical-align:middle;margin-right:14px}
-h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.04;letter-spacing:-.01em;color:var(--ink);text-wrap:balance}
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.1;letter-spacing:-.01em;color:var(--ink);text-wrap:balance}
 p{text-wrap:pretty}
 section{position:relative}
 .sec{padding:120px 0}
@@ -69,7 +70,7 @@ section{position:relative}
 .hdr.solid .lang{color:var(--ink)}
 .lang button{background:none;border:none;cursor:pointer;color:inherit;font:inherit;opacity:.5;transition:opacity .3s;padding:2px}
 .lang button.on{opacity:1;color:var(--gold)}
-.hamb{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px}
+.hamb{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:10px 8px}
 .hamb span{width:24px;height:2px;background:#fff;transition:.3s;border-radius:2px}
 .hdr.solid .hamb span{background:var(--ink)}
 
@@ -123,7 +124,7 @@ section{position:relative}
 .mood-pic{aspect-ratio:4/5;border-radius:5px;overflow:hidden;position:relative;box-shadow:0 40px 80px rgba(0,0,0,.5)}
 .mood-pic img{width:100%;height:100%;object-fit:cover;transition:opacity .6s}
 .mood-list{display:flex;flex-wrap:wrap;gap:10px}
-.chip{padding:11px 20px;border:1px solid rgba(255,255,255,.2);border-radius:30px;font-size:14px;font-weight:500;cursor:pointer;color:rgba(255,255,255,.72);transition:all .3s}
+.chip{padding:11px 20px;min-height:44px;display:inline-flex;align-items:center;border:1px solid rgba(255,255,255,.2);border-radius:30px;font-size:14px;font-weight:500;cursor:pointer;color:rgba(255,255,255,.72);transition:all .3s}
 .chip:hover{border-color:var(--gold);color:#fff}
 .chip.on{background:var(--gold);border-color:var(--gold);color:#fff;box-shadow:0 4px 18px var(--gold-glow)}
 .mood-cap{margin-top:26px;min-height:54px}
@@ -179,7 +180,7 @@ section{position:relative}
 .fld:focus{border-color:var(--gold)}
 .fld::placeholder{color:rgba(255,255,255,.62)}
 .opts{display:flex;flex-wrap:wrap;gap:10px}
-.opt{padding:12px 20px;border:1px solid rgba(255,255,255,.22);border-radius:30px;cursor:pointer;font-size:14.5px;color:rgba(255,255,255,.8);transition:.25s}
+.opt{padding:12px 20px;min-height:44px;display:inline-flex;align-items:center;border:1px solid rgba(255,255,255,.22);border-radius:30px;cursor:pointer;font-size:14.5px;color:rgba(255,255,255,.8);transition:.25s}
 .opt:hover{border-color:var(--gold);color:#fff}
 .opt.sel{background:var(--gold);border-color:var(--gold);color:#fff;box-shadow:0 4px 18px var(--gold-glow)}
 .plan-nav{display:flex;justify-content:space-between;align-items:center;margin-top:38px}
@@ -251,7 +252,7 @@ section{position:relative}
 /* ===== FAQ ===== */
 .faq{max-width:860px;margin:56px auto 0}
 .fitem{border-bottom:1px solid rgba(24,48,66,.12)}
-.fq{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:24px 0;cursor:pointer}
+.fq{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:24px 0;cursor:pointer;background:none;border:none;width:100%;text-align:left;font:inherit}
 .fq h3{font-size:21px;transition:color .3s}
 .fitem:hover .fq h3{color:var(--gold)}
 .fq .pm{font-size:24px;color:var(--gold);transition:transform .35s;flex:none}
@@ -354,7 +355,7 @@ section{position:relative}
       <a class="lnk" href="#medida" data-i18n="navTailor">Viajes a medida</a>
       <a class="lnk" href="#servicios" data-i18n="navSvc">Servicios</a>
       <a class="lnk" href="#nosotros" data-i18n="navAbout">Nosotros</a>
-      <a class="lnk" href="#diario" data-i18n="navJournal">Diario</a>
+      <a class="lnk" href="#social" data-i18n="navJournal">Diario</a>
       <div class="lang"><button data-lang="es" class="on">ES</button><span>/</span><button data-lang="en">EN</button></div>
       <a class="btn btn-light" href="#planificador" data-i18n="ctaDesign">Diseñar mi viaje</a>
     </nav>
@@ -371,7 +372,7 @@ section{position:relative}
   <a class="ml" href="#servicios" data-i18n="navSvc">Servicios</a>
   <a class="ml" href="#cruceros" data-i18n="navCruise">Cruceros</a>
   <a class="ml" href="#nosotros" data-i18n="navAbout">Nosotros</a>
-  <a class="ml" href="#diario" data-i18n="navJournal">Diario</a>
+  <a class="ml" href="#social" data-i18n="navJournal">Diario</a>
   <a class="ml" href="#planificador" style="color:var(--gold)" data-i18n="ctaDesign">Diseñar mi viaje</a>
   <div class="menu-foot">
     <div class="lang" style="color:#fff"><button data-lang="es" class="on">ES</button><span>/</span><button data-lang="en">EN</button></div>
@@ -462,11 +463,11 @@ section{position:relative}
     <p style="font-size:15px;color:#5b574e;max-width:340px" data-i18n="expSub">Una muestra de rutas reales. Cada una se rediseña por completo según quién viaja.</p>
   </div>
   <div class="exp-grid">
-    <div class="exp e-a" data-reveal><img src="assets/buddha-thailand.jpg" alt="Tailandia"><div class="ov"><div class="meta">Tailandia · 11 <span data-i18n="days">días</span></div><h3 data-i18n="exp1t">Templos, mercados y mar de Andamán</h3><p data-i18n="exp1p">Cultura, gastronomía y descanso entre Bangkok, Chiang Mai y las islas.</p><span class="go" data-i18n="ctaConsult">Consultar esta experiencia →</span></div></div>
-    <div class="exp e-b" data-reveal data-d="1"><img src="assets/cruise-aida.jpg" alt="Caribe"><div class="ov"><div class="meta">Caribe · <span data-i18n="cruise">Crucero</span></div><h3 data-i18n="exp2t">Islas del Caribe en crucero</h3><p data-i18n="exp2p">Rutas entre islas, cabina seleccionada y noches pre y post embarque.</p><span class="go" data-i18n="ctaConsult">Consultar esta experiencia →</span></div></div>
-    <div class="exp e-c" data-reveal><img src="assets/lucerne.jpg" alt="Suiza"><div class="ov"><div class="meta">Suiza · 7 <span data-i18n="days">días</span></div><h3 data-i18n="exp3t">Lagos y Alpes</h3><span class="go" data-i18n="ctaConsult">Consultar esta experiencia →</span></div></div>
-    <div class="exp e-d" data-reveal data-d="1"><img src="assets/founder-rio.jpg" alt="Rio"><div class="ov"><div class="meta">Brasil · 6 <span data-i18n="days">días</span></div><h3 data-i18n="exp4t">Río de Janeiro</h3><span class="go" data-i18n="ctaConsult">Consultar esta experiencia →</span></div></div>
-    <div class="exp e-e" data-reveal data-d="2"><img src="assets/nyc.jpg" alt="Nueva York"><div class="ov"><div class="meta">EE. UU. · 5 <span data-i18n="days">días</span></div><h3 data-i18n="exp5t">Nueva York editorial</h3><span class="go" data-i18n="ctaConsult">Consultar esta experiencia →</span></div></div>
+    <div class="exp e-a" data-reveal><img src="assets/buddha-thailand.jpg" alt="Templos dorados entre palmeras en Bangkok, Tailandia"><div class="ov"><div class="meta">Tailandia · 11 <span data-i18n="days">días</span></div><h3 data-i18n="exp1t">Templos, mercados y mar de Andamán</h3><p data-i18n="exp1p">Cultura, gastronomía y descanso entre Bangkok, Chiang Mai y las islas.</p><span class="go" data-i18n="ctaConsult">Consultar esta experiencia →</span></div></div>
+    <div class="exp e-b" data-reveal data-d="1"><img src="assets/cruise-aida.jpg" alt="Crucero AIDA navegando las aguas turquesas del Caribe"><div class="ov"><div class="meta">Caribe · <span data-i18n="cruise">Crucero</span></div><h3 data-i18n="exp2t">Islas del Caribe en crucero</h3><p data-i18n="exp2p">Rutas entre islas, cabina seleccionada y noches pre y post embarque.</p><span class="go" data-i18n="ctaConsult">Consultar esta experiencia →</span></div></div>
+    <div class="exp e-c" data-reveal><img src="assets/lucerne.jpg" alt="Lago de los Cuatro Cantones en Lucerna con los Alpes al fondo"><div class="ov"><div class="meta">Suiza · 7 <span data-i18n="days">días</span></div><h3 data-i18n="exp3t">Lagos y Alpes</h3><span class="go" data-i18n="ctaConsult">Consultar esta experiencia →</span></div></div>
+    <div class="exp e-d" data-reveal data-d="1"><img src="assets/founder-rio.jpg" alt="Vista del Cristo Redentor sobre Río de Janeiro"><div class="ov"><div class="meta">Brasil · 6 <span data-i18n="days">días</span></div><h3 data-i18n="exp4t">Río de Janeiro</h3><span class="go" data-i18n="ctaConsult">Consultar esta experiencia →</span></div></div>
+    <div class="exp e-e" data-reveal data-d="2"><img src="assets/nyc.jpg" alt="Skyline de Manhattan al anochecer, Nueva York"><div class="ov"><div class="meta">EE. UU. · 5 <span data-i18n="days">días</span></div><h3 data-i18n="exp5t">Nueva York editorial</h3><span class="go" data-i18n="ctaConsult">Consultar esta experiencia →</span></div></div>
   </div>
 </section>
 
@@ -641,7 +642,7 @@ section{position:relative}
 </section>
 
 <!-- ===== SOCIAL ===== -->
-<section class="sec svc" style="background:var(--sand-soft)">
+<section class="sec svc" id="social" style="background:var(--sand-soft)">
   <div class="wrap">
     <div data-reveal style="max-width:620px">
       <h2 style="font-size:clamp(30px,3.8vw,50px)" data-i18n="socTitle">Recomendamos desde la experiencia.</h2>
@@ -712,7 +713,7 @@ section{position:relative}
         <a href="#destinos" data-i18n="navDest">Destinos</a>
         <a href="#medida" data-i18n="navTailor">Viajes a medida</a>
         <a href="#cruceros" data-i18n="navCruise">Cruceros</a>
-        <a href="#diario" data-i18n="navJournal">Diario</a>
+        <a href="#social" data-i18n="navJournal">Diario</a>
       </div>
       <div>
         <h4 data-i18n="ftContact">Contacto</h4>
@@ -750,7 +751,7 @@ section{position:relative}
     <button class="btn btn-primary" id="ckAll" data-i18n="ckAll">Aceptar todas</button>
     <button class="btn btn-ghost" id="ckReject" data-i18n="ckReject">Rechazar no esenciales</button>
     <button class="small" id="ckCustom" data-i18n="ckCustom">Personalizar</button>
-    <button class="small" data-i18n="ckView">Ver política</button>
+    <button class="small" id="ckView" data-i18n="ckView">Ver política</button>
   </div>
 </div>
 
@@ -944,7 +945,10 @@ document.addEventListener('DOMContentLoaded', function() {
       const c = document.createElement("div");
       c.className = "chip" + (i === moodIdx ? " on" : "");
       c.textContent = m[lang];
+      c.setAttribute("tabindex", "0");
+      c.setAttribute("role", "button");
       c.addEventListener("click", () => { moodIdx = i; paintMood(); });
+      c.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); moodIdx = i; paintMood(); } });
       list.appendChild(c);
     });
     paintMood();
@@ -962,8 +966,8 @@ document.addEventListener('DOMContentLoaded', function() {
     f.innerHTML = "";
     FAQ.forEach(([q, a]) => {
       const it = document.createElement("div"); it.className = "fitem";
-      it.innerHTML = "<div class='fq'><h3>" + q[lang === "es" ? 0 : 1] + "</h3><span class='pm'>+</span></div><div class='fa'><p>" + a[lang === "es" ? 0 : 1] + "</p></div>";
-      it.querySelector(".fq").addEventListener("click", () => it.classList.toggle("open"));
+      it.innerHTML = "<button class='fq' aria-expanded='false'><h3>" + q[lang === "es" ? 0 : 1] + "</h3><span class='pm' aria-hidden='true'>+</span></button><div class='fa'><p>" + a[lang === "es" ? 0 : 1] + "</p></div>";
+      it.querySelector(".fq").addEventListener("click", function() { it.classList.toggle("open"); this.setAttribute("aria-expanded", it.classList.contains("open")); });
       f.appendChild(it);
     });
   };
@@ -992,7 +996,10 @@ document.addEventListener('DOMContentLoaded', function() {
       q.querySelectorAll(".opt").forEach((o, oi) => {
         o.textContent = s.opts[oi][lang === "es" ? 0 : 1];
         o.classList.toggle("sel", data[s.k] === s.opts[oi][0]);
+        o.setAttribute("tabindex", "0");
+        o.setAttribute("role", "button");
         o.onclick = () => { data[s.k] = s.opts[oi][0]; q.querySelectorAll(".opt").forEach(x => x.classList.remove("sel")); o.classList.add("sel"); };
+        o.onkeydown = (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); o.click(); } };
       });
       q.classList.toggle("on", i === step);
     });
@@ -1054,6 +1061,7 @@ document.addEventListener('DOMContentLoaded', function() {
   $("#ckAll").addEventListener("click", () => setConsent("all"));
   $("#ckReject").addEventListener("click", () => setConsent("essential"));
   $("#ckCustom").addEventListener("click", () => setConsent("essential"));
+  $("#ckView").addEventListener("click", () => { ck.classList.remove("show"); window.location.href = "cookies.html"; });
   const cfg = $("#ckConfig"); if (cfg) cfg.addEventListener("click", e => { e.preventDefault(); ck.classList.add("show"); });
 
   /* ===== Init ===== */
