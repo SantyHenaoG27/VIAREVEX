@@ -684,13 +684,17 @@ class Component extends DCLogic {
       els.forEach(e => io.observe(e));
     }, 60);
 
-    // force autoplay on all background videos after DOM is ready
+    // play videos when they enter viewport
     setTimeout(() => {
-      document.querySelectorAll('video').forEach(v => {
-        v.muted = true;
-        v.play().catch(() => {});
-      });
-    }, 100);
+      const playVideo = (v) => { v.muted = true; v.load(); v.play().catch(() => {}); };
+      const vo = new IntersectionObserver((entries) => {
+        entries.forEach(en => {
+          if (en.isIntersecting) en.target.muted = true, en.target.play().catch(() => {});
+          else en.target.pause();
+        });
+      }, { threshold: 0.1 });
+      document.querySelectorAll('video').forEach(v => { v.muted = true; vo.observe(v); playVideo(v); });
+    }, 200);
   }
   componentWillUnmount() {
     window.removeEventListener('scroll', this._onScroll);
