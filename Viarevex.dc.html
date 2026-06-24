@@ -683,6 +683,14 @@ class Component extends DCLogic {
       }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
       els.forEach(e => io.observe(e));
     }, 60);
+
+    // force autoplay on all background videos after DOM is ready
+    setTimeout(() => {
+      document.querySelectorAll('video').forEach(v => {
+        v.muted = true;
+        v.play().catch(() => {});
+      });
+    }, 100);
   }
   componentWillUnmount() {
     window.removeEventListener('scroll', this._onScroll);
