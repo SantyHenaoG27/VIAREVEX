@@ -1,0 +1,1127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Viarevex — Private Travel Atelier</title>
+<meta name="description" content="Travel Advisory & Bespoke Experiences. Diseñamos viajes a medida, gestionamos cada detalle y te acompañamos para que vivas el destino, no la logística.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --carbon:#0B1520; --ink:#183042; --ink-deep:#0E1C2C; --ink-mid:#1A3550;
+  --ivory:#F7F3EC; --white:#FFFFFF;
+  --sand:#D7C7AD; --sand-soft:#EAE2D2;
+  --gold:#C49A3C; --gold-lt:#DDB94E; --gold-glow:rgba(196,154,60,.38);
+  --red:#D23B33;
+  --serif:'Cormorant Garamond',Georgia,serif;
+  --sans:'Hanken Grotesk',system-ui,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{font-family:var(--sans);color:var(--carbon);background:var(--ivory);-webkit-font-smoothing:antialiased;line-height:1.55;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+.serif{font-family:var(--serif)}
+.wrap{max-width:1240px;margin:0 auto;padding:0 32px}
+.eyebrow{font-size:11.5px;letter-spacing:.3em;text-transform:uppercase;font-weight:600;color:var(--gold)}
+.hl{display:inline-block;width:46px;height:1px;background:var(--gold);vertical-align:middle;margin-right:14px}
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.04;letter-spacing:-.01em;color:var(--ink);text-wrap:balance}
+p{text-wrap:pretty}
+section{position:relative}
+.sec{padding:120px 0}
+
+/* ===== BUTTONS ===== */
+.btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--sans);font-weight:600;font-size:14px;letter-spacing:.02em;padding:15px 28px;border-radius:3px;cursor:pointer;border:1px solid transparent;transition:all .35s cubic-bezier(.2,.7,.2,1);white-space:nowrap}
+.btn .ar{transition:transform .35s}
+.btn:hover .ar{transform:translateX(5px)}
+.btn-primary{background:var(--ink);color:var(--ivory)}
+.btn-primary:hover{background:var(--ink-deep);box-shadow:0 8px 28px rgba(14,28,44,.35)}
+.btn-ghost{background:transparent;color:var(--ink);border-color:rgba(24,48,66,.35)}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold)}
+.btn-light{background:rgba(255,255,255,.12);color:#fff;border-color:rgba(255,255,255,.45);backdrop-filter:blur(8px)}
+.btn-light:hover{background:#fff;color:var(--ink)}
+.btn-gold{background:var(--gold);color:#fff}
+.btn-gold:hover{background:var(--gold-lt);box-shadow:0 8px 28px var(--gold-glow)}
+
+/* ===== REVEAL ===== */
+[data-reveal]{opacity:0;transform:translateY(32px);transition:opacity 1s cubic-bezier(.2,.7,.2,1),transform 1s cubic-bezier(.2,.7,.2,1)}
+[data-reveal].in{opacity:1;transform:none}
+[data-reveal][data-d="1"]{transition-delay:.12s}[data-reveal][data-d="2"]{transition-delay:.25s}
+[data-reveal][data-d="3"]{transition-delay:.38s}[data-reveal][data-d="4"]{transition-delay:.5s}
+
+/* ===== HEADER ===== */
+.hdr{position:fixed;top:0;left:0;right:0;z-index:60;transition:background .45s,box-shadow .45s,padding .45s;padding:26px 0}
+.hdr-in{display:flex;align-items:center;justify-content:space-between}
+.hdr.solid{background:rgba(247,243,236,.95);backdrop-filter:blur(18px);padding:14px 0;box-shadow:0 1px 0 rgba(24,48,66,.1)}
+.brand{display:flex;align-items:center;gap:12px}
+.brand .mark{width:36px;height:36px;flex:none;border-radius:4px}
+.brand .nm{font-family:var(--serif);font-weight:700;font-size:22px;letter-spacing:.14em;color:#fff;transition:color .4s}
+.brand .sb{font-size:9px;letter-spacing:.44em;color:var(--gold);text-transform:uppercase;font-weight:600;margin-top:1px}
+.hdr.solid .brand .nm{color:var(--ink)}
+.nav{display:flex;align-items:center;gap:30px}
+.nav a.lnk{font-size:13.5px;font-weight:500;color:rgba(255,255,255,.9);position:relative;letter-spacing:.01em;transition:color .3s}
+.nav a.lnk::after{content:"";position:absolute;left:0;bottom:-5px;height:1.5px;width:0;background:var(--gold);transition:width .35s}
+.nav a.lnk:hover::after{width:100%}
+.hdr.solid .nav a.lnk{color:var(--ink)}.hdr.solid .nav a.lnk:hover{color:var(--gold)}
+.lang{display:flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:rgba(255,255,255,.9)}
+.hdr.solid .lang{color:var(--ink)}
+.lang button{background:none;border:none;cursor:pointer;color:inherit;font:inherit;opacity:.5;transition:opacity .3s;padding:2px}
+.lang button.on{opacity:1;color:var(--gold)}
+.hamb{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px}
+.hamb span{width:24px;height:2px;background:#fff;transition:.3s;border-radius:2px}
+.hdr.solid .hamb span{background:var(--ink)}
+
+/* ===== HERO ===== */
+.hero{height:100vh;min-height:640px;position:relative;overflow:hidden;display:flex;align-items:flex-end}
+.hero-img{
+  position:absolute;inset:0;
+  background-size:cover;background-position:center;
+  opacity:0;
+  transition:opacity 1.8s ease;
+  animation:kb 11s ease-out forwards;
+  will-change:transform;
+}
+.hero-img.on{opacity:1}
+@keyframes kb{from{transform:scale(1.0)}to{transform:scale(1.05)}}
+.hero-scrim{
+  position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(8,18,28,.55) 0%,rgba(8,18,28,.06) 38%,rgba(8,18,28,.90) 100%)
+}
+.hero-content{position:relative;z-index:3;padding-bottom:9vh;width:100%}
+.hero h1{color:#fff;font-size:clamp(48px,8.5vw,114px);font-weight:600;line-height:.97}
+.hero .ln{display:block;overflow:hidden}
+.hero .ln span{display:block;transform:translateY(110%);animation:lnup 1.1s cubic-bezier(.2,.8,.2,1) forwards}
+.hero .ln:nth-child(2) span{animation-delay:.14s}
+@keyframes lnup{to{transform:none}}
+.fadein{opacity:0;animation:fi 1.1s ease forwards}
+@keyframes fi{to{opacity:1}}
+.scrolldot{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);z-index:4;width:26px;height:42px;border:1.5px solid rgba(196,154,60,.7);border-radius:14px;display:flex;justify-content:center;padding-top:7px}
+.scrolldot i{width:3px;height:8px;background:var(--gold);border-radius:2px;animation:sd 2s infinite}
+@keyframes sd{0%{opacity:0;transform:translateY(-4px)}40%{opacity:1}100%{opacity:0;transform:translateY(10px)}}
+
+/* ===== STATS BAR ===== */
+.stats-bar{background:linear-gradient(135deg,var(--ink-deep) 0%,var(--ink) 60%,var(--ink-mid) 100%);border-top:1px solid rgba(196,154,60,.3);border-bottom:1px solid rgba(255,255,255,.06);padding:44px 0}
+.stats-in{display:flex;justify-content:center;align-items:center}
+.stat-item{text-align:center;padding:0 52px;display:flex;flex-direction:column;align-items:center}
+.snum{font-family:var(--serif);font-size:58px;font-weight:600;color:var(--gold);line-height:1;display:inline-block}
+.stat-item sup{font-family:var(--serif);font-size:28px;color:var(--gold-lt);vertical-align:super;line-height:0;margin-left:1px}
+.slbl{display:block;font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.55);font-weight:600;margin-top:8px}
+.stat-sep{width:1px;height:60px;background:rgba(255,255,255,.12);flex-shrink:0}
+
+/* ===== VALUE PROP ===== */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:32px;margin-top:64px}
+.step .no{font-family:var(--serif);font-size:60px;color:var(--gold);line-height:1;font-weight:300}
+.step h3{font-size:24px;margin:16px 0 8px}
+.step p{font-size:15px;color:#5b574e}
+.step .div{height:2px;background:linear-gradient(90deg,var(--gold),transparent);margin-top:22px;border-radius:2px}
+
+/* ===== MOOD ===== */
+.mood{background:linear-gradient(135deg,#0E1C2C 0%,var(--ink) 55%,#142B40 100%);color:var(--ivory);overflow:hidden}
+.mood h2{color:#fff}
+.mood-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:60px;align-items:center;margin-top:52px}
+.mood-pic{aspect-ratio:4/5;border-radius:5px;overflow:hidden;position:relative;box-shadow:0 40px 80px rgba(0,0,0,.5)}
+.mood-pic img{width:100%;height:100%;object-fit:cover;transition:opacity .6s}
+.mood-list{display:flex;flex-wrap:wrap;gap:10px}
+.chip{padding:11px 20px;border:1px solid rgba(255,255,255,.2);border-radius:30px;font-size:14px;font-weight:500;cursor:pointer;color:rgba(255,255,255,.72);transition:all .3s}
+.chip:hover{border-color:var(--gold);color:#fff}
+.chip.on{background:var(--gold);border-color:var(--gold);color:#fff;box-shadow:0 4px 18px var(--gold-glow)}
+.mood-cap{margin-top:26px;min-height:54px}
+.mood-cap h3{color:#fff;font-size:30px}.mood-cap p{color:rgba(255,255,255,.68);font-size:15px;margin-top:6px}
+
+/* ===== EXPERIENCES ===== */
+.exp-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:20px;margin-top:60px}
+.exp{position:relative;border-radius:5px;overflow:hidden;cursor:pointer}
+.exp img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.exp:hover img{transform:scale(1.07)}
+.exp:hover{box-shadow:0 28px 60px rgba(0,0,0,.32)}
+.exp .ov{position:absolute;inset:0;background:linear-gradient(180deg,transparent 30%,rgba(8,18,28,.88));display:flex;flex-direction:column;justify-content:flex-end;padding:28px}
+.exp .meta{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--sand);font-weight:600}
+.exp h3{color:#fff;font-size:27px;margin:8px 0 4px}
+.exp p{color:rgba(255,255,255,.78);font-size:13.5px}
+.exp .go{color:var(--gold-lt);font-size:13px;font-weight:600;margin-top:14px;opacity:0;transform:translateY(8px);transition:.4s}
+.exp:hover .go{opacity:1;transform:none}
+.e-a{grid-column:span 7;height:520px}.e-b{grid-column:span 5;height:520px}
+.e-c{grid-column:span 4;height:400px}.e-d{grid-column:span 4;height:400px}.e-e{grid-column:span 4;height:400px}
+
+/* ===== TAILOR PROCESS ===== */
+.tailor-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:flex-start}
+.proc{position:relative;margin-top:64px}
+.proc-line{position:absolute;left:31px;top:10px;bottom:10px;width:2px;background:rgba(24,48,66,.12)}
+.proc-fill{position:absolute;left:0;top:0;width:100%;height:0;background:linear-gradient(180deg,var(--gold),var(--gold-lt));transition:height .1s linear;border-radius:2px}
+.pstep{display:grid;grid-template-columns:64px 1fr;gap:24px;padding:22px 0}
+.pdot{width:64px;display:flex;justify-content:center}
+.pdot b{width:14px;height:14px;border-radius:50%;background:var(--ivory);border:2px solid var(--gold);margin-top:6px;z-index:2}
+.pstep h3{font-size:23px}.pstep p{font-size:15px;color:#5b574e;max-width:560px}
+
+/* ===== SERVICES ===== */
+.svc{background:var(--sand-soft)}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(24,48,66,.1);margin-top:56px;border:1px solid rgba(24,48,66,.1);border-radius:4px;overflow:hidden}
+.svc-card{background:var(--ivory);padding:40px 34px;transition:background .4s;position:relative;overflow:hidden}
+.svc-card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(180deg,var(--gold),var(--gold-lt));transform:scaleY(0);transform-origin:bottom;transition:transform .4s cubic-bezier(.2,.7,.2,1)}
+.svc-card:hover{background:#fff}
+.svc-card:hover::before{transform:scaleY(1)}
+.svc-card .ic{width:40px;height:40px;color:var(--gold)}
+.svc-card h3{font-size:25px;margin:20px 0 12px}
+.svc-card ul{list-style:none;display:flex;flex-direction:column;gap:7px}
+.svc-card li{font-size:14px;color:#5b574e;padding-left:18px;position:relative}
+.svc-card li::before{content:"";position:absolute;left:0;top:9px;width:5px;height:5px;background:var(--gold);border-radius:50%}
+
+/* ===== PLANNER ===== */
+.plan{background:linear-gradient(135deg,#0E1C2C 0%,var(--ink) 60%,#142B40 100%);color:#fff;overflow:hidden}
+.plan h2{color:#fff}
+.plan-box{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);border-radius:8px;margin-top:48px;padding:48px;max-width:760px;backdrop-filter:blur(4px)}
+.prog{height:3px;background:rgba(255,255,255,.12);border-radius:3px;overflow:hidden;margin-bottom:34px}
+.prog i{display:block;height:100%;background:linear-gradient(90deg,var(--gold),var(--gold-lt));width:12%;transition:width .5s cubic-bezier(.2,.7,.2,1);border-radius:3px}
+.q{display:none;animation:qin .5s ease}.q.on{display:block}
+@keyframes qin{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.q .qno{font-size:12px;letter-spacing:.22em;color:var(--gold);text-transform:uppercase;font-weight:600}
+.q h3{color:#fff;font-size:30px;margin:10px 0 26px}
+.fld{width:100%;background:transparent;border:none;border-bottom:1.5px solid rgba(255,255,255,.28);color:#fff;font-family:var(--sans);font-size:18px;padding:12px 2px;outline:none;transition:border-color .3s}
+.fld:focus{border-color:var(--gold)}
+.fld::placeholder{color:rgba(255,255,255,.35)}
+.opts{display:flex;flex-wrap:wrap;gap:10px}
+.opt{padding:12px 20px;border:1px solid rgba(255,255,255,.22);border-radius:30px;cursor:pointer;font-size:14.5px;color:rgba(255,255,255,.8);transition:.25s}
+.opt:hover{border-color:var(--gold);color:#fff}
+.opt.sel{background:var(--gold);border-color:var(--gold);color:#fff;box-shadow:0 4px 18px var(--gold-glow)}
+.plan-nav{display:flex;justify-content:space-between;align-items:center;margin-top:38px}
+.lnk-back{background:none;border:none;color:rgba(255,255,255,.6);cursor:pointer;font:inherit;font-size:14px;font-weight:500}
+.lnk-back:hover{color:#fff}
+.plan-done{display:none;text-align:center;animation:qin .6s ease}.plan-done.on{display:block}
+.plan-done .di{width:64px;height:64px;border:1.5px solid var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 22px;color:var(--gold)}
+.plan-done h3{color:#fff;font-size:34px}
+
+/* ===== DESTINATIONS ===== */
+.dest-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:56px}
+.dcard{position:relative;border-radius:5px;overflow:hidden;height:360px;cursor:pointer}
+.dcard img{width:100%;height:100%;object-fit:cover;transition:transform 1.1s cubic-bezier(.2,.7,.2,1)}
+.dcard:hover img{transform:scale(1.07)}
+.dcard:hover{box-shadow:0 24px 56px rgba(0,0,0,.32)}
+.dcard .dov{position:absolute;inset:0;background:linear-gradient(180deg,transparent 38%,rgba(8,18,28,.88));padding:26px;display:flex;flex-direction:column;justify-content:flex-end}
+.dcard h3{color:#fff;font-size:26px;text-shadow:0 2px 12px rgba(0,0,0,.4)}
+.dcard span{color:var(--sand);font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;font-weight:600}
+
+/* ===== MAP / TICKER ===== */
+.map{background:linear-gradient(135deg,#0E1C2C 0%,var(--ink) 100%);color:#fff;padding-bottom:100px;overflow:hidden}
+.map h2{color:#fff}
+.ticker-outer{margin-top:56px;overflow:hidden;position:relative;width:100%}
+.ticker-outer::before,.ticker-outer::after{content:'';position:absolute;top:0;bottom:0;width:140px;z-index:2;pointer-events:none}
+.ticker-outer::before{left:0;background:linear-gradient(90deg,#0E1C2C,transparent)}
+.ticker-outer::after{right:0;background:linear-gradient(270deg,#0E1C2C,transparent)}
+.ticker-row{display:flex;gap:14px;width:max-content;margin-bottom:14px}
+.ticker-row:last-child{margin-bottom:0}
+.ticker-fwd{animation:tickFwd 44s linear infinite}
+.ticker-bwd{animation:tickBwd 44s linear infinite}
+.ticker-outer:hover .ticker-fwd,.ticker-outer:hover .ticker-bwd{animation-play-state:paused}
+@keyframes tickFwd{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes tickBwd{from{transform:translateX(-50%)}to{transform:translateX(0)}}
+.tick-card{width:300px;height:210px;border-radius:6px;overflow:hidden;position:relative;flex-shrink:0;cursor:pointer}
+.tick-card img{width:100%;height:100%;object-fit:cover;transition:transform .7s ease}
+.tick-card:hover img{transform:scale(1.07)}
+.tick-label{position:absolute;bottom:0;left:0;right:0;padding:14px 16px;background:linear-gradient(transparent,rgba(8,18,28,.9))}
+.tick-label h4{color:#fff;font-family:var(--serif);font-size:19px;font-weight:600;line-height:1.1}
+.tick-label span{color:var(--sand);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;font-weight:500}
+
+/* ===== FOUNDER ===== */
+.founder-grid{display:grid;grid-template-columns:1fr 1.3fr;gap:60px;align-items:center}
+.founder-pic{aspect-ratio:3/4;border-radius:5px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.2)}
+.founder-pic img{width:100%;height:100%;object-fit:cover;object-position:center 20%;transition:transform 8s ease}
+.founder-pic:hover img{transform:scale(1.04)}
+
+/* ===== SOCIAL ===== */
+.soc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:52px}
+.soc{border:1px solid rgba(24,48,66,.13);border-radius:6px;padding:32px 26px;transition:all .4s cubic-bezier(.2,.7,.2,1);background:var(--ivory)}
+.soc:hover{background:#fff;border-color:var(--gold);transform:translateY(-6px);box-shadow:0 14px 40px rgba(196,154,60,.15)}
+.soc .si{width:30px;height:30px;color:var(--ink)}
+.soc h3{font-size:22px;margin:18px 0 8px}.soc p{font-size:14px;color:#5b574e;min-height:42px}
+.soc .go{color:var(--gold);font-weight:600;font-size:13px;margin-top:14px;display:inline-flex;gap:6px;align-items:center}
+
+/* ===== INSTAGRAM FEED ===== */
+.jrn-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:52px}
+.jcard{cursor:pointer}
+.jcard a{display:block;color:inherit;text-decoration:none}
+.jcard .jimg{height:260px;border-radius:5px;overflow:hidden;margin-bottom:18px;position:relative}
+.jcard .jimg>div{width:100%;height:100%;transition:transform 1.1s cubic-bezier(.2,.7,.2,1)}
+.jcard:hover .jimg>div{transform:scale(1.06)}
+.ig-badge{position:absolute;top:12px;right:12px;width:34px;height:34px;background:rgba(0,0,0,.45);border-radius:8px;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(6px);z-index:2}
+.ig-badge svg{width:18px;height:18px;fill:#fff}
+.jcard .jmeta{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:600}
+.jcard h3{font-size:22px;margin:8px 0;line-height:1.25}
+.jcard .rt{font-size:13px;color:var(--gold);font-weight:600;margin-top:6px;display:inline-flex;align-items:center;gap:5px;transition:gap .3s}
+.jcard:hover .rt{gap:9px}
+
+/* ===== FAQ ===== */
+.faq{max-width:860px;margin:56px auto 0}
+.fitem{border-bottom:1px solid rgba(24,48,66,.12)}
+.fq{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:24px 0;cursor:pointer}
+.fq h3{font-size:21px;transition:color .3s}
+.fitem:hover .fq h3{color:var(--gold)}
+.fq .pm{font-size:24px;color:var(--gold);transition:transform .35s;flex:none}
+.fa{max-height:0;overflow:hidden;transition:max-height .45s ease,padding .45s}
+.fa p{font-size:15px;color:#5b574e;padding-bottom:0}
+.fitem.open .fa{max-height:240px}
+.fitem.open .fa p{padding-bottom:24px}
+.fitem.open .fq .pm{transform:rotate(45deg)}
+.fitem.open .fq h3{color:var(--gold)}
+
+/* ===== CLOSING ===== */
+.closing{position:relative;overflow:hidden;background:var(--ink-deep)}
+.closing-bg{position:absolute;inset:0;background-size:cover;background-position:center;opacity:.3}
+.closing::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,18,28,.5) 0%,rgba(8,18,28,.2) 100%)}
+.closing .wrap{position:relative;z-index:2;text-align:center}
+.closing h2{color:#fff;font-size:clamp(38px,5vw,72px)}
+.closing p{color:rgba(255,255,255,.8);max-width:560px;margin:22px auto 0;font-size:17px}
+.closing .cta-row{display:flex;gap:16px;justify-content:center;margin-top:40px;flex-wrap:wrap}
+
+/* ===== FOOTER ===== */
+.ft{background:var(--carbon);color:rgba(255,255,255,.7);padding:80px 0 36px;border-top:2px solid rgba(196,154,60,.32)}
+.ft-top{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:40px;padding-bottom:50px;border-bottom:1px solid rgba(255,255,255,.1)}
+.ft .nm{font-family:var(--serif);font-size:26px;letter-spacing:.14em;color:#fff;font-weight:700}
+.ft h4{font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:18px;font-weight:600}
+.ft a{display:block;font-size:14px;color:rgba(255,255,255,.6);padding:5px 0;transition:color .3s}
+.ft a:hover{color:#fff}
+.ft-bot{display:flex;justify-content:space-between;align-items:center;gap:20px;padding-top:30px;flex-wrap:wrap;font-size:12.5px;color:rgba(255,255,255,.4)}
+.ft-bot a{color:rgba(255,255,255,.55);display:inline}.ft-bot .lnks{display:flex;gap:18px;flex-wrap:wrap}
+.disc{font-size:12px;color:rgba(255,255,255,.38);margin-top:14px;max-width:640px}
+
+/* ===== WA FAB ===== */
+.wa{position:fixed;right:24px;bottom:24px;z-index:55;width:60px;height:60px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 32px rgba(37,211,102,.35),0 2px 8px rgba(0,0,0,.2);transition:transform .3s,bottom .4s;cursor:pointer}
+.wa:hover{transform:scale(1.1)}
+.wa svg{width:30px;height:30px}
+.wa.lift{bottom:150px}
+
+/* ===== COOKIE ===== */
+.cookie{position:fixed;left:24px;right:24px;bottom:24px;z-index:70;max-width:760px;margin:0 auto;background:var(--white);border:1px solid rgba(24,48,66,.12);border-radius:10px;padding:26px 30px;box-shadow:0 20px 60px rgba(0,0,0,.15);display:none}
+.cookie.show{display:block;animation:qin .5s ease}
+.cookie p{font-size:13.5px;color:#5b574e;margin-bottom:18px}
+.cookie .crow{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.cookie .small{background:none;border:none;color:var(--gold);font:inherit;font-weight:600;cursor:pointer;font-size:13px}
+
+/* ===== MOBILE MENU ===== */
+.menu-mask{position:fixed;inset:0;z-index:65;background:linear-gradient(135deg,#0E1C2C 0%,var(--ink) 100%);display:flex;flex-direction:column;padding:90px 32px 40px;transform:translateX(100%);transition:transform .5s cubic-bezier(.5,0,.2,1);overflow-y:auto}
+.menu-mask.open{transform:none}
+.menu-mask a.ml{font-family:var(--serif);font-size:34px;color:#fff;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.08);opacity:0;transform:translateX(20px)}
+.menu-mask.open a.ml{animation:mlin .5s forwards}
+@keyframes mlin{to{opacity:1;transform:none}}
+.menu-close{position:absolute;top:26px;right:28px;background:none;border:none;color:#fff;font-size:34px;cursor:pointer;line-height:1}
+.menu-foot{margin-top:auto;padding-top:30px;display:flex;gap:22px;flex-wrap:wrap;color:rgba(255,255,255,.7);font-size:14px}
+.menu-foot a{display:flex;align-items:center;gap:7px}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:900px){
+  .nav .lnk,.nav .lang,.hdr .btn{display:none}
+  .hamb{display:flex}
+  .sec{padding:80px 0}
+  .steps{grid-template-columns:1fr 1fr;gap:36px}
+  .stats-in{flex-wrap:wrap}
+  .stat-item{padding:16px 28px}
+  .stat-sep{display:none}
+  .mood-grid,.founder-grid{grid-template-columns:1fr;gap:34px}
+  .tailor-grid{grid-template-columns:1fr;gap:40px}
+  .proc{margin-top:0}
+  .exp-grid{grid-template-columns:1fr}.e-a,.e-b,.e-c,.e-d,.e-e{grid-column:span 1;height:340px}
+  .svc-grid{grid-template-columns:1fr}
+  .dest-grid,.jrn-grid,.soc-grid{grid-template-columns:1fr}
+  .ft-top{grid-template-columns:1fr 1fr;gap:30px}
+  .plan-box{padding:30px 22px}
+  .wrap{padding:0 22px}
+}
+@media(max-width:540px){
+  .steps{grid-template-columns:1fr;gap:24px}
+  .ft-top{grid-template-columns:1fr;gap:22px}
+  .svc-card{padding:28px 22px}
+  .tick-card{width:220px;height:160px}
+  .tick-label h4{font-size:16px}
+  .plan-box{padding:24px 18px}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important}
+  [data-reveal]{opacity:1!important;transform:none!important}
+  .hero-img{animation:none!important}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="hdr" id="hdr">
+  <div class="wrap hdr-in">
+    <a href="#top" class="brand">
+      <img class="mark" src="assets/logo.jpg" alt="Viarevex">
+      <div><div class="nm">VIAREVEX</div><div class="sb">Private Travel Atelier</div></div>
+    </a>
+    <nav class="nav">
+      <a class="lnk" href="#experiencias" data-i18n="navExp">Experiencias</a>
+      <a class="lnk" href="#destinos" data-i18n="navDest">Destinos</a>
+      <a class="lnk" href="#medida" data-i18n="navTailor">Viajes a medida</a>
+      <a class="lnk" href="#servicios" data-i18n="navSvc">Servicios</a>
+      <a class="lnk" href="#nosotros" data-i18n="navAbout">Nosotros</a>
+      <a class="lnk" href="#diario" data-i18n="navJournal">Diario</a>
+      <div class="lang"><button data-lang="es" class="on">ES</button><span>/</span><button data-lang="en">EN</button></div>
+      <a class="btn btn-light" href="#planificador" data-i18n="ctaDesign">Diseñar mi viaje</a>
+    </nav>
+    <button class="hamb" id="hamb" aria-label="Menú"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- ===== MOBILE MENU ===== -->
+<div class="menu-mask" id="menu">
+  <button class="menu-close" id="menuClose" aria-label="Cerrar">×</button>
+  <a class="ml" href="#experiencias" data-i18n="navExp">Experiencias</a>
+  <a class="ml" href="#destinos" data-i18n="navDest">Destinos</a>
+  <a class="ml" href="#medida" data-i18n="navTailor">Viajes a medida</a>
+  <a class="ml" href="#servicios" data-i18n="navSvc">Servicios</a>
+  <a class="ml" href="#cruceros" data-i18n="navCruise">Cruceros</a>
+  <a class="ml" href="#nosotros" data-i18n="navAbout">Nosotros</a>
+  <a class="ml" href="#diario" data-i18n="navJournal">Diario</a>
+  <a class="ml" href="#planificador" style="color:var(--gold)" data-i18n="ctaDesign">Diseñar mi viaje</a>
+  <div class="menu-foot">
+    <div class="lang" style="color:#fff"><button data-lang="es" class="on">ES</button><span>/</span><button data-lang="en">EN</button></div>
+    <a href="https://www.instagram.com/viarevex" target="_blank">Instagram</a>
+    <a href="https://www.tiktok.com/@andrew_onboard" target="_blank">TikTok</a>
+    <a class="wa-link" href="#" target="_blank">WhatsApp</a>
+  </div>
+</div>
+
+<main id="top">
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="hero">
+  <div class="hero-img on" style="background-image:url('assets/turkey.jpg')"></div>
+  <div class="hero-img" style="background-image:url('assets/lucerne.jpg')"></div>
+  <div class="hero-img" style="background-image:url('assets/nyc.jpg')"></div>
+  <div class="hero-img" style="background-image:url('assets/puntacana.jpg')"></div>
+  <div class="hero-img" style="background-image:url('assets/bangkok-night.jpg')"></div>
+  <div class="hero-img" style="background-image:url('assets/rio-pano.jpg')"></div>
+  <div class="hero-scrim"></div>
+  <div class="hero-content">
+    <div class="wrap">
+      <div class="eyebrow fadein" style="animation-delay:.5s;color:var(--sand)" data-i18n="heroEyebrow">Travel Advisory &amp; Bespoke Experiences</div>
+      <h1 style="margin-top:22px">
+        <span class="ln"><span data-i18n="heroT1">El mundo,</span></span>
+        <span class="ln"><span data-i18n="heroT2">curado para ti.</span></span>
+      </h1>
+      <p class="fadein" style="animation-delay:.9s;color:rgba(255,255,255,.86);font-size:clamp(16px,1.6vw,20px);max-width:560px;margin-top:24px" data-i18n="heroSub">Diseñamos viajes a medida, gestionamos cada detalle y te acompañamos para que vivas el destino, no la logística.</p>
+      <div class="fadein" style="animation-delay:1.15s;display:flex;gap:14px;margin-top:36px;flex-wrap:wrap">
+        <a class="btn btn-gold" href="#planificador"><span data-i18n="ctaDesign">Diseñar mi viaje</span><span class="ar">→</span></a>
+        <a class="btn btn-light" href="#experiencias" data-i18n="ctaExplore">Explorar experiencias</a>
+        <a class="btn btn-light wa-link" href="#" target="_blank" data-i18n="ctaAdvisor">Hablar con un asesor</a>
+      </div>
+    </div>
+  </div>
+  <div class="scrolldot"><i></i></div>
+</section>
+
+<!-- ===== STATS BAR ===== -->
+<div class="stats-bar">
+  <div class="wrap stats-in">
+    <div class="stat-item"><span class="snum" data-target="40">40</span><sup>+</sup><span class="slbl" data-i18n="statDest">Destinos</span></div>
+    <div class="stat-sep"></div>
+    <div class="stat-item"><span class="snum" data-target="500">500</span><sup>+</sup><span class="slbl" data-i18n="statTrav">Viajeros</span></div>
+    <div class="stat-sep"></div>
+    <div class="stat-item"><span class="snum" data-target="5">5</span><span class="slbl" data-i18n="statCont">Continentes</span></div>
+    <div class="stat-sep"></div>
+    <div class="stat-item"><span class="snum" data-target="98">98</span><sup>%</sup><span class="slbl" data-i18n="statResp">Satisfacción</span></div>
+  </div>
+</div>
+
+<!-- ===== VALUE PROP ===== -->
+<section class="sec wrap">
+  <div data-reveal style="max-width:680px">
+    <div class="eyebrow"><span class="hl"></span><span data-i18n="vpEye">Cómo trabajamos</span></div>
+    <h2 style="font-size:clamp(34px,4.5vw,58px);margin-top:20px" data-i18n="vpTitle">Viajar bien comienza mucho antes de despegar.</h2>
+    <p style="margin-top:18px;font-size:17px;color:#5b574e" data-i18n="vpSub">Viarevex convierte una intención de viaje en una experiencia organizada. No vendemos un catálogo: construimos una ruta alrededor de tu manera de viajar.</p>
+  </div>
+  <div class="steps">
+    <div class="step" data-reveal data-d="1"><div class="no">01</div><h3 data-i18n="vp1t">Te escuchamos</h3><p data-i18n="vp1p">Entendemos a quién acompañas, qué te mueve y cómo te gusta viajar.</p><div class="div"></div></div>
+    <div class="step" data-reveal data-d="2"><div class="no">02</div><h3 data-i18n="vp2t">Diseñamos tu viaje</h3><p data-i18n="vp2p">Creamos un itinerario a medida con criterio y conocimiento real del destino.</p><div class="div"></div></div>
+    <div class="step" data-reveal data-d="3"><div class="no">03</div><h3 data-i18n="vp3t">Coordinamos cada detalle</h3><p data-i18n="vp3p">Vuelos, hoteles, traslados y experiencias, gestionados de principio a fin.</p><div class="div"></div></div>
+    <div class="step" data-reveal data-d="4"><div class="no">04</div><h3 data-i18n="vp4t">Te acompañamos</h3><p data-i18n="vp4p">Antes, durante y después del viaje. Siempre hay alguien del otro lado.</p><div class="div"></div></div>
+  </div>
+</section>
+
+<!-- ===== MOOD ===== -->
+<section class="sec mood">
+  <div class="wrap">
+    <div data-reveal style="max-width:640px">
+      <div class="eyebrow"><span class="hl"></span><span data-i18n="moodEye">Encuentra tu forma de viajar</span></div>
+      <h2 style="font-size:clamp(32px,4vw,52px);margin-top:18px" data-i18n="moodTitle">¿Cómo quieres sentir tu próximo viaje?</h2>
+    </div>
+    <div class="mood-grid">
+      <div data-reveal>
+        <div class="mood-list" id="moodList"></div>
+        <div class="mood-cap" id="moodCap"></div>
+        <a class="btn btn-gold" href="#planificador" style="margin-top:26px"><span data-i18n="ctaExploreThis">Explorar esta experiencia</span><span class="ar">→</span></a>
+      </div>
+      <div class="mood-pic" data-reveal data-d="1"><img id="moodImg" src="assets/lucerne.jpg" alt=""></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== EXPERIENCES ===== -->
+<section class="sec wrap" id="experiencias">
+  <div data-reveal style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:20px">
+    <div style="max-width:560px">
+      <div class="eyebrow"><span class="hl"></span><span data-i18n="expEye">Selección Viarevex</span></div>
+      <h2 style="font-size:clamp(32px,4.2vw,54px);margin-top:18px" data-i18n="expTitle">Experiencias destacadas</h2>
+    </div>
+    <p style="font-size:15px;color:#5b574e;max-width:340px" data-i18n="expSub">Una muestra de rutas reales. Cada una se rediseña por completo según quién viaja.</p>
+  </div>
+  <div class="exp-grid">
+    <div class="exp e-a" data-reveal><img src="assets/buddha-thailand.jpg" alt="Tailandia"><div class="ov"><div class="meta">Tailandia · 11 <span data-i18n="days">días</span></div><h3 data-i18n="exp1t">Templos, mercados y mar de Andamán</h3><p data-i18n="exp1p">Cultura, gastronomía y descanso entre Bangkok, Chiang Mai y las islas.</p><span class="go" data-i18n="ctaConsult">Consultar esta experiencia →</span></div></div>
+    <div class="exp e-b" data-reveal data-d="1"><img src="assets/cruise-aida.jpg" alt="Caribe"><div class="ov"><div class="meta">Caribe · <span data-i18n="cruise">Crucero</span></div><h3 data-i18n="exp2t">Islas del Caribe en crucero</h3><p data-i18n="exp2p">Rutas entre islas, cabina seleccionada y noches pre y post embarque.</p><span class="go" data-i18n="ctaConsult">Consultar esta experiencia →</span></div></div>
+    <div class="exp e-c" data-reveal><img src="assets/lucerne.jpg" alt="Suiza"><div class="ov"><div class="meta">Suiza · 7 <span data-i18n="days">días</span></div><h3 data-i18n="exp3t">Lagos y Alpes</h3><span class="go" data-i18n="ctaConsult">Consultar esta experiencia →</span></div></div>
+    <div class="exp e-d" data-reveal data-d="1"><img src="assets/founder-rio.jpg" alt="Rio"><div class="ov"><div class="meta">Brasil · 6 <span data-i18n="days">días</span></div><h3 data-i18n="exp4t">Río de Janeiro</h3><span class="go" data-i18n="ctaConsult">Consultar esta experiencia →</span></div></div>
+    <div class="exp e-e" data-reveal data-d="2"><img src="assets/nyc.jpg" alt="Nueva York"><div class="ov"><div class="meta">EE. UU. · 5 <span data-i18n="days">días</span></div><h3 data-i18n="exp5t">Nueva York editorial</h3><span class="go" data-i18n="ctaConsult">Consultar esta experiencia →</span></div></div>
+  </div>
+</section>
+
+<!-- ===== TAILOR MADE ===== -->
+<section class="sec svc" id="medida" style="background:var(--ivory)">
+  <div class="wrap">
+    <div class="tailor-grid">
+      <div data-reveal>
+        <div class="eyebrow"><span class="hl"></span><span data-i18n="tmEye">Viajes a medida</span></div>
+        <h2 style="font-size:clamp(32px,4vw,52px);margin-top:18px" data-i18n="tmTitle">No empezamos por un paquete. Empezamos por ti.</h2>
+        <p style="margin-top:20px;font-size:16px;color:#5b574e" data-i18n="tmSub">Cada viaje se diseña alrededor de tu destino, tus fechas, tu presupuesto, los viajeros, tus intereses, el alojamiento, el transporte, el ritmo y el motivo. Lo demás es logística — y de eso nos encargamos nosotros.</p>
+        <a class="btn btn-primary" href="#planificador" style="margin-top:30px"><span data-i18n="ctaTailor">Planear un viaje a medida</span><span class="ar">→</span></a>
+      </div>
+      <div class="proc" data-reveal data-d="1">
+        <div class="proc-line"><div class="proc-fill" id="procFill"></div></div>
+        <div class="pstep"><div class="pdot"><b></b></div><div><h3 data-i18n="pr1t">Conversación inicial</h3><p data-i18n="pr1p">Una charla para entender qué imaginas y qué esperas del viaje.</p></div></div>
+        <div class="pstep"><div class="pdot"><b></b></div><div><h3 data-i18n="pr2t">Perfil del viajero</h3><p data-i18n="pr2p">Definimos ritmo, intereses, presupuesto y preferencias.</p></div></div>
+        <div class="pstep"><div class="pdot"><b></b></div><div><h3 data-i18n="pr3t">Diseño del itinerario</h3><p data-i18n="pr3p">Te presentamos una propuesta a medida, lista para ajustar.</p></div></div>
+        <div class="pstep"><div class="pdot"><b></b></div><div><h3 data-i18n="pr4t">Confirmación</h3><p data-i18n="pr4p">Afinamos detalles y dejamos todo reservado.</p></div></div>
+        <div class="pstep"><div class="pdot"><b></b></div><div><h3 data-i18n="pr5t">Coordinación</h3><p data-i18n="pr5p">Vuelos, traslados, hoteles y experiencias, sincronizados.</p></div></div>
+        <div class="pstep"><div class="pdot"><b></b></div><div><h3 data-i18n="pr6t">Acompañamiento</h3><p data-i18n="pr6p">Durante el viaje y a tu regreso, seguimos cerca.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SERVICES ===== -->
+<section class="sec svc" id="servicios">
+  <div class="wrap">
+    <div data-reveal style="max-width:620px">
+      <div class="eyebrow"><span class="hl"></span><span data-i18n="svcEye">Lo que hacemos</span></div>
+      <h2 style="font-size:clamp(32px,4vw,52px);margin-top:18px" data-i18n="svcTitle">Servicios</h2>
+    </div>
+    <div class="svc-grid">
+      <div class="svc-card" data-reveal id="cruceros">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 18s1.5 2 4.5 2 4.5-2 4.5-2 1.5 2 4.5 2 4.5-2 4.5-2"/><path d="M5 14l1-5h12l1 5"/><path d="M12 9V4"/></svg>
+        <h3 data-i18n="s1t">Viajes a medida</h3>
+        <ul><li data-i18n="s1a">Itinerarios personalizados</li><li data-i18n="s1b">Alojamiento y traslados</li><li data-i18n="s1c">Actividades y restaurantes</li><li data-i18n="s1d">Celebraciones y viajes familiares</li></ul>
+      </div>
+      <div class="svc-card" data-reveal data-d="1">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 16l9-3 4.5 4.5 2-1L14 11l5-2c1.4-.5 2-1.3 1.6-2.2-.4-.9-1.4-1-2.8-.5L13 8 6 5 4 6l4.5 4.5L4 12l-2-1z"/></svg>
+        <h3 data-i18n="s2t">Gestión estratégica de vuelos</h3>
+        <ul><li data-i18n="s2a">Rutas, conexiones y horarios</li><li data-i18n="s2b">Clases y equipaje</li><li data-i18n="s2c">Itinerarios complejos y multicontinente</li><li data-i18n="s2d">Cambios y seguimiento</li></ul>
+      </div>
+      <div class="svc-card" data-reveal data-d="2">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3l2 5 5 .5-4 3.5 1.5 5L12 19l-4.5 3 1.5-5-4-3.5 5-.5z"/></svg>
+        <h3 data-i18n="s3t">Concierge de viaje</h3>
+        <ul><li data-i18n="s3a">Reservas y recomendaciones</li><li data-i18n="s3b">Solicitudes especiales</li><li data-i18n="s3c">Transporte y restaurantes</li><li data-i18n="s3d">Apoyo durante el viaje</li></ul>
+      </div>
+      <div class="svc-card" data-reveal>
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 17h18M5 17l2-6h10l2 6M8 11V7h8v4M7 21v-4M17 21v-4"/></svg>
+        <h3 data-i18n="s4t">Cruceros</h3>
+        <ul><li data-i18n="s4a">Rutas, navieras y cabinas</li><li data-i18n="s4b">Excursiones y traslados</li><li data-i18n="s4c">Noches pre y post crucero</li><li data-i18n="s4d">Familias y celebraciones</li></ul>
+      </div>
+      <div class="svc-card" data-reveal data-d="1">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 2.5 15 0 18M12 3c-2.5 2.5-2.5 15 0 18"/></svg>
+        <h3 data-i18n="s5t">Movilidad global</h3>
+        <ul><li data-i18n="s5a">Viajes frecuentes y corporativos</li><li data-i18n="s5b">Coordinación logística</li><li data-i18n="s5c">Viajes multicontinente</li><li data-i18n="s5d">Información general de viaje</li></ul>
+      </div>
+      <div class="svc-card" data-reveal data-d="2" style="display:flex;flex-direction:column;justify-content:center;background:var(--ink)">
+        <h3 style="color:#fff" data-i18n="svcCtaT">¿No sabes por dónde empezar?</h3>
+        <p style="color:rgba(255,255,255,.7);font-size:14px;margin:10px 0 20px" data-i18n="svcCtaP">Cuéntanos qué imaginas y te proponemos el camino.</p>
+        <a class="btn btn-gold wa-link" href="#" target="_blank" style="align-self:flex-start"><span data-i18n="ctaWhats">Hablar por WhatsApp</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PLANNER ===== -->
+<section class="sec plan" id="planificador">
+  <div class="wrap">
+    <div data-reveal style="max-width:620px">
+      <div class="eyebrow"><span class="hl"></span><span data-i18n="plEye">Planificador interactivo</span></div>
+      <h2 style="font-size:clamp(32px,4vw,52px);margin-top:18px" data-i18n="plTitle">Empecemos a diseñar tu viaje</h2>
+      <p style="color:rgba(255,255,255,.72);margin-top:16px;font-size:16px" data-i18n="plSub">Unas pocas preguntas, como una conversación. Al final lo enviamos por WhatsApp o correo, como prefieras.</p>
+    </div>
+    <div class="plan-box" data-reveal data-d="1">
+      <div class="prog"><i id="prog"></i></div>
+      <div id="planSteps"></div>
+      <div class="plan-done" id="planDone">
+        <div class="di"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 12l5 5L20 6"/></svg></div>
+        <h3 data-i18n="plDoneT">Tu próxima experiencia comienza aquí.</h3>
+        <p style="color:rgba(255,255,255,.72);margin:14px auto 28px;max-width:440px" data-i18n="plDoneP">Recibimos tu solicitud. Pulsa el botón para enviarnos los detalles y un asesor te responderá en breve.</p>
+        <a class="btn btn-gold" id="planSend" href="#" target="_blank"><span data-i18n="plSend">Enviar solicitud</span><span class="ar">→</span></a>
+      </div>
+      <div class="plan-nav" id="planNav">
+        <button class="lnk-back" id="planBack" data-i18n="back">← Anterior</button>
+        <button class="btn btn-gold" id="planNext"><span data-i18n="next">Siguiente</span><span class="ar">→</span></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== DESTINATIONS ===== -->
+<section class="sec wrap" id="destinos">
+  <div data-reveal style="max-width:620px">
+    <div class="eyebrow"><span class="hl"></span><span data-i18n="destEye">El mundo Viarevex</span></div>
+    <h2 style="font-size:clamp(32px,4vw,52px);margin-top:18px" data-i18n="destTitle">Destinos que inspiran</h2>
+  </div>
+  <div class="dest-grid">
+    <div class="dcard" data-reveal><img src="assets/buddha-thailand.jpg" alt="Asia"><div class="dov"><span data-i18n="rAsia">Asia</span><h3 data-i18n="dThai">Tailandia</h3></div></div>
+    <div class="dcard" data-reveal data-d="1"><img src="assets/lucerne.jpg" alt="Europa"><div class="dov"><span data-i18n="rEur">Europa</span><h3 data-i18n="dSwiss">Suiza</h3></div></div>
+    <div class="dcard" data-reveal data-d="2"><img src="assets/founder-rio.jpg" alt="Latinoamérica"><div class="dov"><span data-i18n="rLat">Latinoamérica</span><h3 data-i18n="dRio">Río de Janeiro</h3></div></div>
+    <div class="dcard" data-reveal><img src="assets/cruise-aida.jpg" alt="Caribe"><div class="dov"><span data-i18n="rCar">Caribe</span><h3 data-i18n="dCaribe">Islas del Caribe</h3></div></div>
+    <div class="dcard" data-reveal data-d="1"><img src="assets/nyc.jpg" alt="Nueva York"><div class="dov"><span data-i18n="rNa">Norteamérica</span><h3 data-i18n="dNyc">Nueva York</h3></div></div>
+    <div class="dcard" data-reveal data-d="2"><img src="assets/turkey.jpg" alt="Turquía"><div class="dov"><span data-i18n="rEur">Europa</span><h3 data-i18n="dTurkey">Ölüdeniz, Turquía</h3></div></div>
+    <div class="dcard" data-reveal><img src="assets/puntacana.jpg" alt="Punta Cana"><div class="dov"><span data-i18n="rCar">Caribe</span><h3 data-i18n="dPunta">Punta Cana</h3></div></div>
+    <div class="dcard" data-reveal data-d="1"><img src="assets/greece.jpg" alt="Grecia"><div class="dov"><span data-i18n="rEur">Europa</span><h3 data-i18n="dGreece">Islas griegas</h3></div></div>
+    <div class="dcard" data-reveal data-d="2"><img src="assets/cartagena.jpg" alt="Cartagena"><div class="dov"><span data-i18n="rLat">Latinoamérica</span><h3 data-i18n="dCartagena">Cartagena</h3></div></div>
+  </div>
+</section>
+
+<!-- ===== MAP / TICKER ===== -->
+<section class="sec map">
+  <div class="wrap">
+    <div data-reveal style="max-width:640px">
+      <div class="eyebrow"><span class="hl"></span><span data-i18n="mapEye">Dónde hemos estado</span></div>
+      <h2 style="font-size:clamp(30px,3.6vw,48px);margin-top:18px" data-i18n="mapTitle">Destinos vividos, no inventados</h2>
+      <p style="color:var(--sand);margin-top:20px;font-size:15.5px;max-width:520px;line-height:1.65" data-i18n="mapSub">Cada lugar que recomendamos lo conocemos de primera mano. Estas son las historias detrás de los itinerarios.</p>
+    </div>
+  </div>
+  <div class="ticker-outer" data-reveal data-d="1">
+    <div class="ticker-row ticker-fwd">
+      <div class="tick-card"><img src="assets/founder-rio.jpg" alt="Río de Janeiro" loading="lazy"><div class="tick-label"><span>Brasil</span><h4>Río de Janeiro</h4></div></div>
+      <div class="tick-card"><img src="assets/nyc.jpg" alt="Nueva York" loading="lazy"><div class="tick-label"><span>EE.UU.</span><h4>Nueva York</h4></div></div>
+      <div class="tick-card"><img src="assets/lucerne.jpg" alt="Lucerna" loading="lazy"><div class="tick-label"><span>Suiza</span><h4>Lucerna</h4></div></div>
+      <div class="tick-card"><img src="assets/bangkok-night.jpg" alt="Bangkok" loading="lazy"><div class="tick-label"><span>Tailandia</span><h4>Bangkok</h4></div></div>
+      <div class="tick-card"><img src="assets/greece.jpg" alt="Grecia" loading="lazy"><div class="tick-label"><span>Europa</span><h4>Grecia</h4></div></div>
+      <div class="tick-card"><img src="assets/turkey.jpg" alt="Turquía" loading="lazy"><div class="tick-label"><span>Asia Menor</span><h4>Turquía</h4></div></div>
+      <div class="tick-card"><img src="assets/founder-nyc.jpg" alt="Nueva York" loading="lazy"><div class="tick-label"><span>EE.UU.</span><h4>New York City</h4></div></div>
+      <div class="tick-card"><img src="assets/buddha-thailand.jpg" alt="Tailandia" loading="lazy"><div class="tick-label"><span>Tailandia</span><h4>Wat Pho</h4></div></div>
+      <!-- duplicado para loop infinito -->
+      <div class="tick-card"><img src="assets/founder-rio.jpg" alt="Río de Janeiro" loading="lazy"><div class="tick-label"><span>Brasil</span><h4>Río de Janeiro</h4></div></div>
+      <div class="tick-card"><img src="assets/nyc.jpg" alt="Nueva York" loading="lazy"><div class="tick-label"><span>EE.UU.</span><h4>Nueva York</h4></div></div>
+      <div class="tick-card"><img src="assets/lucerne.jpg" alt="Lucerna" loading="lazy"><div class="tick-label"><span>Suiza</span><h4>Lucerna</h4></div></div>
+      <div class="tick-card"><img src="assets/bangkok-night.jpg" alt="Bangkok" loading="lazy"><div class="tick-label"><span>Tailandia</span><h4>Bangkok</h4></div></div>
+      <div class="tick-card"><img src="assets/greece.jpg" alt="Grecia" loading="lazy"><div class="tick-label"><span>Europa</span><h4>Grecia</h4></div></div>
+      <div class="tick-card"><img src="assets/turkey.jpg" alt="Turquía" loading="lazy"><div class="tick-label"><span>Asia Menor</span><h4>Turquía</h4></div></div>
+      <div class="tick-card"><img src="assets/founder-nyc.jpg" alt="Nueva York" loading="lazy"><div class="tick-label"><span>EE.UU.</span><h4>New York City</h4></div></div>
+      <div class="tick-card"><img src="assets/buddha-thailand.jpg" alt="Tailandia" loading="lazy"><div class="tick-label"><span>Tailandia</span><h4>Wat Pho</h4></div></div>
+    </div>
+    <div class="ticker-row ticker-bwd">
+      <div class="tick-card"><img src="assets/puntacana.jpg" alt="Punta Cana" loading="lazy"><div class="tick-label"><span>Caribe</span><h4>Punta Cana</h4></div></div>
+      <div class="tick-card"><img src="assets/cartagena.jpg" alt="Cartagena" loading="lazy"><div class="tick-label"><span>Colombia</span><h4>Cartagena</h4></div></div>
+      <div class="tick-card"><img src="assets/costarica.jpg" alt="Costa Rica" loading="lazy"><div class="tick-label"><span>Centroamérica</span><h4>Costa Rica</h4></div></div>
+      <div class="tick-card"><img src="assets/egypt.jpg" alt="Egipto" loading="lazy"><div class="tick-label"><span>África</span><h4>Egipto</h4></div></div>
+      <div class="tick-card"><img src="assets/cruise-aida.jpg" alt="Crucero" loading="lazy"><div class="tick-label"><span>Altamar</span><h4>Crucero AIDA</h4></div></div>
+      <div class="tick-card"><img src="assets/bangkok-street.jpg" alt="Bangkok" loading="lazy"><div class="tick-label"><span>Tailandia</span><h4>Bangkok Nocturno</h4></div></div>
+      <div class="tick-card"><img src="assets/rio-pano.jpg" alt="Río de Janeiro" loading="lazy"><div class="tick-label"><span>Brasil</span><h4>Río Panorámico</h4></div></div>
+      <div class="tick-card"><img src="assets/founder-rio.jpg" alt="Río de Janeiro" loading="lazy"><div class="tick-label"><span>Brasil</span><h4>Corcovado</h4></div></div>
+      <!-- duplicado para loop infinito -->
+      <div class="tick-card"><img src="assets/puntacana.jpg" alt="Punta Cana" loading="lazy"><div class="tick-label"><span>Caribe</span><h4>Punta Cana</h4></div></div>
+      <div class="tick-card"><img src="assets/cartagena.jpg" alt="Cartagena" loading="lazy"><div class="tick-label"><span>Colombia</span><h4>Cartagena</h4></div></div>
+      <div class="tick-card"><img src="assets/costarica.jpg" alt="Costa Rica" loading="lazy"><div class="tick-label"><span>Centroamérica</span><h4>Costa Rica</h4></div></div>
+      <div class="tick-card"><img src="assets/egypt.jpg" alt="Egipto" loading="lazy"><div class="tick-label"><span>África</span><h4>Egipto</h4></div></div>
+      <div class="tick-card"><img src="assets/cruise-aida.jpg" alt="Crucero" loading="lazy"><div class="tick-label"><span>Altamar</span><h4>Crucero AIDA</h4></div></div>
+      <div class="tick-card"><img src="assets/bangkok-street.jpg" alt="Bangkok" loading="lazy"><div class="tick-label"><span>Tailandia</span><h4>Bangkok Nocturno</h4></div></div>
+      <div class="tick-card"><img src="assets/rio-pano.jpg" alt="Río de Janeiro" loading="lazy"><div class="tick-label"><span>Brasil</span><h4>Río Panorámico</h4></div></div>
+      <div class="tick-card"><img src="assets/founder-rio.jpg" alt="Río de Janeiro" loading="lazy"><div class="tick-label"><span>Brasil</span><h4>Corcovado</h4></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOUNDER ===== -->
+<section class="sec wrap" id="nosotros">
+  <div class="founder-grid">
+    <div class="founder-pic" data-reveal><img src="assets/founder-rio.jpg" alt="Fundador de Viarevex"></div>
+    <div data-reveal data-d="1">
+      <div class="eyebrow"><span class="hl"></span><span data-i18n="fEye">El fundador</span></div>
+      <h2 style="font-size:clamp(30px,3.8vw,50px);margin-top:18px" data-i18n="fTitle">Una vida viajando. Una forma diferente de asesorar.</h2>
+      <p style="margin-top:20px;font-size:16px;color:#5b574e" data-i18n="fP1">Viarevex nace de la experiencia real de recorrer el mundo: aeropuertos, hoteles, ciudades, cruceros y destinos vividos en primera persona. Esa curiosidad por la aviación y por entender cómo se mueve cada lugar es la base de cómo asesoramos hoy.</p>
+      <p style="margin-top:14px;font-size:16px;color:#5b574e" data-i18n="fP2">No recomendamos desde un folleto, sino desde el conocimiento. Por eso cada propuesta empieza por la persona, no por el destino.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SOCIAL ===== -->
+<section class="sec svc" style="background:var(--sand-soft)">
+  <div class="wrap">
+    <div data-reveal style="max-width:620px">
+      <div class="eyebrow"><span class="hl"></span><span data-i18n="socEye">Viaja con nosotros todos los días</span></div>
+      <h2 style="font-size:clamp(30px,3.8vw,50px);margin-top:18px" data-i18n="socTitle">Recomendamos desde la experiencia.</h2>
+      <p style="margin-top:16px;font-size:16px;color:#5b574e" data-i18n="socSub">Descubre destinos, consejos, hoteles, vuelos y momentos reales alrededor del mundo.</p>
+    </div>
+    <div class="soc-grid">
+      <a class="soc" href="https://www.instagram.com/viarevex" target="_blank" data-reveal>
+        <svg class="si" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+        <h3 data-i18n="ig1t">Inspiración para tu próxima salida</h3><p data-i18n="ig1p">Instagram de Viarevex</p><span class="go" data-i18n="ctaIg">Explorar Instagram →</span>
+      </a>
+      <a class="soc" href="https://www.instagram.com/andrew_isonboard" target="_blank" data-reveal data-d="1">
+        <svg class="si" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+        <h3 data-i18n="ig2t">Viajes contados desde la experiencia</h3><p data-i18n="ig2p">Instagram del fundador</p><span class="go" data-i18n="ctaTrajectory">Conocer la trayectoria →</span>
+      </a>
+      <a class="soc" href="https://www.tiktok.com/@andrew_onboard" target="_blank" data-reveal data-d="2">
+        <svg class="si" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 4c.5 2.5 2 4 4.5 4.2V11c-1.8 0-3.4-.6-4.5-1.5V15a5 5 0 11-5-5c.3 0 .7 0 1 .1v2.8A2.2 2.2 0 1012 15V4z"/></svg>
+        <h3 data-i18n="tk1t">El mundo en movimiento</h3><p data-i18n="tk1p">TikTok del fundador</p><span class="go" data-i18n="ctaTk">Ver en TikTok →</span>
+      </a>
+      <a class="soc wa-link" href="#" target="_blank" data-reveal data-d="3">
+        <svg class="si" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 11.5a8.5 8.5 0 01-12.7 7.4L3 21l2.2-5.1A8.5 8.5 0 1121 11.5z"/></svg>
+        <h3 data-i18n="wa1t">Cuéntanos qué viaje estás imaginando</h3><p data-i18n="wa1p">Atención y cotizaciones</p><span class="go" data-i18n="ctaWhats">Hablar por WhatsApp →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== INSTAGRAM FEED ===== -->
+<section class="sec wrap" id="diario">
+  <div data-reveal style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:20px">
+    <div>
+      <div class="eyebrow"><span class="hl"></span><span data-i18n="jEye">@viarevex en Instagram</span></div>
+      <h2 style="font-size:clamp(30px,3.8vw,50px);margin-top:18px" data-i18n="jTitle">El viaje, en tiempo real</h2>
+    </div>
+    <a class="btn btn-ghost" href="https://www.instagram.com/viarevex" target="_blank" rel="noopener" data-i18n="jAll">Seguir en Instagram</a>
+  </div>
+  <div class="jrn-grid">
+    <article class="jcard" data-reveal>
+      <a href="https://www.instagram.com/viarevex" target="_blank" rel="noopener">
+        <div class="jimg">
+          <div style="background:url('assets/cruise-aida.jpg') center/cover"></div>
+          <div class="ig-badge"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></div>
+        </div>
+        <div class="jmeta" data-i18n="jc1cat">Cruceros</div>
+        <h3 data-i18n="jc1t">Así se ve el horizonte desde cubierta</h3>
+        <div class="rt" data-i18n="jc1m">Ver en Instagram →</div>
+      </a>
+    </article>
+    <article class="jcard" data-reveal data-d="1">
+      <a href="https://www.instagram.com/viarevex" target="_blank" rel="noopener">
+        <div class="jimg">
+          <div style="background:url('assets/buddha-thailand.jpg') center/cover"></div>
+          <div class="ig-badge"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></div>
+        </div>
+        <div class="jmeta" data-i18n="jc2cat">Tailandia</div>
+        <h3 data-i18n="jc2t">El Buda de esmeralda y lo que nadie te cuenta</h3>
+        <div class="rt" data-i18n="jc2m">Ver en Instagram →</div>
+      </a>
+    </article>
+    <article class="jcard" data-reveal data-d="2">
+      <a href="https://www.instagram.com/viarevex" target="_blank" rel="noopener">
+        <div class="jimg">
+          <div style="background:url('assets/bangkok-street.jpg') center/cover"></div>
+          <div class="ig-badge"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></div>
+        </div>
+        <div class="jmeta" data-i18n="jc3cat">Bangkok</div>
+        <h3 data-i18n="jc3t">Bangkok de noche: lo que no aparece en los tours</h3>
+        <div class="rt" data-i18n="jc3m">Ver en Instagram →</div>
+      </a>
+    </article>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="sec svc" style="background:var(--ivory)">
+  <div class="wrap">
+    <div data-reveal style="text-align:center;max-width:620px;margin:0 auto">
+      <div class="eyebrow"><span data-i18n="faqEye">Preguntas frecuentes</span></div>
+      <h2 style="font-size:clamp(30px,3.8vw,50px);margin-top:14px" data-i18n="faqTitle">Antes de empezar</h2>
+    </div>
+    <div class="faq" id="faq" data-reveal data-d="1"></div>
+  </div>
+</section>
+
+<!-- ===== CLOSING ===== -->
+<section class="closing" style="padding:140px 0">
+  <div class="closing-bg" style="background-image:url('assets/rio-pano.jpg')"></div>
+  <div class="wrap">
+    <h2 data-reveal data-i18n="clTitle">Tu próximo viaje no tiene que parecerse al de nadie más.</h2>
+    <p data-reveal data-d="1" data-i18n="clSub">Cuéntanos qué estás imaginando. Nosotros nos encargamos de convertirlo en una ruta posible.</p>
+    <div class="cta-row" data-reveal data-d="2">
+      <a class="btn btn-gold" href="#planificador"><span data-i18n="ctaDesign">Diseñar mi viaje</span><span class="ar">→</span></a>
+      <a class="btn btn-light wa-link" href="#" target="_blank" data-i18n="ctaWhats">Hablar por WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="ft">
+  <div class="wrap">
+    <div class="ft-top">
+      <div>
+        <div class="nm">VIAREVEX</div>
+        <p style="margin-top:14px;font-size:14px;max-width:320px" data-i18n="ftAbout">Private Travel Atelier. Diseñamos experiencias internacionales a medida y te acompañamos en cada etapa del viaje.</p>
+        <div style="display:flex;gap:16px;margin-top:20px">
+          <a href="https://www.instagram.com/viarevex" target="_blank" aria-label="Instagram">Instagram</a>
+          <a href="https://www.tiktok.com/@andrew_onboard" target="_blank" aria-label="TikTok">TikTok</a>
+        </div>
+      </div>
+      <div>
+        <h4 data-i18n="ftExplore">Explorar</h4>
+        <a href="#experiencias" data-i18n="navExp">Experiencias</a>
+        <a href="#destinos" data-i18n="navDest">Destinos</a>
+        <a href="#medida" data-i18n="navTailor">Viajes a medida</a>
+        <a href="#cruceros" data-i18n="navCruise">Cruceros</a>
+        <a href="#diario" data-i18n="navJournal">Diario</a>
+      </div>
+      <div>
+        <h4 data-i18n="ftContact">Contacto</h4>
+        <a class="wa-link" href="#" target="_blank">WhatsApp +52 56 4409 1087</a>
+        <a href="mailto:andrewamericas98@gmail.com">andrewamericas98@gmail.com</a>
+        <a href="#nosotros" data-i18n="navAbout">Nosotros</a>
+        <a href="#planificador" data-i18n="ctaProposal">Solicitar una propuesta</a>
+      </div>
+      <div>
+        <h4 data-i18n="ftLegal">Legal</h4>
+        <a href="privacidad.html" data-i18n="ftPrivacy">Política de privacidad</a>
+        <a href="cookies.html" data-i18n="ftCookies">Política de cookies</a>
+        <a href="terminos.html" data-i18n="ftTerms">Términos y condiciones</a>
+        <a href="#" id="ckConfig" data-i18n="ftCookieConfig">Configurar cookies</a>
+        <div class="lang" style="color:rgba(255,255,255,.7);margin-top:14px"><button data-lang="es" class="on">ES</button><span>/</span><button data-lang="en">EN</button></div>
+      </div>
+    </div>
+    <p class="disc" data-i18n="ftLegalData">Datos legales (razón social, registro, dirección y licencia turística) — espacio reservado, pendiente de tu información.</p>
+    <div class="ft-bot">
+      <div>© <span id="yr"></span> Viarevex. <span data-i18n="ftRights">Todos los derechos reservados.</span></div>
+      <div class="lnks"><span data-i18n="ftDisclaimer">Las propuestas están sujetas a disponibilidad y a los términos de los proveedores involucrados.</span></div>
+    </div>
+  </div>
+</footer>
+
+<!-- WhatsApp FAB -->
+<a class="wa wa-link" id="wa" href="#" target="_blank" aria-label="WhatsApp">
+  <svg viewBox="0 0 32 32" fill="#fff"><path d="M16 3C9 3 3.5 8.5 3.5 15.5c0 2.3.6 4.4 1.7 6.3L3 29l7.4-1.9c1.8 1 3.9 1.5 6.1 1.5 7 0 12.5-5.5 12.5-12.5S23 3 16 3zm0 22.5c-1.9 0-3.7-.5-5.3-1.5l-.4-.2-4.4 1.1 1.2-4.3-.3-.4a10 10 0 01-1.6-5.2C5.5 9.7 10.2 5 16 5s10.5 4.7 10.5 10.5S21.8 25.5 16 25.5zm5.8-7.8c-.3-.2-1.9-.9-2.2-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-1.9-.9-3.1-1.6-4.4-3.7-.3-.5.3-.5.9-1.6.1-.2 0-.4 0-.5l-1-2.3c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.2 3.4 5.3 4.7 2 .8 2.7.9 3.7.8.6-.1 1.9-.8 2.1-1.5.3-.8.3-1.4.2-1.5-.1-.2-.3-.3-.6-.4z"/></svg>
+</a>
+
+<!-- Cookie banner -->
+<div class="cookie" id="cookie">
+  <p data-i18n="ckText">Utilizamos cookies necesarias para el funcionamiento del sitio y, con tu permiso, cookies de análisis y marketing para comprender cómo utilizas la web y mejorar tu experiencia.</p>
+  <div class="crow">
+    <button class="btn btn-primary" id="ckAll" data-i18n="ckAll">Aceptar todas</button>
+    <button class="btn btn-ghost" id="ckReject" data-i18n="ckReject">Rechazar no esenciales</button>
+    <button class="small" id="ckCustom" data-i18n="ckCustom">Personalizar</button>
+    <button class="small" data-i18n="ckView">Ver política</button>
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const $ = (s,c) => (c||document).querySelector(s);
+  const $$ = (s,c) => Array.from((c||document).querySelectorAll(s));
+
+  /* ===== i18n ===== */
+  const T = {
+    navExp:["Experiencias","Experiences"], navDest:["Destinos","Destinations"], navTailor:["Viajes a medida","Tailor-made"],
+    navSvc:["Servicios","Services"], navAbout:["Nosotros","About"], navJournal:["Diario","Journal"], navCruise:["Cruceros","Cruises"],
+    ctaDesign:["Diseñar mi viaje","Design my trip"], ctaExplore:["Explorar experiencias","Explore experiences"],
+    ctaAdvisor:["Hablar con un asesor","Talk to an advisor"], ctaWhats:["Hablar por WhatsApp","Chat on WhatsApp"],
+    ctaConsult:["Consultar esta experiencia →","Ask about this trip →"], ctaExploreThis:["Explorar esta experiencia","Explore this experience"],
+    ctaTailor:["Planear un viaje a medida","Plan a tailor-made trip"], ctaProposal:["Solicitar una propuesta","Request a proposal"],
+    ctaIg:["Explorar Instagram →","Explore Instagram →"], ctaTk:["Ver en TikTok →","Watch on TikTok →"],
+    ctaTrajectory:["Conocer la trayectoria","See the journey"], days:["días","days"], cruise:["Crucero","Cruise"],
+    heroEyebrow:["Travel Advisory & Bespoke Experiences","Travel Advisory & Bespoke Experiences"],
+    heroT1:["El mundo,","The world,"], heroT2:["curado para ti.","curated for you."],
+    heroSub:["Diseñamos viajes a medida, gestionamos cada detalle y te acompañamos para que vivas el destino, no la logística.","We design tailor-made trips, manage every detail and stay by your side so you live the destination, not the logistics."],
+    statDest:["Destinos","Destinations"], statTrav:["Viajeros","Travellers"], statCont:["Continentes","Continents"], statResp:["Satisfacción","Satisfaction"],
+    vpEye:["Cómo trabajamos","How we work"], vpTitle:["Viajar bien comienza mucho antes de despegar.","Travelling well begins long before takeoff."],
+    vpSub:["Viarevex convierte una intención de viaje en una experiencia organizada. No vendemos un catálogo: construimos una ruta alrededor de tu manera de viajar.","Viarevex turns the intention to travel into an organised experience. We don't sell a catalogue — we build a route around the way you travel."],
+    vp1t:["Te escuchamos","We listen"], vp1p:["Entendemos a quién acompañas, qué te mueve y cómo te gusta viajar.","We understand who you travel with, what moves you and how you like to travel."],
+    vp2t:["Diseñamos tu viaje","We design your trip"], vp2p:["Creamos un itinerario a medida con criterio y conocimiento real del destino.","We craft a tailor-made itinerary with judgement and real knowledge of the destination."],
+    vp3t:["Coordinamos cada detalle","We coordinate every detail"], vp3p:["Vuelos, hoteles, traslados y experiencias, gestionados de principio a fin.","Flights, hotels, transfers and experiences, managed end to end."],
+    vp4t:["Te acompañamos","We stay with you"], vp4p:["Antes, durante y después del viaje. Siempre hay alguien del otro lado.","Before, during and after the trip. There's always someone on the other side."],
+    moodEye:["Encuentra tu forma de viajar","Find your way to travel"], moodTitle:["¿Cómo quieres sentir tu próximo viaje?","How do you want your next trip to feel?"],
+    expEye:["Selección Viarevex","Viarevex selection"], expTitle:["Experiencias destacadas","Featured experiences"],
+    expSub:["Una muestra de rutas reales. Cada una se rediseña por completo según quién viaja.","A sample of real routes. Each one is fully redesigned around who's travelling."],
+    exp1t:["Templos, mercados y mar de Andamán","Temples, markets and the Andaman Sea"], exp1p:["Cultura, gastronomía y descanso entre Bangkok, Chiang Mai y las islas.","Culture, food and rest across Bangkok, Chiang Mai and the islands."],
+    exp2t:["Islas del Caribe en crucero","Caribbean islands by cruise"], exp2p:["Rutas entre islas, cabina seleccionada y noches pre y post embarque.","Island-hopping routes, a selected cabin and pre/post-embarkation nights."],
+    exp3t:["Lagos y Alpes","Lakes and Alps"], exp4t:["Río de Janeiro","Rio de Janeiro"], exp5t:["Nueva York editorial","Editorial New York"],
+    tmEye:["Viajes a medida","Tailor-made travel"], tmTitle:["No empezamos por un paquete. Empezamos por ti.","We don't start with a package. We start with you."],
+    tmSub:["Cada viaje se diseña alrededor de tu destino, tus fechas, tu presupuesto, los viajeros, tus intereses, el alojamiento, el transporte, el ritmo y el motivo. Lo demás es logística — y de eso nos encargamos nosotros.","Every trip is designed around your destination, dates, budget, travellers, interests, accommodation, transport, pace and purpose. The rest is logistics — and that's on us."],
+    pr1t:["Conversación inicial","First conversation"], pr1p:["Una charla para entender qué imaginas y qué esperas del viaje.","A chat to understand what you imagine and expect from the trip."],
+    pr2t:["Perfil del viajero","Traveller profile"], pr2p:["Definimos ritmo, intereses, presupuesto y preferencias.","We define pace, interests, budget and preferences."],
+    pr3t:["Diseño del itinerario","Itinerary design"], pr3p:["Te presentamos una propuesta a medida, lista para ajustar.","We present a tailor-made proposal, ready to fine-tune."],
+    pr4t:["Confirmación","Confirmation"], pr4p:["Afinamos detalles y dejamos todo reservado.","We refine details and get everything booked."],
+    pr5t:["Coordinación","Coordination"], pr5p:["Vuelos, traslados, hoteles y experiencias, sincronizados.","Flights, transfers, hotels and experiences, in sync."],
+    pr6t:["Acompañamiento","Companionship"], pr6p:["Durante el viaje y a tu regreso, seguimos cerca.","Throughout the trip and on your return, we stay close."],
+    svcEye:["Lo que hacemos","What we do"], svcTitle:["Servicios","Services"],
+    s1t:["Viajes a medida","Tailor-made travel"], s1a:["Itinerarios personalizados","Personalised itineraries"], s1b:["Alojamiento y traslados","Accommodation & transfers"], s1c:["Actividades y restaurantes","Activities & dining"], s1d:["Celebraciones y viajes familiares","Celebrations & family trips"],
+    s2t:["Gestión estratégica de vuelos","Strategic flight management"], s2a:["Rutas, conexiones y horarios","Routes, connections & timing"], s2b:["Clases y equipaje","Cabin classes & baggage"], s2c:["Itinerarios complejos y multicontinente","Complex & multi-continent itineraries"], s2d:["Cambios y seguimiento","Changes & monitoring"],
+    s3t:["Concierge de viaje","Travel concierge"], s3a:["Reservas y recomendaciones","Bookings & recommendations"], s3b:["Solicitudes especiales","Special requests"], s3c:["Transporte y restaurantes","Transport & restaurants"], s3d:["Apoyo durante el viaje","Support during the trip"],
+    s4t:["Cruceros","Cruises"], s4a:["Rutas, navieras y cabinas","Routes, lines & cabins"], s4b:["Excursiones y traslados","Excursions & transfers"], s4c:["Noches pre y post crucero","Pre & post-cruise nights"], s4d:["Familias y celebraciones","Families & celebrations"],
+    s5t:["Movilidad global","Global mobility"], s5a:["Viajes frecuentes y corporativos","Frequent & corporate travel"], s5b:["Coordinación logística","Logistics coordination"], s5c:["Viajes multicontinente","Multi-continent travel"], s5d:["Información general de viaje","General travel information"],
+    svcCtaT:["¿No sabes por dónde empezar?","Not sure where to start?"], svcCtaP:["Cuéntanos qué imaginas y te proponemos el camino.","Tell us what you imagine and we'll map the way."],
+    plEye:["Planificador interactivo","Interactive planner"], plTitle:["Empecemos a diseñar tu viaje","Let's start designing your trip"],
+    plSub:["Unas pocas preguntas, como una conversación. Al final lo enviamos por WhatsApp o correo, como prefieras.","A few questions, like a conversation. At the end we send it by WhatsApp or email, whichever you prefer."],
+    plDoneT:["Tu próxima experiencia comienza aquí.","Your next experience begins here."],
+    plDoneP:["Recibimos tu solicitud. Pulsa el botón para enviarnos los detalles y un asesor te responderá en breve.","We've got your request. Tap the button to send us the details and an advisor will reply shortly."],
+    plSend:["Enviar solicitud","Send request"], back:["← Anterior","← Back"], next:["Siguiente","Next"], finish:["Finalizar","Finish"],
+    destEye:["El mundo Viarevex","The Viarevex world"], destTitle:["Destinos que inspiran","Destinations that inspire"],
+    rAsia:["Asia","Asia"], rEur:["Europa","Europe"], rLat:["Latinoamérica","Latin America"], rCar:["Caribe","Caribbean"], rNa:["Norteamérica","North America"],
+    dThai:["Tailandia","Thailand"], dSwiss:["Suiza","Switzerland"], dRio:["Río de Janeiro","Rio de Janeiro"], dCaribe:["Islas del Caribe","Caribbean Islands"], dNyc:["Nueva York","New York"],
+    dTurkey:["Ölüdeniz, Turquía","Ölüdeniz, Türkiye"], dPunta:["Punta Cana","Punta Cana"], dGreece:["Islas griegas","Greek Islands"], dCartagena:["Cartagena","Cartagena"],
+    mapEye:["Dónde hemos estado","Where we've been"], mapTitle:["Destinos vividos, no inventados","Lived destinations, not invented ones"],
+    mapSub:["Cada lugar que recomendamos lo conocemos de primera mano. Estas son las historias detrás de los itinerarios.","Every destination we recommend, we know first-hand. These are the stories behind the itineraries."],
+    fEye:["El fundador","The founder"], fTitle:["Una vida viajando. Una forma diferente de asesorar.","A life of travel. A different way to advise."],
+    fP1:["Viarevex nace de la experiencia real de recorrer el mundo: aeropuertos, hoteles, ciudades, cruceros y destinos vividos en primera persona. Esa curiosidad por la aviación y por entender cómo se mueve cada lugar es la base de cómo asesoramos hoy.","Viarevex was born from really travelling the world: airports, hotels, cities, cruises and destinations experienced first-hand. That curiosity for aviation and for how each place moves is the foundation of how we advise today."],
+    fP2:["No recomendamos desde un folleto, sino desde el conocimiento. Por eso cada propuesta empieza por la persona, no por el destino.","We don't recommend from a brochure, but from knowledge. That's why every proposal starts with the person, not the destination."],
+    fNote:["Espacio reservado para trayectoria verificada del fundador (años, destinos y trabajo) — pendiente de tu contenido.","Reserved space for the founder's verified background (years, destinations, work) — pending your content."],
+    socEye:["Viaja con nosotros todos los días","Travel with us every day"], socTitle:["Recomendamos desde la experiencia.","We recommend from experience."],
+    socSub:["Descubre destinos, consejos, hoteles, vuelos y momentos reales alrededor del mundo.","Discover destinations, tips, hotels, flights and real moments around the world."],
+    ig1t:["Inspiración para tu próxima salida","Inspiration for your next getaway"], ig1p:["Instagram de Viarevex","Viarevex on Instagram"],
+    ig2t:["Viajes contados desde la experiencia","Travels told from experience"], ig2p:["Instagram del fundador","The founder's Instagram"],
+    tk1t:["El mundo en movimiento","The world in motion"], tk1p:["TikTok del fundador","The founder's TikTok"],
+    wa1t:["Cuéntanos qué viaje estás imaginando","Tell us what trip you're imagining"], wa1p:["Atención y cotizaciones","Support & quotes"],
+    jEye:["@viarevex en Instagram","@viarevex on Instagram"], jTitle:["El viaje, en tiempo real","The journey, in real time"], jAll:["Seguir en Instagram","Follow on Instagram"],
+    jc1cat:["Cruceros","Cruises"], jc1t:["Así se ve el horizonte desde cubierta","What the horizon looks like from the deck"], jc1m:["Ver en Instagram →","See on Instagram →"],
+    jc2cat:["Tailandia","Thailand"], jc2t:["El Buda de esmeralda y lo que nadie te cuenta","The Emerald Buddha and what no one tells you"], jc2m:["Ver en Instagram →","See on Instagram →"],
+    jc3cat:["Bangkok","Bangkok"], jc3t:["Bangkok de noche: lo que no aparece en los tours","Bangkok at night: what the tours don't show"], jc3m:["Ver en Instagram →","See on Instagram →"],
+    faqEye:["Preguntas frecuentes","Frequently asked questions"], faqTitle:["Antes de empezar","Before you begin"],
+    clTitle:["Tu próximo viaje no tiene que parecerse al de nadie más.","Your next trip doesn't have to look like anyone else's."],
+    clSub:["Cuéntanos qué estás imaginando. Nosotros nos encargamos de convertirlo en una ruta posible.","Tell us what you're imagining. We'll turn it into a route that works."],
+    ftAbout:["Private Travel Atelier. Diseñamos experiencias internacionales a medida y te acompañamos en cada etapa del viaje.","Private Travel Atelier. We design tailor-made international experiences and accompany you at every stage of the journey."],
+    ftExplore:["Explorar","Explore"], ftContact:["Contacto","Contact"], ftLegal:["Legal","Legal"],
+    ftPrivacy:["Política de privacidad","Privacy policy"], ftCookies:["Política de cookies","Cookie policy"],
+    ftTerms:["Términos y condiciones","Terms & conditions"], ftCookieConfig:["Configurar cookies","Cookie settings"],
+    ftLegalData:["Datos legales (razón social, registro, dirección y licencia turística) — espacio reservado, pendiente de tu información.","Legal data (company name, registration, address and tourism licence) — reserved space, pending your information."],
+    ftRights:["Todos los derechos reservados.","All rights reserved."],
+    ftDisclaimer:["Las propuestas están sujetas a disponibilidad y a los términos de los proveedores involucrados.","Proposals are subject to availability and to the terms of the providers involved."],
+    ckText:["Utilizamos cookies necesarias para el funcionamiento del sitio y, con tu permiso, cookies de análisis y marketing para comprender cómo utilizas la web y mejorar tu experiencia.","We use essential cookies to operate this website and, with your permission, analytics and marketing cookies to understand how you use it and improve your experience."],
+    ckAll:["Aceptar todas","Accept all"], ckReject:["Rechazar no esenciales","Reject non-essential"], ckCustom:["Personalizar","Customize"], ckView:["Ver política","View cookie policy"]
+  };
+
+  const MOODS = [
+    {es:"Desconectar",en:"Disconnect",img:"assets/turkey.jpg",dt:["Calma junto al agua","Calm by the water"],dp:["Playas turquesa, ritmo lento y nada que resolver.","Turquoise bays, a slow pace and nothing to solve."]},
+    {es:"Descubrir culturas",en:"Discover cultures",img:"assets/buddha-thailand.jpg",dt:["Templos y tradición","Temples and tradition"],dp:["Asia con guía y contexto, más allá de lo turístico.","Asia with a guide and context, beyond the tourist trail."]},
+    {es:"Viajar en familia",en:"Travel with family",img:"assets/puntacana.jpg",dt:["Tiempo juntos, cero estrés","Time together, zero stress"],dp:["Resorts y playas pensados para todas las edades.","Resorts and beaches designed for every age."]},
+    {es:"Navegar",en:"Set sail",img:"assets/cruise-aida.jpg",dt:["El mar como itinerario","The sea as your itinerary"],dp:["Cruceros con la cabina y las excursiones correctas.","Cruises with the right cabin and shore excursions."]},
+    {es:"Explorar con estilo",en:"Explore in style",img:"assets/nyc.jpg",dt:["Ciudades con mirada propia","Cities with a point of view"],dp:["Nueva York, Río o Cartagena, vividas con criterio.","New York, Rio or Cartagena, lived with judgement."]},
+    {es:"Vivir una aventura",en:"Live an adventure",img:"assets/bangkok-night.jpg",dt:["La calle como destino","The street as the destination"],dp:["Mercados, barrios y la energía real de cada ciudad.","Markets, neighbourhoods and the real energy of each city."]},
+    {es:"Naturaleza viva",en:"Wild nature",img:"assets/costarica.jpg",dt:["Selva, ruta y aire libre","Jungle, trails and open air"],dp:["Naturaleza viva, de Costa Rica al trópico.","Living nature, from Costa Rica to the tropics."]},
+    {es:"Celebrar",en:"Celebrate",img:"assets/cartagena.jpg",dt:["Momentos que se recuerdan","Moments worth remembering"],dp:["Lunas de miel, aniversarios y viajes de celebración.","Honeymoons, anniversaries and milestone trips."]}
+  ];
+
+  const FAQ = [
+    [["¿Qué destinos maneja Viarevex?","Which destinations does Viarevex handle?"],["América, Europa, Asia y el Caribe, entre otros. Si tienes un destino en mente, lo estudiamos contigo.","The Americas, Europe, Asia and the Caribbean, among others. If you have a destination in mind, we'll study it with you."]],
+    [["¿Puedo solicitar solo vuelos?","Can I request flights only?"],["Sí. Gestionamos rutas, conexiones, clases e itinerarios complejos de forma independiente.","Yes. We manage routes, connections, classes and complex itineraries on their own."]],
+    [["¿Diseñan viajes familiares y lunas de miel?","Do you design family trips and honeymoons?"],["Sí. Ajustamos ritmo, alojamiento y experiencias según quién viaja y el motivo.","Yes. We adapt pace, accommodation and experiences to who's travelling and the occasion."]],
+    [["¿Trabajan con mi presupuesto?","Do you work within my budget?"],["Partimos siempre de tu presupuesto para proponer las mejores opciones posibles dentro de él.","We always start from your budget to propose the best possible options within it."]],
+    [["¿Cuánto tarda una propuesta?","How long does a proposal take?"],["Depende de la complejidad del viaje. Tras la primera conversación te indicamos un tiempo estimado.","It depends on the trip's complexity. After the first conversation we'll give you an estimate."]],
+    [["¿Qué pasa si una aerolínea cambia el vuelo?","What if an airline changes my flight?"],["Hacemos seguimiento del itinerario y te ayudamos a gestionar cambios con los proveedores.","We monitor the itinerary and help you manage changes with the providers."]],
+    [["¿Puedo contactar por WhatsApp y en inglés?","Can I get in touch on WhatsApp and in English?"],["Sí. Atendemos por WhatsApp y trabajamos en español e inglés.","Yes. We're available on WhatsApp and we work in Spanish and English."]]
+  ];
+
+  const STEPS = [
+    {k:"origin",t:["¿Desde qué ciudad sales?","Which city are you flying from?"],type:"text",ph:["Ciudad de salida","Departure city"]},
+    {k:"dest",t:["¿A dónde te gustaría ir?","Where would you like to go?"],type:"text",ph:["Destino o idea de destino","Destination or idea"]},
+    {k:"dates",t:["¿Cuándo, más o menos?","Roughly when?"],type:"text",ph:["Fechas o mes aproximado","Dates or approximate month"]},
+    {k:"travelers",t:["¿Cuántos viajan?","How many of you?"],type:"opts",opts:[["Solo/a","Solo"],["Pareja","Couple"],["Familia","Family"],["Grupo","Group"]]},
+    {k:"mood",t:["¿Qué tipo de experiencia buscas?","What kind of experience?"],type:"opts",opts:[["Desconectar","Disconnect"],["Cultura","Culture"],["Aventura","Adventure"],["Crucero","Cruise"],["Celebración","Celebration"],["Negocios","Business"]]},
+    {k:"budget",t:["¿Presupuesto aproximado por persona?","Approximate budget per person?"],type:"opts",opts:[["Aún no lo sé","Not sure yet"],["Económico","Modest"],["Medio","Mid-range"],["Alto","Premium"]]},
+    {k:"occasion",t:["¿Hay una ocasión especial?","Any special occasion?"],type:"text",ph:["Aniversario, cumpleaños, luna de miel… (opcional)","Anniversary, birthday, honeymoon… (optional)"]},
+    {k:"contact",t:["¿Cómo prefieres que te contactemos?","How should we reach you?"],type:"opts",opts:[["WhatsApp","WhatsApp"],["Llamada","Call"],["Correo","Email"]]},
+    {k:"name",t:["¿Cómo te llamas?","What's your name?"],type:"text",ph:["Tu nombre","Your name"]},
+    {k:"phone",t:["¿Tu WhatsApp o teléfono?","Your WhatsApp or phone?"],type:"text",ph:["Número de contacto","Contact number"]}
+  ];
+
+  let lang = "es";
+  const waBase = "https://wa.me/525644091087?text=";
+  const waMsg = {
+    es:"Hola, vi la página de Viarevex y quiero recibir asesoría para planear mi próximo viaje.",
+    en:"Hello, I visited the Viarevex website and would like assistance planning my next trip."
+  };
+
+  const applyLang = () => {
+    $$("[data-i18n]").forEach(el => {
+      const v = T[el.getAttribute("data-i18n")];
+      if (v) el.textContent = v[lang === "es" ? 0 : 1];
+    });
+    document.documentElement.lang = lang;
+    $$(".lang button").forEach(b => b.classList.toggle("on", b.getAttribute("data-lang") === lang));
+    const wl = waBase + encodeURIComponent(waMsg[lang]);
+    $$(".wa-link").forEach(a => a.href = wl);
+    buildMoods(); buildFaq(); renderStep();
+    try { localStorage.setItem("vrx_lang", lang); } catch(e) {}
+  };
+
+  $$(".lang button").forEach(b => b.addEventListener("click", () => { lang = b.getAttribute("data-lang"); applyLang(); }));
+
+  /* ===== Header scroll ===== */
+  const hdr = $("#hdr");
+  const onScroll = () => {
+    hdr.classList.toggle("solid", window.scrollY > 60);
+    const pf = $("#procFill"), proc = $(".proc");
+    if (pf && proc) {
+      const r = proc.getBoundingClientRect(), vh = window.innerHeight;
+      const p = Math.max(0, Math.min(1, (vh * 0.7 - r.top) / r.height));
+      pf.style.height = (p * 100) + "%";
+    }
+    const wa = $("#wa"), ck = $("#cookie");
+    if (wa && ck) wa.classList.toggle("lift", ck.classList.contains("show"));
+  };
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+
+  /* ===== Reveal ===== */
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  $$("[data-reveal]").forEach(el => io.observe(el));
+
+  /* ===== Hero crossfade ===== */
+  const imgs = $$(".hero-img"); let hi = 0;
+  if (imgs.length > 1) setInterval(() => {
+    imgs[hi].classList.remove("on");
+    hi = (hi + 1) % imgs.length;
+    const n = imgs[hi];
+    n.style.animation = "none";
+    n.offsetHeight;
+    n.style.animation = "";
+    n.classList.add("on");
+  }, 5500);
+
+  /* ===== Mobile menu ===== */
+  const menu = $("#menu");
+  $("#hamb").addEventListener("click", () => { menu.classList.add("open"); document.body.style.overflow = "hidden"; });
+  $("#menuClose").addEventListener("click", () => { menu.classList.remove("open"); document.body.style.overflow = ""; });
+  $$(".menu-mask a").forEach(a => a.addEventListener("click", () => { menu.classList.remove("open"); document.body.style.overflow = ""; }));
+
+  /* ===== Moods ===== */
+  let moodIdx = 0;
+  const buildMoods = () => {
+    const list = $("#moodList"); if (!list) return;
+    list.innerHTML = "";
+    MOODS.forEach((m, i) => {
+      const c = document.createElement("div");
+      c.className = "chip" + (i === moodIdx ? " on" : "");
+      c.textContent = m[lang];
+      c.addEventListener("click", () => { moodIdx = i; paintMood(); });
+      list.appendChild(c);
+    });
+    paintMood();
+  };
+  const paintMood = () => {
+    const m = MOODS[moodIdx], cap = $("#moodCap"), img = $("#moodImg");
+    $$("#moodList .chip").forEach((c, i) => c.classList.toggle("on", i === moodIdx));
+    if (cap) cap.innerHTML = "<h3>" + m.dt[lang === "es" ? 0 : 1] + "</h3><p>" + m.dp[lang === "es" ? 0 : 1] + "</p>";
+    if (img) { img.style.opacity = 0; setTimeout(() => { img.src = m.img; img.style.opacity = 1; }, 220); }
+  };
+
+  /* ===== FAQ ===== */
+  const buildFaq = () => {
+    const f = $("#faq"); if (!f) return;
+    f.innerHTML = "";
+    FAQ.forEach(([q, a]) => {
+      const it = document.createElement("div"); it.className = "fitem";
+      it.innerHTML = "<div class='fq'><h3>" + q[lang === "es" ? 0 : 1] + "</h3><span class='pm'>+</span></div><div class='fa'><p>" + a[lang === "es" ? 0 : 1] + "</p></div>";
+      it.querySelector(".fq").addEventListener("click", () => it.classList.toggle("open"));
+      f.appendChild(it);
+    });
+  };
+
+  /* ===== Planner ===== */
+  let step = 0; const data = {};
+  const cont = $("#planSteps");
+  const buildSteps = () => {
+    cont.innerHTML = "";
+    STEPS.forEach((s, i) => {
+      const d = document.createElement("div"); d.className = "q" + (i === 0 ? " on" : ""); d.dataset.i = i;
+      let inner = "<div class='qno'>" + (i+1).toString().padStart(2,"0") + " / " + STEPS.length.toString().padStart(2,"0") + "</div><h3 class='qh'></h3>";
+      if (s.type === "text") { inner += "<input class='fld' data-k='" + s.k + "'>"; }
+      else { inner += "<div class='opts'>" + s.opts.map(o => "<div class='opt' data-k='" + s.k + "'></div>").join("") + "</div>"; }
+      d.innerHTML = inner; cont.appendChild(d);
+    });
+  };
+  const renderStep = () => {
+    if (!cont) return;
+    if (!cont.children.length) buildSteps();
+    $$(".q", cont).forEach((q, i) => {
+      const s = STEPS[i];
+      q.querySelector(".qh").textContent = s.t[lang === "es" ? 0 : 1];
+      const inp = q.querySelector(".fld");
+      if (inp) { inp.placeholder = s.ph[lang === "es" ? 0 : 1]; if (data[s.k]) inp.value = data[s.k]; }
+      q.querySelectorAll(".opt").forEach((o, oi) => {
+        o.textContent = s.opts[oi][lang === "es" ? 0 : 1];
+        o.classList.toggle("sel", data[s.k] === s.opts[oi][0]);
+        o.onclick = () => { data[s.k] = s.opts[oi][0]; q.querySelectorAll(".opt").forEach(x => x.classList.remove("sel")); o.classList.add("sel"); };
+      });
+      q.classList.toggle("on", i === step);
+    });
+    const pg = $("#prog"); if (pg) pg.style.width = ((step+1) / STEPS.length * 100) + "%";
+    const back = $("#planBack"); if (back) back.style.visibility = step === 0 ? "hidden" : "visible";
+    const nb = $("#planNext span:first-child");
+    if (nb) nb.textContent = step === STEPS.length-1 ? T.finish[lang === "es" ? 0 : 1] : T.next[lang === "es" ? 0 : 1];
+  };
+  if (cont) {
+    $("#planNext").addEventListener("click", () => {
+      const q = $$(".q", cont)[step], inp = q.querySelector(".fld"), s = STEPS[step];
+      if (inp) { data[s.k] = inp.value.trim(); if (!data[s.k] && s.k !== "occasion") { inp.style.borderColor = "var(--red)"; inp.focus(); return; } inp.style.borderColor = ""; }
+      else if (!data[s.k]) { q.querySelector(".opts").animate([{opacity:.4},{opacity:1}],200); return; }
+      if (step < STEPS.length-1) { step++; renderStep(); }
+      else { finishPlan(); }
+    });
+    $("#planBack").addEventListener("click", () => { if (step > 0) { step--; renderStep(); } });
+  }
+  const finishPlan = () => {
+    $("#planNav").style.display = "none"; cont.style.display = "none"; $("#planDone").classList.add("on");
+    const L = lang === "es" ? 0 : 1;
+    const lines = STEPS.filter(s => data[s.k]).map(s => s.t[L] + " " + data[s.k]);
+    const intro = lang === "es" ? "Hola, quiero diseñar un viaje con Viarevex:\n\n" : "Hello, I'd like to design a trip with Viarevex:\n\n";
+    $("#planSend").href = waBase + encodeURIComponent(intro + lines.join("\n"));
+  };
+
+  /* ===== Stats counter animation ===== */
+  const animateCounter = (el) => {
+    const target = parseInt(el.dataset.target);
+    const duration = 1800;
+    const fps = 60;
+    const totalFrames = duration / (1000 / fps);
+    let frame = 0;
+    const easeOut = t => 1 - Math.pow(1 - t, 3);
+    const tick = () => {
+      frame++;
+      const progress = Math.min(frame / totalFrames, 1);
+      el.textContent = Math.floor(easeOut(progress) * target);
+      if (progress < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  };
+  const statsObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        $$(".snum[data-target]").forEach(animateCounter);
+        statsObs.disconnect();
+      }
+    });
+  }, { threshold: 0.5 });
+  const statsBar = $(".stats-bar");
+  if (statsBar) statsObs.observe(statsBar);
+
+  /* ===== Cookies ===== */
+  const ck = $("#cookie");
+  const hasConsent = () => { try { return localStorage.getItem("vrx_cookie"); } catch(e) { return "1"; } };
+  const setConsent = (v) => { try { localStorage.setItem("vrx_cookie", JSON.stringify({v,date:Date.now(),ver:1})); } catch(e) {} ck.classList.remove("show"); onScroll(); };
+  if (!hasConsent()) setTimeout(() => ck.classList.add("show"), 1200);
+  $("#ckAll").addEventListener("click", () => setConsent("all"));
+  $("#ckReject").addEventListener("click", () => setConsent("essential"));
+  $("#ckCustom").addEventListener("click", () => setConsent("essential"));
+  const cfg = $("#ckConfig"); if (cfg) cfg.addEventListener("click", e => { e.preventDefault(); ck.classList.add("show"); });
+
+  /* ===== Init ===== */
+  const yr = $("#yr"); if (yr) yr.textContent = new Date().getFullYear();
+  try {
+    const saved = localStorage.getItem("vrx_lang");
+    if (saved) lang = saved;
+    else if ((navigator.language || "").toLowerCase().startsWith("en")) lang = "en";
+  } catch(e) {}
+  applyLang();
+});
+</script>
+</body>
+</html>
