@@ -99,6 +99,8 @@
     .vx-avinset{position:relative!important;bottom:auto!important;right:auto!important;width:60%!important;margin-top:14px!important;border-width:0!important}
   }
   @media(max-width:680px){
+    .vx-dest-prev{top:16px!important;transform:none!important}
+    .vx-dest-next{top:16px!important;transform:none!important}
     .vx-svcgrid,.vx-destgrid,.vx-whygrid,.vx-howgrid,.vx-footgrid,.vx-supgrid{grid-template-columns:1fr!important}
     .vx-destother{grid-column:span 1!important;flex-direction:column!important;align-items:flex-start!important}
     h1{font-size:38px!important}
@@ -259,8 +261,8 @@
           <p style="color:rgba(244,240,232,.85);font-size:clamp(15px,1.7vw,18px);font-weight:300;margin-bottom:26px;max-width:460px">{{ destActiveTag }}</p>
           <a href="#contacto" style="text-decoration:none;background:#B89A62;color:#0B0B0C;padding:13px 26px;border-radius:2px;font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-weight:500;display:inline-block">{{ destCta }}</a>
         </div>
-        <button onClick="{{ destPrev }}" aria-label="Anterior" style="position:absolute;top:50%;left:18px;transform:translateY(-50%);width:46px;height:46px;border-radius:50%;background:rgba(11,11,12,.4);border:1px solid rgba(244,240,232,.35);color:#FAF9F6;cursor:pointer;font-size:18px;backdrop-filter:blur(4px);display:flex;align-items:center;justify-content:center">‹</button>
-        <button onClick="{{ destNext }}" aria-label="Siguiente" style="position:absolute;top:50%;right:18px;transform:translateY(-50%);width:46px;height:46px;border-radius:50%;background:rgba(11,11,12,.4);border:1px solid rgba(244,240,232,.35);color:#FAF9F6;cursor:pointer;font-size:18px;backdrop-filter:blur(4px);display:flex;align-items:center;justify-content:center">›</button>
+        <button onClick="{{ destPrev }}" aria-label="Anterior" class="vx-dest-prev" style="position:absolute;top:50%;left:18px;transform:translateY(-50%);width:46px;height:46px;border-radius:50%;background:rgba(11,11,12,.4);border:1px solid rgba(244,240,232,.35);color:#FAF9F6;cursor:pointer;font-size:18px;backdrop-filter:blur(4px);display:flex;align-items:center;justify-content:center">‹</button>
+        <button onClick="{{ destNext }}" aria-label="Siguiente" class="vx-dest-next" style="position:absolute;top:50%;right:18px;transform:translateY(-50%);width:46px;height:46px;border-radius:50%;background:rgba(11,11,12,.4);border:1px solid rgba(244,240,232,.35);color:#FAF9F6;cursor:pointer;font-size:18px;backdrop-filter:blur(4px);display:flex;align-items:center;justify-content:center">›</button>
       </div>
       <div class="vx-rail" style="display:flex;gap:9px;padding:13px;background:#0B0B0C;overflow-x:auto">
         <sc-for list="{{ destList }}" as="d" hint-placeholder-count="8">
