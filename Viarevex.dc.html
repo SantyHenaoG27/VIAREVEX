@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="utf-8">
@@ -75,7 +75,7 @@
   .vx-rail::-webkit-scrollbar{height:6px}
   .vx-rail::-webkit-scrollbar-thumb{background:rgba(184,154,98,.4);border-radius:3px}
   ::selection{background:#B89A62;color:#fff}
-  @media(prefers-reduced-motion:reduce){.rv{opacity:1!important;transform:none!important}html{scroll-behavior:auto}}
+  @media(prefers-reduced-motion:reduce){.rv{opacity:1!important;transform:none!important}html{scroll-behavior:auto}video{animation:none!important}}
   .vx-destcard:hover img{transform:scale(1.06)}
   @media(max-width:1024px){
     .vx-svcgrid,.vx-destgrid,.vx-whygrid{grid-template-columns:repeat(2,1fr)!important}
@@ -173,7 +173,10 @@
 
   <!-- HERO -->
   <section id="top" style="position:relative;min-height:92vh;display:flex;align-items:flex-end;overflow:hidden">
-    <div style="position:absolute;inset:0;background-image:url('https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=2400&q=85');background-size:cover;background-position:center;transform:scale(1.04);animation:vxzoom 20s ease forwards"></div>
+    <video autoplay muted loop playsinline style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0">
+      <source src="assets/videos/hero.mp4" type="video/mp4">
+      <div style="position:absolute;inset:0;background-image:url('assets/images/hero-bg.jpg');background-size:cover;background-position:center"></div>
+    </video>
     <div style="position:absolute;inset:0;background:linear-gradient(105deg,rgba(11,11,12,.78) 0%,rgba(11,11,12,.45) 38%,rgba(16,26,43,.15) 70%,rgba(16,26,43,.05) 100%)"></div>
     <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(11,11,12,.85) 0%,rgba(11,11,12,.2) 42%,rgba(11,11,12,.32) 100%)"></div>
     <div class="vx-herowrap" style="position:relative;z-index:2;padding:0 40px 9vh;max-width:900px">
@@ -200,7 +203,11 @@
           <div style="padding:18px 0;border-top:1px solid rgba(184,154,98,.35);border-bottom:1px solid rgba(184,154,98,.35)"><span style="font-size:15px;color:#101A2B;letter-spacing:.02em">{{ intro3 }}</span></div>
         </div>
       </div>
-      <div class="rv" style="position:relative;aspect-ratio:3/4;background:#101A2B url('https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=1000&q=80') center/cover;border-radius:2px"></div>
+      <div class="rv" style="position:relative;aspect-ratio:3/4;background:#101A2B;border-radius:2px;overflow:hidden">
+        <video autoplay muted loop playsinline style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+          <source src="assets/videos/nosotros.mp4" type="video/mp4">
+        </video>
+      </div>
     </div>
   </section>
 
@@ -230,8 +237,12 @@
   <section style="background:#0B0B0C;color:#F4F0E8;padding:clamp(70px,10vw,130px) 40px;position:relative;overflow:hidden">
     <div style="max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:clamp(36px,6vw,72px);align-items:center" class="vx-avgrid">
       <div class="rv" style="position:relative">
-        <div style="aspect-ratio:4/3;background:url('https://images.unsplash.com/photo-1474302770737-173ee21bab63?auto=format&fit=crop&w=1100&q=80') center/cover;border-radius:2px"></div>
-        <div class="vx-avinset" style="position:absolute;bottom:-34px;right:-20px;width:46%;aspect-ratio:1;background:url('https://images.unsplash.com/photo-1540962351504-03099e0a754b?auto=format&fit=crop&w=700&q=80') center/cover;border:6px solid #0B0B0C;border-radius:2px"></div>
+        <div style="aspect-ratio:4/3;border-radius:2px;overflow:hidden;background:#0B0B0C;position:relative">
+          <video autoplay muted loop playsinline style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+            <source src="assets/videos/aviation.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="vx-avinset" style="position:absolute;bottom:-34px;right:-20px;width:46%;aspect-ratio:1;background:url('assets/images/jet-private.jpg') center/cover;border:6px solid #0B0B0C;border-radius:2px"></div>
       </div>
       <div class="rv">
         <p style="color:#B89A62;font-size:12px;letter-spacing:.26em;text-transform:uppercase;margin-bottom:20px">{{ aviationLabel }}</p>
@@ -341,7 +352,7 @@
   <!-- CONCIERGE -->
   <section style="padding:clamp(70px,10vw,130px) 40px;max-width:1280px;margin:0 auto">
     <div class="vx-introgrid" style="display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(40px,7vw,90px);align-items:center">
-      <div class="rv" style="aspect-ratio:4/5;background:url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1000&q=80') center/cover;border-radius:2px;order:0"></div>
+      <div class="rv" style="aspect-ratio:4/5;background:url('assets/images/restaurant.jpg') center/cover;border-radius:2px;order:0"></div>
       <div class="rv">
         <p style="color:#7D5F33;font-size:12px;letter-spacing:.26em;text-transform:uppercase;margin-bottom:20px">Concierge</p>
         <h2 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(28px,4vw,46px);line-height:1.12;color:#101A2B;margin-bottom:24px;text-wrap:balance">{{ conciergeTitle }}</h2>
@@ -359,7 +370,7 @@
   <!-- CORPORATE -->
   <section id="corporativo" style="background:#F4F0E8;padding:clamp(70px,10vw,130px) 40px">
     <div style="max-width:1280px;margin:0 auto" class="vx-corpwrap">
-      <div class="rv" style="aspect-ratio:21/9;background:url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1600&q=80') center/cover;border-radius:2px;margin-bottom:50px"></div>
+      <div class="rv" style="aspect-ratio:21/9;background:url('assets/images/corporate.jpg') center/cover;border-radius:2px;margin-bottom:50px"></div>
       <div class="vx-introgrid" style="display:grid;grid-template-columns:1fr 1fr;gap:clamp(36px,6vw,80px);align-items:start">
         <div class="rv">
           <h2 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(28px,4vw,46px);line-height:1.12;color:#101A2B;margin-bottom:24px;text-wrap:balance">{{ corpTitle }}</h2>
@@ -402,6 +413,19 @@
           <p style="font-size:14px;line-height:1.65;color:#55555a;font-weight:300">{{ w.desc }}</p>
         </div>
       </sc-for>
+    </div>
+  </section>
+
+  <!-- CINEMATIC VIDEO BREAK -->
+  <section style="position:relative;min-height:70vh;display:flex;align-items:center;justify-content:center;overflow:hidden">
+    <video autoplay muted loop playsinline style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0">
+      <source src="assets/videos/destinations.mp4" type="video/mp4">
+    </video>
+    <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(11,11,12,.55) 0%,rgba(11,11,12,.3) 50%,rgba(11,11,12,.65) 100%);z-index:1"></div>
+    <div class="rv" style="position:relative;z-index:2;text-align:center;padding:40px 24px;max-width:780px">
+      <p style="color:#B89A62;font-size:12px;letter-spacing:.32em;text-transform:uppercase;margin-bottom:20px">{{ heroLabel }}</p>
+      <h2 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(34px,5.5vw,68px);line-height:1.05;color:#FAF9F6;text-wrap:balance;margin-bottom:24px">{{ videoBreakTitle }}</h2>
+      <a href="#contacto" style="text-decoration:none;background:#B89A62;color:#0B0B0C;padding:15px 36px;border-radius:2px;font-size:13px;letter-spacing:.06em;text-transform:uppercase;font-weight:500;display:inline-block">{{ videoBreakCta }}</a>
     </div>
   </section>
 
@@ -497,7 +521,9 @@
 
   <!-- FINAL CTA -->
   <section style="position:relative;min-height:64vh;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden">
-    <div style="position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1505761671935-60b3a7427bad?auto=format&fit=crop&w=2000&q=80') center/cover"></div>
+    <video autoplay muted loop playsinline style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+      <source src="assets/videos/luxury.mp4" type="video/mp4">
+    </video>
     <div style="position:absolute;inset:0;background:rgba(11,11,12,.6)"></div>
     <div class="rv" style="position:relative;z-index:2;padding:60px 40px;max-width:760px">
       <h2 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(30px,5vw,56px);line-height:1.1;color:#FAF9F6;margin-bottom:22px">{{ finalTitle }}</h2>
@@ -661,6 +687,18 @@ class Component extends DCLogic {
       }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
       els.forEach(e => io.observe(e));
     }, 60);
+
+    // play videos when they enter viewport
+    setTimeout(() => {
+      const playVideo = (v) => { v.muted = true; v.load(); v.play().catch(() => {}); };
+      const vo = new IntersectionObserver((entries) => {
+        entries.forEach(en => {
+          if (en.isIntersecting) en.target.muted = true, en.target.play().catch(() => {});
+          else en.target.pause();
+        });
+      }, { threshold: 0.1 });
+      document.querySelectorAll('video').forEach(v => { v.muted = true; vo.observe(v); playVideo(v); });
+    }, 200);
   }
   componentWillUnmount() {
     window.removeEventListener('scroll', this._onScroll);
@@ -708,6 +746,7 @@ class Component extends DCLogic {
       fPrivacy:'He leído y acepto la Política de Privacidad y el tratamiento de mis datos para recibir asesoría.',
       finalTitle:'El mundo es amplio. Tu viaje debe sentirse completamente tuyo.',
       finalText:'Cuéntanos qué imaginas y diseñemos una experiencia a tu medida.',
+      videoBreakTitle:'Cada destino tiene una historia. La tuya empieza aquí.', videoBreakCta:'Diseñar mi viaje',
       finalBtn1:'Hablar con un asesor', finalBtn2:'Enviar mi solicitud',
       footerDesc:'Firma privada de viajes, movilidad global, experiencias a la medida y concierge. Asesoría global, atención personal.',
       footerNav:'Navegación', footerContact:'Contacto', footerLegal:'Legal',
@@ -723,29 +762,29 @@ class Component extends DCLogic {
       tripTypes:['Vacaciones','Luna de miel','Familiar','Corporativo','Crucero','Vuelo privado','Multidestino','Otro'],
       errName:'Por favor indica tu nombre.', errEmail:'Introduce un correo válido.', errPhone:'Introduce un WhatsApp válido.', errPrivacy:'Debes aceptar la política de privacidad.',
       services:[
-        {num:'01',title:'Viajes a la medida',desc:'Itinerarios, hoteles, experiencias, lunas de miel, escapadas, viajes familiares y multidestinos diseñados según tu estilo.',img:'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=900&q=80'},
-        {num:'02',title:'Vuelos y movilidad',desc:'Gestión estratégica de vuelos comerciales, alquiler de vehículos, traslados privados y movilidad internacional.',img:'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=900&q=80'},
-        {num:'03',title:'Documentación y protección',desc:'Acompañamiento en procesos de visa, seguros de viaje y revisión de requisitos generales, con lenguaje responsable.',img:'https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=900&q=80'},
-        {num:'04',title:'Cruceros y experiencias',desc:'Cruceros, gastronomía, excursiones, actividades, celebraciones y experiencias personalizadas.',img:'https://images.unsplash.com/photo-1599640842225-85d111c60e6b?auto=format&fit=crop&w=900&q=80'},
-        {num:'05',title:'Viajes corporativos',desc:'Desplazamientos ejecutivos, agendas empresariales, coordinación de grupos y optimización de itinerarios.',img:'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=900&q=80'},
-        {num:'06',title:'Private Travel',desc:'Vuelos privados, traslados premium, concierge y atención discreta para solicitudes especiales.',img:'https://images.unsplash.com/photo-1540962351504-03099e0a754b?auto=format&fit=crop&w=900&q=80'}
+        {num:'01',title:'Viajes a la medida',desc:'Itinerarios, hoteles, experiencias, lunas de miel, escapadas, viajes familiares y multidestinos diseñados según tu estilo.',img:'assets/images/service-travel.jpg'},
+        {num:'02',title:'Vuelos y movilidad',desc:'Gestión estratégica de vuelos comerciales, alquiler de vehículos, traslados privados y movilidad internacional.',img:'assets/images/service-flights.jpg'},
+        {num:'03',title:'Documentación y protección',desc:'Acompañamiento en procesos de visa, seguros de viaje y revisión de requisitos generales, con lenguaje responsable.',img:'assets/images/service-docs.jpg'},
+        {num:'04',title:'Cruceros y experiencias',desc:'Cruceros, gastronomía, excursiones, actividades, celebraciones y experiencias personalizadas.',img:'assets/images/service-cruises.jpg'},
+        {num:'05',title:'Viajes corporativos',desc:'Desplazamientos ejecutivos, agendas empresariales, coordinación de grupos y optimización de itinerarios.',img:'assets/images/corporate.jpg'},
+        {num:'06',title:'Private Travel',desc:'Vuelos privados, traslados premium, concierge y atención discreta para solicitudes especiales.',img:'assets/images/jet-private.jpg'}
       ],
       destinations:[
-        {flag:'🇨🇴',name:'Cartagena',region:'Colombia',tag:'Historia, gastronomía y mar Caribe.',img:'https://images.unsplash.com/photo-1583531352515-8884af319dc1?auto=format&fit=crop&w=1400&q=80'},
-        {flag:'🇲🇽',name:'Ciudad de México',region:'México',tag:'Cultura viva, diseño y alta cocina.',img:'https://images.unsplash.com/photo-1518105779142-d975f22f1b0a?auto=format&fit=crop&w=1400&q=80'},
-        {flag:'🇧🇷',name:'Río de Janeiro',region:'Brasil',tag:'Montañas, bahía y ritmo carioca.',img:'https://images.unsplash.com/photo-1483729558449-99ef09a8c325?auto=format&fit=crop&w=1400&q=80'},
-        {flag:'🇺🇸',name:'Washington D.C.',region:'Estados Unidos',tag:'Historia, instituciones y arte.',img:'https://images.unsplash.com/photo-1463839346397-8e9946845e6d?auto=format&fit=crop&w=1400&q=80'},
-        {flag:'🇨🇭',name:'Suiza',region:'Alpes',tag:'Cumbres nevadas y precisión serena.',img:'https://images.unsplash.com/photo-1530122037265-a5f1f91d3b99?auto=format&fit=crop&w=1400&q=80'},
-        {flag:'🇬🇷',name:'Santorini',region:'Grecia',tag:'Caldera, atardeceres y arquitectura blanca.',img:'https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?auto=format&fit=crop&w=1400&q=80'},
-        {flag:'🇫🇷',name:'París',region:'Francia',tag:'Elegancia, arte y alta gastronomía.',img:'https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=1400&q=80'},
-        {flag:'🇦🇪',name:'Dubái',region:'EAU',tag:'Lujo contemporáneo y desierto.',img:'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1400&q=80'},
-        {flag:'🇲🇻',name:'Maldivas',region:'Océano Índico',tag:'Privacidad sobre aguas turquesa.',img:'https://images.unsplash.com/photo-1514282401047-d79a71a590e8?auto=format&fit=crop&w=1400&q=80'},
-        {flag:'🇺🇸',name:'Nueva York',region:'Estados Unidos',tag:'Ritmo, cultura y horizontes infinitos.',img:'https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?auto=format&fit=crop&w=1400&q=80'},
-        {flag:'🇮🇩',name:'Bali',region:'Indonesia',tag:'Templos, arrozales y serenidad tropical.',img:'https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=1400&q=80'},
-        {flag:'🇮🇹',name:'Roma',region:'Italia',tag:'Historia eterna y dolce vita.',img:'https://images.unsplash.com/photo-1552832230-c0197dd311b5?auto=format&fit=crop&w=1400&q=80'},
-        {flag:'🇰🇭',name:'Siem Reap',region:'Camboya',tag:'Angkor, templos y amaneceres milenarios.',img:'https://images.unsplash.com/photo-1599708153386-62bf3f035c2c?auto=format&fit=crop&w=1400&q=80'},
-        {flag:'🇹🇭',name:'Phuket',region:'Tailandia',tag:'Aguas esmeralda y costas escondidas.',img:'https://images.unsplash.com/photo-1528181304800-259b08848526?auto=format&fit=crop&w=1400&q=80'},
-        {flag:'🇹🇷',name:'Turquía',region:'Capadocia',tag:'Globos al amanecer y paisajes de ensueño.',img:'https://images.unsplash.com/photo-1605281317010-fe5ffe798166?auto=format&fit=crop&w=1400&q=80'}
+        {flag:'🇨🇴',name:'Cartagena',region:'Colombia',tag:'Historia, gastronomía y mar Caribe.',img:'assets/images/dest-cartagena.jpg'},
+        {flag:'🇲🇽',name:'Ciudad de México',region:'México',tag:'Cultura viva, diseño y alta cocina.',img:'assets/images/dest-mexico.jpg'},
+        {flag:'🇧🇷',name:'Río de Janeiro',region:'Brasil',tag:'Montañas, bahía y ritmo carioca.',img:'assets/images/dest-rio.jpg'},
+        {flag:'🇺🇸',name:'Washington D.C.',region:'Estados Unidos',tag:'Historia, instituciones y arte.',img:'assets/images/dest-washington.jpg'},
+        {flag:'🇨🇭',name:'Suiza',region:'Alpes',tag:'Cumbres nevadas y precisión serena.',img:'assets/images/dest-suiza.jpg'},
+        {flag:'🇬🇷',name:'Santorini',region:'Grecia',tag:'Caldera, atardeceres y arquitectura blanca.',img:'assets/images/dest-santorini.jpg'},
+        {flag:'🇫🇷',name:'París',region:'Francia',tag:'Elegancia, arte y alta gastronomía.',img:'assets/images/dest-paris.jpg'},
+        {flag:'🇦🇪',name:'Dubái',region:'EAU',tag:'Lujo contemporáneo y desierto.',img:'assets/images/dest-dubai.jpg'},
+        {flag:'🇲🇻',name:'Maldivas',region:'Océano Índico',tag:'Privacidad sobre aguas turquesa.',img:'assets/images/dest-maldivas.jpg'},
+        {flag:'🇺🇸',name:'Nueva York',region:'Estados Unidos',tag:'Ritmo, cultura y horizontes infinitos.',img:'assets/images/dest-nyc.jpg'},
+        {flag:'🇮🇩',name:'Bali',region:'Indonesia',tag:'Templos, arrozales y serenidad tropical.',img:'assets/images/dest-bali.jpg'},
+        {flag:'🇮🇹',name:'Roma',region:'Italia',tag:'Historia eterna y dolce vita.',img:'assets/images/dest-roma.jpg'},
+        {flag:'🇰🇭',name:'Siem Reap',region:'Camboya',tag:'Angkor, templos y amaneceres milenarios.',img:'assets/images/dest-siem-reap.jpg'},
+        {flag:'🇹🇭',name:'Phuket',region:'Tailandia',tag:'Aguas esmeralda y costas escondidas.',img:'assets/images/dest-phuket.jpg'},
+        {flag:'🇹🇷',name:'Turquía',region:'Capadocia',tag:'Globos al amanecer y paisajes de ensueño.',img:'assets/images/dest-turquia.jpg'}
       ],
       pkgKicker:'Paquetes', pkgTitle:'Experiencias activas y próximas', pkgSee:'Ver publicación',
       pkgSubtitle:'Una selección curada de experiencias que estamos ofreciendo y eventos por venir. Coordinadas y acompañadas por Viarevex.',
@@ -754,13 +793,13 @@ class Component extends DCLogic {
          title:'Cartagena de Noche',
          desc:'Una guía curada de la noche cartagenera: los cinco lugares con sello de aprobación para una velada impecable entre historia, música y mar Caribe.',
          highlights:['Top 5 de bares y discotecas seleccionados','Mesas y accesos coordinados','Traslados privados nocturnos','Recomendaciones a tu ritmo'],
-         img:"url('https://images.unsplash.com/photo-1470337458703-46ad1756a187?auto=format&fit=crop&w=1200&q=80')",
+         img:"url('assets/images/process-bg1.jpg')",
          link:'https://www.instagram.com/p/DZquzPvoNof/', cta:'Reservar experiencia'},
         {status:'Próximo',statusBg:'#101A2B',statusColor:'#F4F0E8',when:'Diciembre 2026',flag:'🇨🇴',location:'Costa Caribe · Colombia',
          title:'The Coalescence',
          desc:'«Algunos lo esperan. Los elegidos lo viven.» Un evento de playa exclusivo donde termina el mundo conocido: música, diseño y comunidad frente al mar.',
          highlights:['Experiencia de playa exclusiva','Cupos limitados por invitación','Alojamiento y movilidad coordinados','Acompañamiento Viarevex de principio a fin'],
-         img:"url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80')",
+         img:"url('assets/images/process-bg2.jpg')",
          link:'https://www.instagram.com/p/DZ5yAqes7RX/', cta:'Solicitar acceso'}
       ],
       steps:[
@@ -830,6 +869,7 @@ class Component extends DCLogic {
       fPrivacy:'I have read and accept the Privacy Policy and the processing of my data to receive advisory.',
       finalTitle:'The world is wide. Your journey should feel entirely yours.',
       finalText:'Tell us what you imagine and let\u2019s design an experience tailored to you.',
+      videoBreakTitle:'Every destination has a story. Yours starts here.', videoBreakCta:'Design my journey',
       finalBtn1:'Talk to an advisor', finalBtn2:'Send my request',
       footerDesc:'A private firm for travel, global mobility, bespoke experiences and concierge. Global advisory, personal attention.',
       footerNav:'Navigation', footerContact:'Contact', footerLegal:'Legal',
@@ -845,29 +885,29 @@ class Component extends DCLogic {
       tripTypes:['Vacation','Honeymoon','Family','Corporate','Cruise','Private flight','Multi-destination','Other'],
       errName:'Please enter your name.', errEmail:'Enter a valid email.', errPhone:'Enter a valid WhatsApp number.', errPrivacy:'You must accept the privacy policy.',
       services:[
-        {num:'01',title:'Bespoke travel',desc:'Itineraries, hotels, experiences, honeymoons, getaways, family and multi-destination trips designed around your style.',img:'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=900&q=80'},
-        {num:'02',title:'Flights & mobility',desc:'Strategic management of commercial flights, car rental, private transfers and international mobility.',img:'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=900&q=80'},
-        {num:'03',title:'Documents & protection',desc:'Support through visa processes, travel insurance and review of general requirements, with responsible guidance.',img:'https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=900&q=80'},
-        {num:'04',title:'Cruises & experiences',desc:'Cruises, dining, excursions, activities, celebrations and personalized experiences.',img:'https://images.unsplash.com/photo-1599640842225-85d111c60e6b?auto=format&fit=crop&w=900&q=80'},
-        {num:'05',title:'Corporate travel',desc:'Executive travel, business agendas, group coordination and itinerary optimization.',img:'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=900&q=80'},
-        {num:'06',title:'Private Travel',desc:'Private flights, premium transfers, concierge and discreet attention for special requests.',img:'https://images.unsplash.com/photo-1540962351504-03099e0a754b?auto=format&fit=crop&w=900&q=80'}
+        {num:'01',title:'Bespoke travel',desc:'Itineraries, hotels, experiences, honeymoons, getaways, family and multi-destination trips designed around your style.',img:'assets/images/service-travel.jpg'},
+        {num:'02',title:'Flights & mobility',desc:'Strategic management of commercial flights, car rental, private transfers and international mobility.',img:'assets/images/service-flights.jpg'},
+        {num:'03',title:'Documents & protection',desc:'Support through visa processes, travel insurance and review of general requirements, with responsible guidance.',img:'assets/images/service-docs.jpg'},
+        {num:'04',title:'Cruises & experiences',desc:'Cruises, dining, excursions, activities, celebrations and personalized experiences.',img:'assets/images/service-cruises.jpg'},
+        {num:'05',title:'Corporate travel',desc:'Executive travel, business agendas, group coordination and itinerary optimization.',img:'assets/images/corporate.jpg'},
+        {num:'06',title:'Private Travel',desc:'Private flights, premium transfers, concierge and discreet attention for special requests.',img:'assets/images/jet-private.jpg'}
       ],
       destinations:[
-        {flag:'🇨🇴',name:'Cartagena',region:'Colombia',tag:'History, cuisine and the Caribbean sea.',img:'https://images.unsplash.com/photo-1583531352515-8884af319dc1?auto=format&fit=crop&w=1400&q=80'},
-        {flag:'🇲🇽',name:'Mexico City',region:'Mexico',tag:'Living culture, design and fine dining.',img:'https://images.unsplash.com/photo-1518105779142-d975f22f1b0a?auto=format&fit=crop&w=1400&q=80'},
-        {flag:'🇧🇷',name:'Rio de Janeiro',region:'Brazil',tag:'Mountains, bay and carioca rhythm.',img:'https://images.unsplash.com/photo-1483729558449-99ef09a8c325?auto=format&fit=crop&w=1400&q=80'},
-        {flag:'🇺🇸',name:'Washington D.C.',region:'United States',tag:'History, institutions and art.',img:'https://images.unsplash.com/photo-1463839346397-8e9946845e6d?auto=format&fit=crop&w=1400&q=80'},
-        {flag:'🇨🇭',name:'Switzerland',region:'The Alps',tag:'Snowy peaks and serene precision.',img:'https://images.unsplash.com/photo-1530122037265-a5f1f91d3b99?auto=format&fit=crop&w=1400&q=80'},
-        {flag:'🇬🇷',name:'Santorini',region:'Greece',tag:'Caldera, sunsets and white architecture.',img:'https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?auto=format&fit=crop&w=1400&q=80'},
-        {flag:'🇫🇷',name:'Paris',region:'France',tag:'Elegance, art and fine dining.',img:'https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=1400&q=80'},
-        {flag:'🇦🇪',name:'Dubai',region:'UAE',tag:'Contemporary luxury and desert.',img:'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1400&q=80'},
-        {flag:'🇲🇻',name:'Maldives',region:'Indian Ocean',tag:'Privacy over turquoise waters.',img:'https://images.unsplash.com/photo-1514282401047-d79a71a590e8?auto=format&fit=crop&w=1400&q=80'},
-        {flag:'🇺🇸',name:'New York',region:'United States',tag:'Rhythm, culture and endless skylines.',img:'https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?auto=format&fit=crop&w=1400&q=80'},
-        {flag:'🇮🇩',name:'Bali',region:'Indonesia',tag:'Temples, rice terraces and tropical calm.',img:'https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=1400&q=80'},
-        {flag:'🇮🇹',name:'Rome',region:'Italy',tag:'Eternal history and dolce vita.',img:'https://images.unsplash.com/photo-1552832230-c0197dd311b5?auto=format&fit=crop&w=1400&q=80'},
-        {flag:'🇰🇭',name:'Siem Reap',region:'Cambodia',tag:'Angkor, temples and ancient sunrises.',img:'https://images.unsplash.com/photo-1599708153386-62bf3f035c2c?auto=format&fit=crop&w=1400&q=80'},
-        {flag:'🇹🇭',name:'Phuket',region:'Thailand',tag:'Emerald waters and hidden shores.',img:'https://images.unsplash.com/photo-1528181304800-259b08848526?auto=format&fit=crop&w=1400&q=80'},
-        {flag:'🇹🇷',name:'Türkiye',region:'Cappadocia',tag:'Sunrise balloons and dreamlike landscapes.',img:'https://images.unsplash.com/photo-1605281317010-fe5ffe798166?auto=format&fit=crop&w=1400&q=80'}
+        {flag:'🇨🇴',name:'Cartagena',region:'Colombia',tag:'History, cuisine and the Caribbean sea.',img:'assets/images/dest-cartagena.jpg'},
+        {flag:'🇲🇽',name:'Mexico City',region:'Mexico',tag:'Living culture, design and fine dining.',img:'assets/images/dest-mexico.jpg'},
+        {flag:'🇧🇷',name:'Rio de Janeiro',region:'Brazil',tag:'Mountains, bay and carioca rhythm.',img:'assets/images/dest-rio.jpg'},
+        {flag:'🇺🇸',name:'Washington D.C.',region:'United States',tag:'History, institutions and art.',img:'assets/images/dest-washington.jpg'},
+        {flag:'🇨🇭',name:'Switzerland',region:'The Alps',tag:'Snowy peaks and serene precision.',img:'assets/images/dest-suiza.jpg'},
+        {flag:'🇬🇷',name:'Santorini',region:'Greece',tag:'Caldera, sunsets and white architecture.',img:'assets/images/dest-santorini.jpg'},
+        {flag:'🇫🇷',name:'Paris',region:'France',tag:'Elegance, art and fine dining.',img:'assets/images/dest-paris.jpg'},
+        {flag:'🇦🇪',name:'Dubai',region:'UAE',tag:'Contemporary luxury and desert.',img:'assets/images/dest-dubai.jpg'},
+        {flag:'🇲🇻',name:'Maldives',region:'Indian Ocean',tag:'Privacy over turquoise waters.',img:'assets/images/dest-maldivas.jpg'},
+        {flag:'🇺🇸',name:'New York',region:'United States',tag:'Rhythm, culture and endless skylines.',img:'assets/images/dest-nyc.jpg'},
+        {flag:'🇮🇩',name:'Bali',region:'Indonesia',tag:'Temples, rice terraces and tropical calm.',img:'assets/images/dest-bali.jpg'},
+        {flag:'🇮🇹',name:'Rome',region:'Italy',tag:'Eternal history and dolce vita.',img:'assets/images/dest-roma.jpg'},
+        {flag:'🇰🇭',name:'Siem Reap',region:'Cambodia',tag:'Angkor, temples and ancient sunrises.',img:'assets/images/dest-siem-reap.jpg'},
+        {flag:'🇹🇭',name:'Phuket',region:'Thailand',tag:'Emerald waters and hidden shores.',img:'assets/images/dest-phuket.jpg'},
+        {flag:'🇹🇷',name:'Türkiye',region:'Cappadocia',tag:'Sunrise balloons and dreamlike landscapes.',img:'assets/images/dest-turquia.jpg'}
       ],
       pkgKicker:'Packages', pkgTitle:'Active & upcoming experiences', pkgSee:'View post',
       pkgSubtitle:'A curated selection of experiences we are currently offering and events to come. Coordinated and accompanied by Viarevex.',
@@ -876,13 +916,13 @@ class Component extends DCLogic {
          title:'Cartagena by Night',
          desc:'A curated guide to Cartagena nights: the five places with the seal of approval for an impeccable evening of history, music and the Caribbean sea.',
          highlights:['Top 5 selected bars & clubs','Coordinated tables and access','Private night transfers','Recommendations at your pace'],
-         img:"url('https://images.unsplash.com/photo-1470337458703-46ad1756a187?auto=format&fit=crop&w=1200&q=80')",
+         img:"url('assets/images/process-bg1.jpg')",
          link:'https://www.instagram.com/p/DZquzPvoNof/', cta:'Book experience'},
         {status:'Upcoming',statusBg:'#101A2B',statusColor:'#F4F0E8',when:'December 2026',flag:'🇨🇴',location:'Caribbean coast · Colombia',
          title:'The Coalescence',
          desc:'\u201cSome wait for it. The chosen ones live it.\u201d An exclusive beach event where the known world ends: music, design and community by the sea.',
          highlights:['Exclusive beach experience','Limited spots, by invitation','Coordinated lodging and mobility','Viarevex support from start to finish'],
-         img:"url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80')",
+         img:"url('assets/images/process-bg2.jpg')",
          link:'https://www.instagram.com/p/DZ5yAqes7RX/', cta:'Request access'}
       ],
       steps:[
