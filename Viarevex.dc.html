@@ -98,11 +98,12 @@
     .vx-pkggrid{grid-template-columns:1fr!important}
     .vx-avinset{position:relative!important;bottom:auto!important;right:auto!important;width:60%!important;margin-top:14px!important;border-width:0!important}
   }
-  @media(max-width:560px){
+  @media(max-width:680px){
     .vx-svcgrid,.vx-destgrid,.vx-whygrid,.vx-howgrid,.vx-footgrid,.vx-supgrid{grid-template-columns:1fr!important}
     .vx-destother{grid-column:span 1!important;flex-direction:column!important;align-items:flex-start!important}
     form{grid-template-columns:1fr!important}
     form label[style*="span 2"]{grid-column:span 1!important}
+    #contacto{padding-left:clamp(18px,5vw,40px)!important;padding-right:clamp(18px,5vw,40px)!important}
     h1{font-size:38px!important}
   }
   :focus-visible{outline:2px solid #B89A62;outline-offset:3px}
@@ -439,7 +440,13 @@
       </label>
       <label style="display:flex;flex-direction:column;gap:7px">
         <span style="font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#101A2B">{{ fPhone }} *</span>
-        <input name="phone" value="{{ f_phone }}" onInput="{{ onField }}" onBlur="{{ onBlur }}" type="tel" placeholder="+52..." aria-describedby="err-phone" style="border:none;border-bottom:1px solid #B9B4AA;background:none;padding:9px 0;font-size:15px;font-family:inherit;color:#0B0B0C" />
+        <div style="display:flex;align-items:center;border-bottom:1px solid #B9B4AA;gap:6px">
+          <select name="phoneCode" value="{{ f_phoneCode }}" onChange="{{ onField }}" aria-label="Código de país" style="border:none;background:none;padding:9px 0;font-size:14px;font-family:inherit;color:#0B0B0C;cursor:pointer;flex-shrink:0;max-width:120px;min-width:0">
+            <sc-for list="{{ phoneCodes }}" as="pc"><option value="{{ pc.code }}">{{ pc.label }}</option></sc-for>
+          </select>
+          <span style="color:#B9B4AA;font-size:14px;flex-shrink:0">|</span>
+          <input name="phone" value="{{ f_phone }}" onInput="{{ onField }}" onBlur="{{ onBlur }}" type="tel" aria-describedby="err-phone" placeholder="000 000 0000" style="border:none;background:none;padding:9px 0;font-size:15px;font-family:inherit;color:#0B0B0C;flex:1;min-width:0" />
+        </div>
         <span id="err-phone" style="font-size:12px;color:#C8453B;min-height:16px;display:block" aria-live="polite">{{ f_phoneErr }}</span>
       </label>
       <label style="display:flex;flex-direction:column;gap:7px">
@@ -608,7 +615,7 @@ class Component extends DCLogic {
     openFaq: null, cookieDecided: true, cookieBanner: false, cookieModal: false,
     prefs: { necessary: true, preferences: false, analytics: false, marketing: false },
     legal: null, toast: null,
-    form: { name:'', email:'', phone:'', country:'', dest:'', date:'', type:'', travelers:'', message:'', privacy:false },
+    form: { name:'', email:'', phone:'', phoneCode:'+52', country:'', dest:'', date:'', type:'', travelers:'', message:'', privacy:false },
     formError: '', touched: {}
   };
 
@@ -1033,11 +1040,11 @@ class Component extends DCLogic {
     const L = this.state.lang;
     const lines = L === 'es'
       ? ['Hola, Viarevex. Me gustaría recibir una asesoría.','',
-         'Nombre: ' + f.name, 'Correo: ' + f.email, 'WhatsApp: ' + f.phone,
+         'Nombre: ' + f.name, 'Correo: ' + f.email, 'WhatsApp: ' + f.phoneCode + ' ' + f.phone,
          'País: ' + (f.country||'—'), 'Destino: ' + (f.dest||'—'), 'Fecha estimada: ' + (f.date||'—'),
          'Viajeros: ' + (f.travelers||'—'), 'Tipo de viaje: ' + (f.type||'—'), 'Mensaje: ' + (f.message||'—')]
       : ['Hello, Viarevex. I would like to receive advisory.','',
-         'Name: ' + f.name, 'Email: ' + f.email, 'WhatsApp: ' + f.phone,
+         'Name: ' + f.name, 'Email: ' + f.email, 'WhatsApp: ' + f.phoneCode + ' ' + f.phone,
          'Country: ' + (f.country||'—'), 'Destination: ' + (f.dest||'—'), 'Dates: ' + (f.date||'—'),
          'Travelers: ' + (f.travelers||'—'), 'Trip type: ' + (f.type||'—'), 'Message: ' + (f.message||'—')];
     const url = 'https://wa.me/525644091087?text=' + encodeURIComponent(lines.join('\n'));
@@ -1119,7 +1126,16 @@ class Component extends DCLogic {
       conciergeItems: t.conciergeItems, corpBenefits: t.corpBenefits, supportItems: t.supportItems,
       tripTypes: t.tripTypes,
       // form binding
-      f_name: s.form.name, f_email: s.form.email, f_phone: s.form.phone, f_country: s.form.country,
+      phoneCodes: [
+        {code:'+1',label:'🇺🇸🇨🇦 +1'},{code:'+52',label:'🇲🇽 +52'},{code:'+57',label:'🇨🇴 +57'},
+        {code:'+54',label:'🇦🇷 +54'},{code:'+56',label:'🇨🇱 +56'},{code:'+51',label:'🇵🇪 +51'},
+        {code:'+55',label:'🇧🇷 +55'},{code:'+58',label:'🇻🇪 +58'},{code:'+593',label:'🇪🇨 +593'},
+        {code:'+506',label:'🇨🇷 +506'},{code:'+507',label:'🇵🇦 +507'},{code:'+1809',label:'🇩🇴 +1809'},
+        {code:'+34',label:'🇪🇸 +34'},{code:'+44',label:'🇬🇧 +44'},{code:'+33',label:'🇫🇷 +33'},
+        {code:'+49',label:'🇩🇪 +49'},{code:'+39',label:'🇮🇹 +39'},{code:'+351',label:'🇵🇹 +351'},
+        {code:'+971',label:'🇦🇪 +971'},{code:'+81',label:'🇯🇵 +81'},{code:'+61',label:'🇦🇺 +61'},
+      ],
+      f_name: s.form.name, f_email: s.form.email, f_phone: s.form.phone, f_phoneCode: s.form.phoneCode, f_country: s.form.country,
       f_dest: s.form.dest, f_date: s.form.date, f_type: s.form.type, f_travelers: s.form.travelers,
       f_message: s.form.message, f_privacy: s.form.privacy,
       f_nameErr:  s.touched.name  && !s.form.name.trim() ? t.errName : '',
