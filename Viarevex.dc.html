@@ -101,13 +101,14 @@
   @media(max-width:680px){
     .vx-svcgrid,.vx-destgrid,.vx-whygrid,.vx-howgrid,.vx-footgrid,.vx-supgrid{grid-template-columns:1fr!important}
     .vx-destother{grid-column:span 1!important;flex-direction:column!important;align-items:flex-start!important}
-    form{grid-template-columns:1fr!important;gap:24px!important}
-    form label[style*="span 2"]{grid-column:span 1!important}
-    form label{gap:10px!important}
-    form input,form select,form textarea{font-size:16px!important;padding-top:13px!important;padding-bottom:13px!important}
-    form textarea{padding:13px 12px!important}
-    form select{padding-top:13px!important;padding-bottom:13px!important}
     h1{font-size:38px!important}
+    .vx-form{grid-template-columns:1fr!important;gap:28px!important}
+    .vx-form>*{grid-column:1!important}
+    .vx-form .vx-flabel{gap:11px!important}
+    .vx-form .vx-finput,.vx-form .vx-fselect,.vx-form .vx-farea{font-size:16px!important;padding-top:14px!important;padding-bottom:14px!important}
+    .vx-form .vx-farea{padding-left:12px!important;padding-right:12px!important;min-height:110px!important}
+    .vx-form .vx-phonewrap .vx-fselect,.vx-form .vx-phonewrap .vx-finput{padding-top:14px!important;padding-bottom:14px!important}
+    .vx-form .vx-fsubmit{padding:18px!important;font-size:14px!important}
   }
   :focus-visible{outline:2px solid #B89A62;outline-offset:3px}
   button:focus-visible,a:focus-visible{outline:2px solid #B89A62;outline-offset:3px}
@@ -433,61 +434,61 @@
         <p style="font-size:13px;color:#55555a;letter-spacing:.02em">{{ orFill }}</p>
       </div>
     </div>
-    <form onSubmit="{{ submitForm }}" class="rv" novalidate style="display:grid;grid-template-columns:1fr 1fr;gap:22px">
-      <label style="display:flex;flex-direction:column;gap:7px">
+    <form onSubmit="{{ submitForm }}" class="rv vx-form" novalidate style="display:grid;grid-template-columns:1fr 1fr;gap:22px">
+      <label class="vx-flabel" style="display:flex;flex-direction:column;gap:7px">
         <span style="font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#101A2B">{{ fName }} *</span>
-        <input name="name" value="{{ f_name }}" onInput="{{ onField }}" onBlur="{{ onBlur }}" type="text" aria-describedby="err-name" style="border:none;border-bottom:1px solid #B9B4AA;background:none;padding:9px 0;font-size:15px;font-family:inherit;color:#0B0B0C" />
+        <input class="vx-finput" name="name" value="{{ f_name }}" onInput="{{ onField }}" onBlur="{{ onBlur }}" type="text" aria-describedby="err-name" style="border:none;border-bottom:1px solid #B9B4AA;background:none;padding:9px 0;font-size:15px;font-family:inherit;color:#0B0B0C;width:100%" />
         <span id="err-name" style="font-size:12px;color:#C8453B;min-height:16px;display:block" aria-live="polite">{{ f_nameErr }}</span>
       </label>
-      <label style="display:flex;flex-direction:column;gap:7px">
+      <label class="vx-flabel" style="display:flex;flex-direction:column;gap:7px">
         <span style="font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#101A2B">{{ fEmail }} *</span>
-        <input name="email" value="{{ f_email }}" onInput="{{ onField }}" onBlur="{{ onBlur }}" type="email" aria-describedby="err-email" style="border:none;border-bottom:1px solid #B9B4AA;background:none;padding:9px 0;font-size:15px;font-family:inherit;color:#0B0B0C" />
+        <input class="vx-finput" name="email" value="{{ f_email }}" onInput="{{ onField }}" onBlur="{{ onBlur }}" type="email" aria-describedby="err-email" style="border:none;border-bottom:1px solid #B9B4AA;background:none;padding:9px 0;font-size:15px;font-family:inherit;color:#0B0B0C;width:100%" />
         <span id="err-email" style="font-size:12px;color:#C8453B;min-height:16px;display:block" aria-live="polite">{{ f_emailErr }}</span>
       </label>
-      <label style="display:flex;flex-direction:column;gap:7px">
+      <label class="vx-flabel" style="display:flex;flex-direction:column;gap:7px">
         <span style="font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#101A2B">{{ fPhone }} *</span>
-        <div style="display:flex;align-items:center;border-bottom:1px solid #B9B4AA;gap:6px">
-          <select name="phoneCode" value="{{ f_phoneCode }}" onChange="{{ onField }}" aria-label="Código de país" style="border:none;background:none;padding:9px 0;font-size:14px;font-family:inherit;color:#0B0B0C;cursor:pointer;flex-shrink:0;max-width:120px;min-width:0">
+        <div class="vx-phonewrap" style="display:flex;align-items:center;border-bottom:1px solid #B9B4AA;gap:6px">
+          <select class="vx-fselect" name="phoneCode" value="{{ f_phoneCode }}" onChange="{{ onField }}" aria-label="Código de país" style="border:none;background:none;padding:9px 0;font-size:14px;font-family:inherit;color:#0B0B0C;cursor:pointer;flex-shrink:0;width:auto;max-width:130px;min-width:0">
             <sc-for list="{{ phoneCodes }}" as="pc"><option value="{{ pc.code }}">{{ pc.label }}</option></sc-for>
           </select>
           <span style="color:#B9B4AA;font-size:14px;flex-shrink:0">|</span>
-          <input name="phone" value="{{ f_phone }}" onInput="{{ onField }}" onBlur="{{ onBlur }}" type="tel" aria-describedby="err-phone" placeholder="000 000 0000" style="border:none;background:none;padding:9px 0;font-size:15px;font-family:inherit;color:#0B0B0C;flex:1;min-width:0" />
+          <input class="vx-finput" name="phone" value="{{ f_phone }}" onInput="{{ onField }}" onBlur="{{ onBlur }}" type="tel" aria-describedby="err-phone" placeholder="000 000 0000" style="border:none;background:none;padding:9px 0;font-size:15px;font-family:inherit;color:#0B0B0C;flex:1;min-width:0;width:auto" />
         </div>
         <span id="err-phone" style="font-size:12px;color:#C8453B;min-height:16px;display:block" aria-live="polite">{{ f_phoneErr }}</span>
       </label>
-      <label style="display:flex;flex-direction:column;gap:7px">
+      <label class="vx-flabel" style="display:flex;flex-direction:column;gap:7px">
         <span style="font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#101A2B">{{ fCountry }}</span>
-        <input name="country" value="{{ f_country }}" onInput="{{ onField }}" type="text" style="border:none;border-bottom:1px solid #B9B4AA;background:none;padding:9px 0;font-size:15px;font-family:inherit;color:#0B0B0C" />
+        <input class="vx-finput" name="country" value="{{ f_country }}" onInput="{{ onField }}" type="text" style="border:none;border-bottom:1px solid #B9B4AA;background:none;padding:9px 0;font-size:15px;font-family:inherit;color:#0B0B0C;width:100%" />
       </label>
-      <label style="display:flex;flex-direction:column;gap:7px">
+      <label class="vx-flabel" style="display:flex;flex-direction:column;gap:7px">
         <span style="font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#101A2B">{{ fDest }}</span>
-        <input name="dest" value="{{ f_dest }}" onInput="{{ onField }}" type="text" style="border:none;border-bottom:1px solid #B9B4AA;background:none;padding:9px 0;font-size:15px;font-family:inherit;color:#0B0B0C" />
+        <input class="vx-finput" name="dest" value="{{ f_dest }}" onInput="{{ onField }}" type="text" style="border:none;border-bottom:1px solid #B9B4AA;background:none;padding:9px 0;font-size:15px;font-family:inherit;color:#0B0B0C;width:100%" />
       </label>
-      <label style="display:flex;flex-direction:column;gap:7px">
+      <label class="vx-flabel" style="display:flex;flex-direction:column;gap:7px">
         <span style="font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#101A2B">{{ fDate }}</span>
-        <input name="date" value="{{ f_date }}" onInput="{{ onField }}" type="text" placeholder="{{ fDatePh }}" style="border:none;border-bottom:1px solid #B9B4AA;background:none;padding:9px 0;font-size:15px;font-family:inherit;color:#0B0B0C" />
+        <input class="vx-finput" name="date" value="{{ f_date }}" onInput="{{ onField }}" type="text" placeholder="{{ fDatePh }}" style="border:none;border-bottom:1px solid #B9B4AA;background:none;padding:9px 0;font-size:15px;font-family:inherit;color:#0B0B0C;width:100%" />
       </label>
-      <label style="display:flex;flex-direction:column;gap:7px">
+      <label class="vx-flabel" style="display:flex;flex-direction:column;gap:7px">
         <span style="font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#101A2B">{{ fType }}</span>
-        <select name="type" value="{{ f_type }}" onChange="{{ onField }}" style="border:none;border-bottom:1px solid #B9B4AA;background:none;padding:9px 0;font-size:15px;font-family:inherit;color:#0B0B0C">
+        <select class="vx-fselect" name="type" value="{{ f_type }}" onChange="{{ onField }}" style="border:none;border-bottom:1px solid #B9B4AA;background:none;padding:9px 0;font-size:15px;font-family:inherit;color:#0B0B0C;width:100%">
           <sc-for list="{{ tripTypes }}" as="o" hint-placeholder-count="8"><option value="{{ o }}">{{ o }}</option></sc-for>
         </select>
       </label>
-      <label style="display:flex;flex-direction:column;gap:7px">
+      <label class="vx-flabel" style="display:flex;flex-direction:column;gap:7px">
         <span style="font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#101A2B">{{ fTravelers }}</span>
-        <input name="travelers" value="{{ f_travelers }}" onInput="{{ onField }}" type="number" min="1" style="border:none;border-bottom:1px solid #B9B4AA;background:none;padding:9px 0;font-size:15px;font-family:inherit;color:#0B0B0C" />
+        <input class="vx-finput" name="travelers" value="{{ f_travelers }}" onInput="{{ onField }}" type="number" min="1" style="border:none;border-bottom:1px solid #B9B4AA;background:none;padding:9px 0;font-size:15px;font-family:inherit;color:#0B0B0C;width:100%" />
       </label>
-      <label style="display:flex;flex-direction:column;gap:7px;grid-column:span 2">
+      <label class="vx-flabel" style="display:flex;flex-direction:column;gap:7px;grid-column:span 2">
         <span style="font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#101A2B">{{ fMessage }}</span>
-        <textarea name="message" value="{{ f_message }}" onInput="{{ onField }}" rows="3" style="border:1px solid #B9B4AA;background:none;padding:12px;font-size:15px;font-family:inherit;color:#0B0B0C;resize:vertical;border-radius:2px"></textarea>
+        <textarea class="vx-farea" name="message" value="{{ f_message }}" onInput="{{ onField }}" rows="4" style="border:1px solid #B9B4AA;background:none;padding:12px;font-size:15px;font-family:inherit;color:#0B0B0C;resize:vertical;border-radius:2px;width:100%"></textarea>
       </label>
-      <label style="display:flex;align-items:flex-start;gap:11px;grid-column:span 2;cursor:pointer">
+      <label class="vx-flabel" style="display:flex;align-items:flex-start;gap:11px;grid-column:span 2;cursor:pointer">
         <input name="privacy" checked="{{ f_privacy }}" onChange="{{ onCheck }}" type="checkbox" style="margin-top:3px;width:17px;height:17px;accent-color:#B89A62;flex-shrink:0" />
         <span style="font-size:13px;color:#55555a;line-height:1.5">{{ fPrivacy }}</span>
       </label>
       <div style="grid-column:span 2;display:flex;flex-direction:column;gap:14px">
         <p style="font-size:13px;color:#C8453B;min-height:18px" role="alert" aria-live="polite">{{ formError }}</p>
-        <button type="submit" style="background:#101A2B;color:#F4F0E8;border:none;padding:16px;border-radius:2px;font-size:13px;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;font-family:inherit;font-weight:500">{{ fSubmit }}</button>
+        <button type="submit" class="vx-fsubmit" style="background:#101A2B;color:#F4F0E8;border:none;padding:16px;border-radius:2px;font-size:13px;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;font-family:inherit;font-weight:500;width:100%">{{ fSubmit }}</button>
       </div>
     </form>
   </section>
