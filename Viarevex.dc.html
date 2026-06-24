@@ -135,11 +135,14 @@
       <button onClick="{{ toggleLang }}" aria-label="Language" style="background:none;border:1px solid {{ langBorder }};color:{{ navColor }};font-size:11px;letter-spacing:.1em;padding:5px 10px;border-radius:2px;cursor:pointer;font-family:inherit">{{ langLabel }}</button>
       <a href="#contacto" style="text-decoration:none;font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:#0B0B0C;background:#B89A62;padding:11px 20px;border-radius:2px;font-weight:500;white-space:nowrap">{{ ctaDesign }}</a>
     </nav>
-    <button onClick="{{ openMenu }}" aria-label="Menu" class="vx-burger" style="display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px">
-      <span style="width:24px;height:1.5px;background:{{ navColor }};display:block"></span>
-      <span style="width:24px;height:1.5px;background:{{ navColor }};display:block"></span>
-      <span style="width:24px;height:1.5px;background:{{ navColor }};display:block"></span>
-    </button>
+    <div class="vx-burger" style="display:none;align-items:center;gap:12px">
+      <button onClick="{{ toggleLang }}" aria-label="Language" style="background:none;border:1px solid {{ langBorder }};color:{{ navColor }};font-size:11px;letter-spacing:.1em;padding:5px 10px;border-radius:2px;cursor:pointer;font-family:inherit">{{ langLabel }}</button>
+      <button onClick="{{ openMenu }}" aria-label="Menu" style="display:flex;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px">
+        <span style="width:24px;height:1.5px;background:{{ navColor }};display:block"></span>
+        <span style="width:24px;height:1.5px;background:{{ navColor }};display:block"></span>
+        <span style="width:24px;height:1.5px;background:{{ navColor }};display:block"></span>
+      </button>
+    </div>
   </header>
 
   <!-- MOBILE MENU -->
