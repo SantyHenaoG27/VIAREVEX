@@ -4,29 +4,22 @@ on:
   push:
     branches: [main]
 
-permissions:
-  contents: read
-  deployments: write
-
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    name: Deploy
+    permissions:
+      contents: read
+      deployments: write
     steps:
       - uses: actions/checkout@v4
 
-      - uses: actions/setup-node@v4
+      - name: Create entry point
+        run: cp Viarevex.dc.html index.html
+
+      - uses: cloudflare/pages-action@v1
         with:
-          node-version: '24'
-
-      - name: Create Pages project (skips if already exists)
-        run: npx wrangler pages project create viarevex --production-branch=main || true
-        env:
-          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-
-      - name: Deploy to Cloudflare Pages
-        run: npx wrangler pages deploy . --project-name=viarevex --branch=main
-        env:
-          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          projectName: viarevex
+          directory: .
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
