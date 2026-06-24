@@ -101,9 +101,12 @@
   @media(max-width:680px){
     .vx-svcgrid,.vx-destgrid,.vx-whygrid,.vx-howgrid,.vx-footgrid,.vx-supgrid{grid-template-columns:1fr!important}
     .vx-destother{grid-column:span 1!important;flex-direction:column!important;align-items:flex-start!important}
-    form{grid-template-columns:1fr!important}
+    form{grid-template-columns:1fr!important;gap:24px!important}
     form label[style*="span 2"]{grid-column:span 1!important}
-    #contacto{padding-left:clamp(18px,5vw,40px)!important;padding-right:clamp(18px,5vw,40px)!important}
+    form label{gap:10px!important}
+    form input,form select,form textarea{font-size:16px!important;padding-top:13px!important;padding-bottom:13px!important}
+    form textarea{padding:13px 12px!important}
+    form select{padding-top:13px!important;padding-bottom:13px!important}
     h1{font-size:38px!important}
   }
   :focus-visible{outline:2px solid #B89A62;outline-offset:3px}
