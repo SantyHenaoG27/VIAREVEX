@@ -41,7 +41,7 @@
   "logo": "https://www.viarevex.net/og-image.jpg",
   "description": "Asesoría de viajes personalizada. Diseñamos itinerarios a la medida y coordinamos vuelos, hoteles, traslados y asistencia.",
   "telephone": "+525644091087",
-  "email": "andrewamericas98@gmail.com",
+  "email": "president@viarevex.net",
   "contactPoint": {
     "@type": "ContactPoint",
     "telephone": "+525644091087",
@@ -62,12 +62,12 @@
 <helmet>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;1,400&family=Figtree:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="preload" as="video" href="assets/videos/hero.mp4" type="video/mp4">
 <style>
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth;overflow-x:hidden}
-  body{font-family:'Inter',system-ui,sans-serif;background:#FAF9F6;color:#0B0B0C;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  body{font-family:'Figtree',system-ui,sans-serif;background:#FAF9F6;color:#0B0B0C;-webkit-font-smoothing:antialiased;overflow-x:hidden}
   input,select,textarea{min-width:0;width:100%}
   .rv{opacity:0;transform:translateY(20px);transition:opacity 1s cubic-bezier(.16,1,.3,1),transform 1s cubic-bezier(.16,1,.3,1)}
   .rv.in{opacity:1;transform:none}
@@ -78,9 +78,22 @@
   ::selection{background:#B89A62;color:#fff}
   @media(prefers-reduced-motion:reduce){.rv{opacity:1!important;transform:none!important}html{scroll-behavior:auto}video{animation:none!important}}
   .vx-destcard:hover img{transform:scale(1.06)}
+  .vx-svc-img{aspect-ratio:16/10}
+  .vx-svcgrid article:nth-child(1){grid-column:span 2}
+  .vx-svcgrid article:nth-child(1) .vx-svc-img{aspect-ratio:21/9}
+  .vx-svcgrid article:nth-child(6){grid-column:1/-1;flex-direction:row!important;background:#101A2B!important;border-color:rgba(184,154,98,.28)!important}
+  .vx-svcgrid article:nth-child(6) .vx-svc-img{aspect-ratio:unset;flex:0 0 50%;min-height:300px}
+  .vx-svcgrid article:nth-child(6) .vx-svc-body{justify-content:center;padding:40px 48px!important}
+  .vx-svcgrid article:nth-child(6) .vx-svc-h{color:#F4F0E8!important}
+  .vx-svcgrid article:nth-child(6) .vx-svc-p{color:rgba(244,240,232,.72)!important}
+  .vx-svcgrid article:nth-child(6) .vx-svc-cta{color:#B89A62!important;border-color:#B89A62!important}
   @media(max-width:1024px){
     .vx-svcgrid,.vx-destgrid,.vx-whygrid{grid-template-columns:repeat(2,1fr)!important}
     .vx-howgrid{grid-template-columns:repeat(2,1fr)!important}
+    .vx-svcgrid article:nth-child(1){grid-column:span 2}
+    .vx-svcgrid article:nth-child(6){flex-direction:column!important}
+    .vx-svcgrid article:nth-child(6) .vx-svc-img{flex:none;min-height:unset;aspect-ratio:16/10}
+    .vx-svcgrid article:nth-child(6) .vx-svc-body{padding:28px 26px 30px!important}
     .vx-footgrid{grid-template-columns:1fr 1fr!important}
     .vx-destother{grid-column:span 2!important}
   }
@@ -103,6 +116,8 @@
     .vx-dest-prev{top:16px!important;transform:none!important}
     .vx-dest-next{top:16px!important;transform:none!important}
     .vx-svcgrid,.vx-destgrid,.vx-whygrid,.vx-howgrid,.vx-footgrid,.vx-supgrid{grid-template-columns:1fr!important}
+    .vx-svcgrid article:nth-child(1){grid-column:span 1}
+    .vx-svcgrid article:nth-child(1) .vx-svc-img{aspect-ratio:16/10}
     .vx-destother{grid-column:span 1!important;flex-direction:column!important;align-items:flex-start!important}
     h1{font-size:38px!important}
     .vx-form{grid-template-columns:1fr!important;gap:28px!important}
@@ -122,12 +137,6 @@
   /* — Grain overlay — */
   #vx-grain{position:fixed;inset:0;pointer-events:none;z-index:998;opacity:.038;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:200px 200px}
 
-  /* — Custom cursor — */
-  #vx-cur{position:fixed;top:0;left:0;width:8px;height:8px;margin:-4px 0 0 -4px;border-radius:50%;background:#B89A62;pointer-events:none;z-index:9999;opacity:0;transition:opacity .4s ease,transform .3s cubic-bezier(.16,1,.3,1),background .3s ease}
-  #vx-cur.show{opacity:1}
-  #vx-cur.big{transform:scale(5.5);background:rgba(184,154,98,.12)}
-  @media(pointer:coarse){#vx-cur{display:none!important}}
-
   /* — Logo shimmer — */
   .vx-logo-s{position:relative;overflow:hidden;display:inline-block}
   .vx-logo-s::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent 0%,rgba(184,154,98,.5) 50%,transparent 100%);transform:translateX(-150%) skewX(-20deg);transition:transform .7s cubic-bezier(.16,1,.3,1)}
@@ -136,7 +145,7 @@
   /* — Marquee — */
   .vx-mq{overflow:hidden;padding:15px 0}
   .vx-mq-t{display:flex;width:max-content;animation:vxmq 42s linear infinite}
-  .vx-mq-i{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:15.5px;letter-spacing:.14em;color:#8a857c;padding:0 28px;white-space:nowrap;flex-shrink:0}
+  .vx-mq-i{font-family:'Spectral',Georgia,serif;font-style:italic;font-size:15.5px;letter-spacing:.14em;color:#8a857c;padding:0 28px;white-space:nowrap;flex-shrink:0}
   .vx-mq-sep{font-size:9px;flex-shrink:0;align-self:center;color:#B89A62;padding:0 2px}
   @keyframes vxmq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
   @media(prefers-reduced-motion:reduce){.vx-mq-t{animation:none}}
@@ -146,18 +155,14 @@
   .vx-hw{display:inline-block;opacity:0;transform:translateY(20px);transition:opacity .85s cubic-bezier(.16,1,.3,1) var(--d,0ms),transform .85s cubic-bezier(.16,1,.3,1) var(--d,0ms)}
   .vx-hw.in{opacity:1;transform:none}
 
-  /* — Decorative section numbers — */
-  .vx-secnum{position:absolute;font-family:'Cormorant Garamond',serif;font-size:clamp(110px,16vw,200px);font-weight:600;line-height:1;pointer-events:none;user-select:none;z-index:0}
-
   /* — Stats counters — */
-  .vx-statnum{font-family:'Cormorant Garamond',serif;font-size:clamp(52px,8vw,86px);font-weight:500;line-height:1;letter-spacing:-.02em;color:#101A2B}
+  .vx-statnum{font-family:'Spectral',Georgia,serif;font-size:clamp(52px,8vw,86px);font-weight:500;line-height:1;letter-spacing:-.02em;color:#101A2B}
   @media(max-width:680px){.vx-statgrid{grid-template-columns:1fr 1fr!important;gap:44px 20px!important}}
 </style>
 </helmet>
 
 <div style="position:relative;width:100%">
   <div id="vx-grain" aria-hidden="true"></div>
-  <div id="vx-cur" aria-hidden="true"></div>
 
   <!-- TOPBAR -->
   <div style="background:#0B0B0C;color:#B9B4AA;font-size:11px;letter-spacing:.22em;text-transform:uppercase;text-align:center;padding:9px 16px;font-weight:400">{{ topbar }}</div>
@@ -166,7 +171,7 @@
   <header ref="{{ headerRef }}" style="position:sticky;top:0;z-index:60;display:flex;align-items:center;justify-content:space-between;padding:18px 40px;transition:background .4s ease,box-shadow .4s ease;background:{{ headerBg }};box-shadow:{{ headerShadow }};backdrop-filter:{{ headerBlur }};-webkit-backdrop-filter:{{ headerBlur }};border-bottom:1px solid {{ headerBorder }}">
     <a href="#top" style="display:flex;align-items:center;gap:10px;text-decoration:none">
       <span style="display:inline-flex;width:30px;height:30px;border:1.5px solid {{ logoColor }};border-radius:50%;align-items:center;justify-content:center"><span style="width:9px;height:9px;background:#C8453B;transform:rotate(45deg);display:block"></span></span>
-      <span style="font-family:'Cormorant Garamond',serif;font-size:23px;font-weight:600;letter-spacing:.16em;color:{{ logoColor }}"><span class="vx-logo-s">VIAREVEX</span></span>
+      <span style="font-family:'Spectral',Georgia,serif;font-size:23px;font-weight:600;letter-spacing:.16em;color:{{ logoColor }}"><span class="vx-logo-s">VIAREVEX</span></span>
     </a>
     <nav style="display:flex;align-items:center;gap:30px" class="vx-desknav">
       <a href="#servicios" style="text-decoration:none;font-size:13px;letter-spacing:.04em;color:{{ navColor }}">{{ navServicios }}</a>
@@ -192,15 +197,15 @@
   <div onClick="{{ closeMenu }}" style="position:fixed;inset:0;z-index:80;background:rgba(11,11,12,.5);opacity:{{ menuOverlayOpacity }};pointer-events:{{ menuPointer }};transition:opacity .35s ease">
     <nav onClick="{{ stop }}" aria-label="Mobile" style="position:absolute;top:0;right:0;height:100%;width:min(82vw,360px);background:#101A2B;padding:30px 32px;display:flex;flex-direction:column;gap:6px;transform:translateX({{ menuTranslate }});transition:transform .4s cubic-bezier(.16,1,.3,1)">
       <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:24px">
-        <span style="font-family:'Cormorant Garamond',serif;font-size:21px;letter-spacing:.16em;color:#F4F0E8"><span class="vx-logo-s">VIAREVEX</span></span>
+        <span style="font-family:'Spectral',Georgia,serif;font-size:21px;letter-spacing:.16em;color:#F4F0E8"><span class="vx-logo-s">VIAREVEX</span></span>
         <button onClick="{{ closeMenu }}" aria-label="Close" style="background:none;border:none;color:#B9B4AA;font-size:26px;cursor:pointer;line-height:1">×</button>
       </div>
-      <a onClick="{{ closeMenu }}" href="#servicios" style="text-decoration:none;color:#F4F0E8;font-size:18px;font-family:'Cormorant Garamond',serif;padding:13px 0;border-bottom:1px solid rgba(184,154,98,.18)">{{ navServicios }}</a>
-      <a onClick="{{ closeMenu }}" href="#experiencias" style="text-decoration:none;color:#F4F0E8;font-size:18px;font-family:'Cormorant Garamond',serif;padding:13px 0;border-bottom:1px solid rgba(184,154,98,.18)">{{ navExperiencias }}</a>
-      <a onClick="{{ closeMenu }}" href="#paquetes" style="text-decoration:none;color:#F4F0E8;font-size:18px;font-family:'Cormorant Garamond',serif;padding:13px 0;border-bottom:1px solid rgba(184,154,98,.18)">{{ navPaquetes }}</a>
-      <a onClick="{{ closeMenu }}" href="#corporativo" style="text-decoration:none;color:#F4F0E8;font-size:18px;font-family:'Cormorant Garamond',serif;padding:13px 0;border-bottom:1px solid rgba(184,154,98,.18)">{{ navCorporativo }}</a>
-      <a onClick="{{ closeMenu }}" href="#nosotros" style="text-decoration:none;color:#F4F0E8;font-size:18px;font-family:'Cormorant Garamond',serif;padding:13px 0;border-bottom:1px solid rgba(184,154,98,.18)">{{ navNosotros }}</a>
-      <a onClick="{{ closeMenu }}" href="#contacto" style="text-decoration:none;color:#F4F0E8;font-size:18px;font-family:'Cormorant Garamond',serif;padding:13px 0;border-bottom:1px solid rgba(184,154,98,.18)">{{ navContacto }}</a>
+      <a onClick="{{ closeMenu }}" href="#servicios" style="text-decoration:none;color:#F4F0E8;font-size:18px;font-family:'Spectral',Georgia,serif;padding:13px 0;border-bottom:1px solid rgba(184,154,98,.18)">{{ navServicios }}</a>
+      <a onClick="{{ closeMenu }}" href="#experiencias" style="text-decoration:none;color:#F4F0E8;font-size:18px;font-family:'Spectral',Georgia,serif;padding:13px 0;border-bottom:1px solid rgba(184,154,98,.18)">{{ navExperiencias }}</a>
+      <a onClick="{{ closeMenu }}" href="#paquetes" style="text-decoration:none;color:#F4F0E8;font-size:18px;font-family:'Spectral',Georgia,serif;padding:13px 0;border-bottom:1px solid rgba(184,154,98,.18)">{{ navPaquetes }}</a>
+      <a onClick="{{ closeMenu }}" href="#corporativo" style="text-decoration:none;color:#F4F0E8;font-size:18px;font-family:'Spectral',Georgia,serif;padding:13px 0;border-bottom:1px solid rgba(184,154,98,.18)">{{ navCorporativo }}</a>
+      <a onClick="{{ closeMenu }}" href="#nosotros" style="text-decoration:none;color:#F4F0E8;font-size:18px;font-family:'Spectral',Georgia,serif;padding:13px 0;border-bottom:1px solid rgba(184,154,98,.18)">{{ navNosotros }}</a>
+      <a onClick="{{ closeMenu }}" href="#contacto" style="text-decoration:none;color:#F4F0E8;font-size:18px;font-family:'Spectral',Georgia,serif;padding:13px 0;border-bottom:1px solid rgba(184,154,98,.18)">{{ navContacto }}</a>
       <div style="display:flex;gap:12px;margin-top:20px">
         <button onClick="{{ toggleLang }}" style="flex:1;background:none;border:1px solid rgba(184,154,98,.4);color:#F4F0E8;padding:11px;border-radius:2px;cursor:pointer;font-family:inherit;letter-spacing:.1em;font-size:12px">{{ langLabel }}</button>
         <a onClick="{{ closeMenu }}" href="#contacto" style="flex:2;text-align:center;text-decoration:none;background:#B89A62;color:#0B0B0C;padding:12px;border-radius:2px;font-size:12px;text-transform:uppercase;letter-spacing:.06em;font-weight:500">{{ ctaDesign }}</a>
@@ -218,7 +223,7 @@
     <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(11,11,12,.85) 0%,rgba(11,11,12,.2) 42%,rgba(11,11,12,.32) 100%)"></div>
     <div class="vx-herowrap" style="position:relative;z-index:2;padding:0 40px 9vh;max-width:900px">
       <p class="rv" style="color:#B89A62;font-size:12.5px;letter-spacing:.32em;text-transform:uppercase;margin-bottom:22px;text-shadow:0 1px 14px rgba(11,11,12,.5)">{{ heroLabel }}</p>
-      <h1 class="vx-hero-title" style="font-family:'Cormorant Garamond',serif;color:#FFFDF9;font-weight:500;font-size:clamp(40px,6.6vw,82px);line-height:1.02;letter-spacing:-.01em;margin-bottom:26px;text-shadow:0 2px 30px rgba(11,11,12,.55),0 1px 4px rgba(11,11,12,.4);text-wrap:balance">{{ heroTitle }}</h1>
+      <h1 class="vx-hero-title" style="font-family:'Spectral',Georgia,serif;color:#FFFDF9;font-weight:500;font-size:clamp(40px,6.6vw,82px);line-height:1.02;letter-spacing:-.01em;margin-bottom:26px;text-shadow:0 2px 30px rgba(11,11,12,.55),0 1px 4px rgba(11,11,12,.4);text-wrap:balance">{{ heroTitle }}</h1>
       <p class="rv" style="color:rgba(250,249,246,.92);font-size:clamp(15px,1.6vw,19px);line-height:1.65;max-width:560px;font-weight:300;margin-bottom:34px;text-shadow:0 1px 16px rgba(11,11,12,.6)">{{ heroText }}</p>
       <div class="rv" style="display:flex;gap:14px;flex-wrap:wrap">
         <a href="#contacto" style="text-decoration:none;background:#B89A62;color:#0B0B0C;padding:15px 30px;border-radius:2px;font-size:13px;letter-spacing:.06em;text-transform:uppercase;font-weight:500">{{ heroBtn1 }}</a>
@@ -232,7 +237,7 @@
   <section id="nosotros" style="padding:clamp(70px,10vw,130px) 40px;max-width:1280px;margin:0 auto">
     <div class="vx-introgrid" style="display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(40px,7vw,90px);align-items:center">
       <div>
-        <h2 class="rv" style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(30px,4.4vw,52px);line-height:1.1;color:#101A2B;margin-bottom:26px;text-wrap:balance">{{ introTitle }}</h2>
+        <h2 class="rv" style="font-family:'Spectral',Georgia,serif;font-weight:500;font-size:clamp(30px,4.4vw,52px);line-height:1.1;color:#101A2B;margin-bottom:26px;text-wrap:balance">{{ introTitle }}</h2>
         <p class="rv" style="font-size:16.5px;line-height:1.75;color:#3a3a3c;font-weight:300;max-width:520px;margin-bottom:38px">{{ introText }}</p>
         <div class="rv" style="display:flex;flex-direction:column;gap:0">
           <div style="padding:18px 0;border-top:1px solid rgba(184,154,98,.35)"><span style="font-size:15px;color:#101A2B;letter-spacing:.02em">{{ intro1 }}</span></div>
@@ -251,26 +256,24 @@
   <!-- MARQUEE 1 -->
   <div class="vx-mq" aria-hidden="true" style="background:#0B0B0C;border-top:1px solid rgba(184,154,98,.12);border-bottom:1px solid rgba(184,154,98,.12)">
     <div class="vx-mq-t">
-      <span class="vx-mq-i">Bali</span><span class="vx-mq-sep">·</span><span class="vx-mq-i">Maldivas</span><span class="vx-mq-sep">·</span><span class="vx-mq-i">Santorini</span><span class="vx-mq-sep">·</span><span class="vx-mq-i">París</span><span class="vx-mq-sep">·</span><span class="vx-mq-i">Dubái</span><span class="vx-mq-sep">·</span><span class="vx-mq-i">Turquía</span><span class="vx-mq-sep">·</span><span class="vx-mq-i">Cartagena</span><span class="vx-mq-sep">·</span><span class="vx-mq-i">Suiza</span><span class="vx-mq-sep">·</span><span class="vx-mq-i">Roma</span><span class="vx-mq-sep">·</span><span class="vx-mq-i">Phuket</span><span class="vx-mq-sep">·</span><span class="vx-mq-i">Río de Janeiro</span><span class="vx-mq-sep">·</span><span class="vx-mq-i">Nueva York</span><span class="vx-mq-sep">·</span><span class="vx-mq-i">Siem Reap</span><span class="vx-mq-sep">·</span><span class="vx-mq-i">Washington</span><span class="vx-mq-sep">·</span><span class="vx-mq-i">Bali</span><span class="vx-mq-sep">·</span><span class="vx-mq-i">Maldivas</span><span class="vx-mq-sep">·</span><span class="vx-mq-i">Santorini</span><span class="vx-mq-sep">·</span><span class="vx-mq-i">París</span><span class="vx-mq-sep">·</span><span class="vx-mq-i">Dubái</span><span class="vx-mq-sep">·</span><span class="vx-mq-i">Turquía</span><span class="vx-mq-sep">·</span><span class="vx-mq-i">Cartagena</span><span class="vx-mq-sep">·</span><span class="vx-mq-i">Suiza</span><span class="vx-mq-sep">·</span><span class="vx-mq-i">Roma</span><span class="vx-mq-sep">·</span><span class="vx-mq-i">Phuket</span><span class="vx-mq-sep">·</span><span class="vx-mq-i">Río de Janeiro</span><span class="vx-mq-sep">·</span><span class="vx-mq-i">Nueva York</span><span class="vx-mq-sep">·</span><span class="vx-mq-i">Siem Reap</span><span class="vx-mq-sep">·</span><span class="vx-mq-i">Washington</span><span class="vx-mq-sep">·</span>
+      <sc-for list="{{ marquee1 }}" as="mi"><span class="vx-mq-i">{{ mi }}</span><span class="vx-mq-sep">·</span></sc-for><sc-for list="{{ marquee1 }}" as="mi"><span class="vx-mq-i">{{ mi }}</span><span class="vx-mq-sep">·</span></sc-for>
     </div>
   </div>
 
   <!-- SERVICES -->
   <section id="servicios" style="background:#F4F0E8;padding:clamp(70px,10vw,130px) 40px;position:relative;overflow:hidden">
-    <span class="vx-secnum" aria-hidden="true" style="top:-.05em;right:30px;color:rgba(16,26,43,.04)">01</span>
     <div style="max-width:1280px;margin:0 auto;position:relative;z-index:1">
       <div class="rv" style="text-align:center;max-width:620px;margin:0 auto 60px">
-        <h2 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(30px,4.4vw,50px);line-height:1.1;color:#101A2B;text-wrap:balance">{{ servicesTitle }}</h2>
+        <h2 style="font-family:'Spectral',Georgia,serif;font-weight:500;font-size:clamp(30px,4.4vw,50px);line-height:1.1;color:#101A2B;text-wrap:balance">{{ servicesTitle }}</h2>
       </div>
       <div class="vx-svcgrid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:26px">
         <sc-for list="{{ services }}" as="s" hint-placeholder-count="6">
           <article class="rv" style="background:#FAF9F6;border:1px solid rgba(184,154,98,.22);border-radius:2px;overflow:hidden;display:flex;flex-direction:column">
-            <div style="aspect-ratio:16/10;overflow:hidden;background:#101A2B"><img src="{{ s.img }}" alt="{{ s.title }}" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"></div>
-            <div style="padding:28px 26px 30px;display:flex;flex-direction:column;flex:1">
-              <span style="font-family:'Cormorant Garamond',serif;color:#7D5F33;font-size:18px;margin-bottom:8px">{{ s.num }}</span>
-              <h3 style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:24px;color:#101A2B;margin-bottom:12px">{{ s.title }}</h3>
-              <p style="font-size:14.5px;line-height:1.65;color:#55555a;font-weight:300;flex:1;margin-bottom:18px">{{ s.desc }}</p>
-              <a href="#contacto" style="text-decoration:none;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#101A2B;border-bottom:1px solid #B89A62;padding-bottom:3px;align-self:flex-start">{{ knowMore }}</a>
+            <div class="vx-svc-img" style="overflow:hidden;background:#101A2B"><img src="{{ s.img }}" alt="{{ s.title }}" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+            <div class="vx-svc-body" style="padding:28px 26px 30px;display:flex;flex-direction:column;flex:1">
+              <h3 class="vx-svc-h" style="font-family:'Spectral',Georgia,serif;font-weight:600;font-size:24px;color:#101A2B;margin-bottom:12px">{{ s.title }}</h3>
+              <p class="vx-svc-p" style="font-size:14.5px;line-height:1.65;color:#55555a;font-weight:300;flex:1;margin-bottom:18px">{{ s.desc }}</p>
+              <a href="#contacto" class="vx-svc-cta" style="text-decoration:none;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#101A2B;border-bottom:1px solid #B89A62;padding-bottom:3px;align-self:flex-start">{{ knowMore }}</a>
             </div>
           </article>
         </sc-for>
@@ -298,7 +301,7 @@
       </div>
       <div class="rv">
         <p style="color:#B89A62;font-size:12px;letter-spacing:.26em;text-transform:uppercase;margin-bottom:20px">{{ aviationLabel }}</p>
-        <h2 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(30px,4.4vw,50px);line-height:1.1;margin-bottom:24px">{{ aviationTitle }}</h2>
+        <h2 style="font-family:'Spectral',Georgia,serif;font-weight:500;font-size:clamp(30px,4.4vw,50px);line-height:1.1;margin-bottom:24px">{{ aviationTitle }}</h2>
         <p style="font-size:16px;line-height:1.75;color:rgba(244,240,232,.78);font-weight:300;max-width:480px;margin-bottom:34px">{{ aviationText }}</p>
         <a href="#contacto" style="text-decoration:none;border:1px solid #B89A62;color:#B89A62;padding:14px 28px;border-radius:2px;font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;display:inline-block">{{ aviationBtn }}</a>
       </div>
@@ -308,24 +311,24 @@
   <!-- DESTINATIONS -->
   <section id="experiencias" style="padding:clamp(70px,10vw,130px) 40px;max-width:1340px;margin:0 auto">
     <div class="rv" style="text-align:center;max-width:600px;margin:0 auto 56px">
-      <h2 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(30px,4.4vw,50px);line-height:1.1;color:#101A2B;text-wrap:balance">{{ destTitle }}</h2>
+      <h2 style="font-family:'Spectral',Georgia,serif;font-weight:500;font-size:clamp(30px,4.4vw,50px);line-height:1.1;color:#101A2B;text-wrap:balance">{{ destTitle }}</h2>
     </div>
     <div class="vx-showcase rv" ref="{{ showcaseRef }}" style="position:relative;border-radius:3px;overflow:hidden;background:#101A2B;box-shadow:0 30px 70px -40px rgba(16,26,43,.7)">
       <div style="position:relative;width:100%;aspect-ratio:16/9;min-height:360px;overflow:hidden">
         <div style="position:absolute;inset:0;background-image:{{ destBg }};background-size:cover;background-position:center;animation:vxzoom 9s ease-out forwards,vxfade .8s ease"></div>
         <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(11,11,12,.88) 0%,rgba(11,11,12,.15) 55%,rgba(11,11,12,.3) 100%)"></div>
-        <div style="position:absolute;top:22px;right:24px;font-family:'Cormorant Garamond',serif;color:rgba(244,240,232,.85);font-size:15px;letter-spacing:.16em">{{ destCounter }}</div>
+        <div style="position:absolute;top:22px;right:24px;font-family:'Spectral',Georgia,serif;color:rgba(244,240,232,.85);font-size:15px;letter-spacing:.16em">{{ destCounter }}</div>
         <div class="vx-showtext" style="position:absolute;left:0;bottom:0;padding:clamp(26px,4.5vw,52px);max-width:640px">
           <div style="display:flex;align-items:center;gap:11px;margin-bottom:12px">
             <span style="font-size:24px;line-height:1">{{ destActiveFlag }}</span>
             <span style="color:#B89A62;font-size:11.5px;letter-spacing:.24em;text-transform:uppercase">{{ destActiveRegion }}</span>
           </div>
-          <h3 style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(34px,5vw,60px);line-height:1;color:#FAF9F6;margin-bottom:14px">{{ destActiveName }}</h3>
+          <h3 style="font-family:'Spectral',Georgia,serif;font-weight:600;font-size:clamp(34px,5vw,60px);line-height:1;color:#FAF9F6;margin-bottom:14px">{{ destActiveName }}</h3>
           <p style="color:rgba(244,240,232,.85);font-size:clamp(15px,1.7vw,18px);font-weight:300;margin-bottom:26px;max-width:460px">{{ destActiveTag }}</p>
           <a href="#contacto" style="text-decoration:none;background:#B89A62;color:#0B0B0C;padding:13px 26px;border-radius:2px;font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-weight:500;display:inline-block">{{ destCta }}</a>
         </div>
-        <button onClick="{{ destPrev }}" aria-label="Anterior" class="vx-dest-prev" style="position:absolute;top:50%;left:18px;transform:translateY(-50%);width:46px;height:46px;border-radius:50%;background:rgba(11,11,12,.4);border:1px solid rgba(244,240,232,.35);color:#FAF9F6;cursor:pointer;font-size:18px;backdrop-filter:blur(4px);display:flex;align-items:center;justify-content:center">‹</button>
-        <button onClick="{{ destNext }}" aria-label="Siguiente" class="vx-dest-next" style="position:absolute;top:50%;right:18px;transform:translateY(-50%);width:46px;height:46px;border-radius:50%;background:rgba(11,11,12,.4);border:1px solid rgba(244,240,232,.35);color:#FAF9F6;cursor:pointer;font-size:18px;backdrop-filter:blur(4px);display:flex;align-items:center;justify-content:center">›</button>
+        <button onClick="{{ destPrev }}" aria-label="{{ navPrev }}" class="vx-dest-prev" style="position:absolute;top:50%;left:18px;transform:translateY(-50%);width:46px;height:46px;border-radius:50%;background:rgba(11,11,12,.4);border:1px solid rgba(244,240,232,.35);color:#FAF9F6;cursor:pointer;font-size:18px;backdrop-filter:blur(4px);display:flex;align-items:center;justify-content:center">‹</button>
+        <button onClick="{{ destNext }}" aria-label="{{ navNext }}" class="vx-dest-next" style="position:absolute;top:50%;right:18px;transform:translateY(-50%);width:46px;height:46px;border-radius:50%;background:rgba(11,11,12,.4);border:1px solid rgba(244,240,232,.35);color:#FAF9F6;cursor:pointer;font-size:18px;backdrop-filter:blur(4px);display:flex;align-items:center;justify-content:center">›</button>
       </div>
       <div class="vx-rail" style="display:flex;gap:9px;padding:13px;background:#0B0B0C;overflow-x:auto">
         <sc-for list="{{ destList }}" as="d" hint-placeholder-count="8">
@@ -338,7 +341,7 @@
     </div>
     <div class="vx-destgrid" style="margin-top:26px">
       <div class="rv vx-destother" style="background:#101A2B;border-radius:2px;padding:40px clamp(28px,4vw,48px);display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap">
-        <h3 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(24px,3vw,34px);color:#F4F0E8">{{ destOtherTitle }}</h3>
+        <h3 style="font-family:'Spectral',Georgia,serif;font-weight:500;font-size:clamp(24px,3vw,34px);color:#F4F0E8">{{ destOtherTitle }}</h3>
         <a href="#contacto" style="text-decoration:none;background:#B89A62;color:#0B0B0C;padding:14px 28px;border-radius:2px;font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;font-weight:500;white-space:nowrap">{{ destOtherBtn }}</a>
       </div>
     </div>
@@ -348,7 +351,7 @@
   <section id="paquetes" style="background:#0B0B0C;color:#F4F0E8;padding:clamp(70px,10vw,120px) 40px">
     <div style="max-width:1280px;margin:0 auto">
       <div class="rv" style="text-align:center;max-width:640px;margin:0 auto 56px">
-        <h2 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(30px,4.4vw,50px);line-height:1.1;margin-bottom:18px;text-wrap:balance">{{ pkgTitle }}</h2>
+        <h2 style="font-family:'Spectral',Georgia,serif;font-weight:500;font-size:clamp(30px,4.4vw,50px);line-height:1.1;margin-bottom:18px;text-wrap:balance">{{ pkgTitle }}</h2>
         <p style="font-size:15.5px;line-height:1.7;color:rgba(244,240,232,.72);font-weight:300">{{ pkgSubtitle }}</p>
       </div>
       <div class="vx-pkggrid" style="display:grid;grid-template-columns:1fr 1fr;gap:28px">
@@ -365,7 +368,7 @@
                 <span style="font-size:18px;line-height:1">{{ p.flag }}</span>
                 <span style="color:#B89A62;font-size:11px;letter-spacing:.2em;text-transform:uppercase">{{ p.location }}</span>
               </div>
-              <h3 style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(26px,3.2vw,34px);color:#FAF9F6;margin-bottom:14px">{{ p.title }}</h3>
+              <h3 style="font-family:'Spectral',Georgia,serif;font-weight:600;font-size:clamp(26px,3.2vw,34px);color:#FAF9F6;margin-bottom:14px">{{ p.title }}</h3>
               <p style="font-size:14.5px;line-height:1.7;color:rgba(244,240,232,.78);font-weight:300;margin-bottom:22px">{{ p.desc }}</p>
               <div style="display:flex;flex-direction:column;gap:11px;margin-bottom:28px">
                 <sc-for list="{{ p.highlights }}" as="h" hint-placeholder-count="4">
@@ -399,16 +402,15 @@
 
   <!-- HOW IT WORKS -->
   <section style="background:#101A2B;color:#F4F0E8;padding:clamp(70px,10vw,130px) 40px;position:relative;overflow:hidden">
-    <span class="vx-secnum" aria-hidden="true" style="top:-.05em;right:30px;color:rgba(184,154,98,.05)">02</span>
     <div style="max-width:1280px;margin:0 auto;position:relative;z-index:1">
       <div class="rv" style="text-align:center;max-width:600px;margin:0 auto 64px">
-        <h2 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(30px,4.4vw,50px);line-height:1.1;text-wrap:balance">{{ howTitle }}</h2>
+        <h2 style="font-family:'Spectral',Georgia,serif;font-weight:500;font-size:clamp(30px,4.4vw,50px);line-height:1.1;text-wrap:balance">{{ howTitle }}</h2>
       </div>
       <div class="vx-howgrid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:30px">
         <sc-for list="{{ steps }}" as="st" hint-placeholder-count="4">
           <div class="rv" style="border-top:1px solid rgba(184,154,98,.4);padding-top:22px">
-            <span style="font-family:'Cormorant Garamond',serif;color:#B89A62;font-size:34px;display:block;margin-bottom:14px">{{ st.num }}</span>
-            <h3 style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:22px;margin-bottom:12px">{{ st.title }}</h3>
+            <span style="font-family:'Spectral',Georgia,serif;color:#B89A62;font-size:34px;display:block;margin-bottom:14px">{{ st.num }}</span>
+            <h3 style="font-family:'Spectral',Georgia,serif;font-weight:600;font-size:22px;margin-bottom:12px">{{ st.title }}</h3>
             <p style="font-size:14px;line-height:1.65;color:rgba(244,240,232,.72);font-weight:300">{{ st.desc }}</p>
           </div>
         </sc-for>
@@ -422,7 +424,7 @@
       <div class="rv" style="aspect-ratio:4/5;background:url('assets/images/restaurant.jpg') center/cover;border-radius:2px;order:0"></div>
       <div class="rv">
         <p style="color:#7D5F33;font-size:12px;letter-spacing:.26em;text-transform:uppercase;margin-bottom:20px">Concierge</p>
-        <h2 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(28px,4vw,46px);line-height:1.12;color:#101A2B;margin-bottom:24px;text-wrap:balance">{{ conciergeTitle }}</h2>
+        <h2 style="font-family:'Spectral',Georgia,serif;font-weight:500;font-size:clamp(28px,4vw,46px);line-height:1.12;color:#101A2B;margin-bottom:24px;text-wrap:balance">{{ conciergeTitle }}</h2>
         <p style="font-size:16px;line-height:1.75;color:#3a3a3c;font-weight:300;max-width:480px;margin-bottom:28px">{{ conciergeText }}</p>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px 28px;margin-bottom:34px">
           <sc-for list="{{ conciergeItems }}" as="c" hint-placeholder-count="6">
@@ -440,13 +442,13 @@
       <div class="rv" style="aspect-ratio:21/9;background:url('assets/images/corporate.jpg') center/cover;border-radius:2px;margin-bottom:50px"></div>
       <div class="vx-introgrid" style="display:grid;grid-template-columns:1fr 1fr;gap:clamp(36px,6vw,80px);align-items:start">
         <div class="rv">
-          <h2 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(28px,4vw,46px);line-height:1.12;color:#101A2B;margin-bottom:24px;text-wrap:balance">{{ corpTitle }}</h2>
+          <h2 style="font-family:'Spectral',Georgia,serif;font-weight:500;font-size:clamp(28px,4vw,46px);line-height:1.12;color:#101A2B;margin-bottom:24px;text-wrap:balance">{{ corpTitle }}</h2>
           <p style="font-size:16px;line-height:1.75;color:#3a3a3c;font-weight:300;margin-bottom:30px">{{ corpText }}</p>
           <a href="#contacto" style="text-decoration:none;border:1px solid #101A2B;color:#101A2B;padding:14px 28px;border-radius:2px;font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;display:inline-block">{{ corpBtn }}</a>
         </div>
         <div class="rv" style="display:grid;grid-template-columns:1fr 1fr;gap:0 32px">
           <sc-for list="{{ corpBenefits }}" as="b" hint-placeholder-count="6">
-            <div style="padding:16px 0;border-bottom:1px solid rgba(184,154,98,.3);font-size:14.5px;color:#101A2B;display:flex;gap:10px;align-items:center"><span style="font-family:'Cormorant Garamond',serif;color:#B89A62;font-size:15px">—</span>{{ b }}</div>
+            <div style="padding:16px 0;border-bottom:1px solid rgba(184,154,98,.3);font-size:14.5px;color:#101A2B;display:flex;gap:10px;align-items:center"><span style="font-family:'Spectral',Georgia,serif;color:#B89A62;font-size:15px">—</span>{{ b }}</div>
           </sc-for>
         </div>
       </div>
@@ -457,7 +459,7 @@
   <section style="background:#0B0B0C;color:#F4F0E8;padding:clamp(70px,10vw,120px) 40px">
     <div style="max-width:1080px;margin:0 auto;text-align:center">
       <p class="rv" style="color:#B89A62;font-size:12px;letter-spacing:.26em;text-transform:uppercase;margin-bottom:20px">24 / 7</p>
-      <h2 class="rv" style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(30px,4.6vw,52px);line-height:1.1;margin-bottom:24px">{{ supportTitle }}</h2>
+      <h2 class="rv" style="font-family:'Spectral',Georgia,serif;font-weight:500;font-size:clamp(30px,4.6vw,52px);line-height:1.1;margin-bottom:24px">{{ supportTitle }}</h2>
       <p class="rv" style="font-size:16.5px;line-height:1.75;color:rgba(244,240,232,.8);font-weight:300;max-width:620px;margin:0 auto 44px">{{ supportText }}</p>
       <div class="rv vx-supgrid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px 24px;max-width:780px;margin:0 auto 36px">
         <sc-for list="{{ supportItems }}" as="i" hint-placeholder-count="6">
@@ -470,14 +472,13 @@
 
   <!-- WHY -->
   <section style="padding:clamp(70px,10vw,130px) 40px;max-width:1280px;margin:0 auto;position:relative;overflow:hidden">
-    <span class="vx-secnum" aria-hidden="true" style="top:-.05em;right:0;color:rgba(16,26,43,.04)">03</span>
     <div class="rv" style="text-align:center;max-width:600px;margin:0 auto 56px;position:relative;z-index:1">
-      <h2 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(30px,4.4vw,50px);line-height:1.1;color:#101A2B;text-wrap:balance">{{ whyTitle }}</h2>
+      <h2 style="font-family:'Spectral',Georgia,serif;font-weight:500;font-size:clamp(30px,4.4vw,50px);line-height:1.1;color:#101A2B;text-wrap:balance">{{ whyTitle }}</h2>
     </div>
     <div class="vx-whygrid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:0 48px">
       <sc-for list="{{ whyItems }}" as="w" hint-placeholder-count="6">
         <div class="rv" style="padding:30px 0;border-top:1px solid rgba(184,154,98,.35)">
-          <h3 style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:22px;color:#101A2B;margin-bottom:10px">{{ w.title }}</h3>
+          <h3 style="font-family:'Spectral',Georgia,serif;font-weight:600;font-size:22px;color:#101A2B;margin-bottom:10px">{{ w.title }}</h3>
           <p style="font-size:14px;line-height:1.65;color:#55555a;font-weight:300">{{ w.desc }}</p>
         </div>
       </sc-for>
@@ -488,7 +489,7 @@
   <section style="padding:clamp(90px,12vw,150px) 40px;text-align:center;background:#FAF9F6">
     <div style="max-width:720px;margin:0 auto">
       <div class="rv" style="width:42px;height:1px;background:#B89A62;margin:0 auto 46px"></div>
-      <p class="rv" style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(28px,4.8vw,58px);line-height:1.22;color:#101A2B;text-wrap:balance;letter-spacing:-.01em">{{ manifestoQ }}</p>
+      <p class="rv" style="font-family:'Spectral',Georgia,serif;font-style:italic;font-size:clamp(28px,4.8vw,58px);line-height:1.22;color:#101A2B;text-wrap:balance;letter-spacing:-.01em">{{ manifestoQ }}</p>
       <div class="rv" style="width:42px;height:1px;background:#B89A62;margin:46px auto 0"></div>
     </div>
   </section>
@@ -496,7 +497,7 @@
   <!-- MARQUEE 3 -->
   <div class="vx-mq" aria-hidden="true" style="background:#0B0B0C;border-top:1px solid rgba(184,154,98,.12);border-bottom:1px solid rgba(184,154,98,.12)">
     <div class="vx-mq-t">
-      <span class="vx-mq-i">Bali</span><span class="vx-mq-sep">·</span><span class="vx-mq-i">Maldivas</span><span class="vx-mq-sep">·</span><span class="vx-mq-i">Santorini</span><span class="vx-mq-sep">·</span><span class="vx-mq-i">París</span><span class="vx-mq-sep">·</span><span class="vx-mq-i">Dubái</span><span class="vx-mq-sep">·</span><span class="vx-mq-i">Turquía</span><span class="vx-mq-sep">·</span><span class="vx-mq-i">Cartagena</span><span class="vx-mq-sep">·</span><span class="vx-mq-i">Suiza</span><span class="vx-mq-sep">·</span><span class="vx-mq-i">Roma</span><span class="vx-mq-sep">·</span><span class="vx-mq-i">Phuket</span><span class="vx-mq-sep">·</span><span class="vx-mq-i">Río de Janeiro</span><span class="vx-mq-sep">·</span><span class="vx-mq-i">Nueva York</span><span class="vx-mq-sep">·</span><span class="vx-mq-i">Siem Reap</span><span class="vx-mq-sep">·</span><span class="vx-mq-i">Washington</span><span class="vx-mq-sep">·</span><span class="vx-mq-i">Bali</span><span class="vx-mq-sep">·</span><span class="vx-mq-i">Maldivas</span><span class="vx-mq-sep">·</span><span class="vx-mq-i">Santorini</span><span class="vx-mq-sep">·</span><span class="vx-mq-i">París</span><span class="vx-mq-sep">·</span><span class="vx-mq-i">Dubái</span><span class="vx-mq-sep">·</span><span class="vx-mq-i">Turquía</span><span class="vx-mq-sep">·</span><span class="vx-mq-i">Cartagena</span><span class="vx-mq-sep">·</span><span class="vx-mq-i">Suiza</span><span class="vx-mq-sep">·</span><span class="vx-mq-i">Roma</span><span class="vx-mq-sep">·</span><span class="vx-mq-i">Phuket</span><span class="vx-mq-sep">·</span><span class="vx-mq-i">Río de Janeiro</span><span class="vx-mq-sep">·</span><span class="vx-mq-i">Nueva York</span><span class="vx-mq-sep">·</span><span class="vx-mq-i">Siem Reap</span><span class="vx-mq-sep">·</span><span class="vx-mq-i">Washington</span><span class="vx-mq-sep">·</span>
+      <sc-for list="{{ marquee1 }}" as="mi"><span class="vx-mq-i">{{ mi }}</span><span class="vx-mq-sep">·</span></sc-for><sc-for list="{{ marquee1 }}" as="mi"><span class="vx-mq-i">{{ mi }}</span><span class="vx-mq-sep">·</span></sc-for>
     </div>
   </div>
 
@@ -508,7 +509,7 @@
     <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(11,11,12,.55) 0%,rgba(11,11,12,.3) 50%,rgba(11,11,12,.65) 100%);z-index:1"></div>
     <div class="rv" style="position:relative;z-index:2;text-align:center;padding:40px 24px;max-width:780px">
       <p style="color:#B89A62;font-size:12px;letter-spacing:.32em;text-transform:uppercase;margin-bottom:20px">{{ heroLabel }}</p>
-      <h2 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(34px,5.5vw,68px);line-height:1.05;color:#FAF9F6;text-wrap:balance;margin-bottom:24px">{{ videoBreakTitle }}</h2>
+      <h2 style="font-family:'Spectral',Georgia,serif;font-weight:500;font-size:clamp(34px,5.5vw,68px);line-height:1.05;color:#FAF9F6;text-wrap:balance;margin-bottom:24px">{{ videoBreakTitle }}</h2>
       <a href="#contacto" style="text-decoration:none;background:#B89A62;color:#0B0B0C;padding:15px 36px;border-radius:2px;font-size:13px;letter-spacing:.06em;text-transform:uppercase;font-weight:500;display:inline-block">{{ videoBreakCta }}</a>
     </div>
   </section>
@@ -516,7 +517,7 @@
   <!-- FAQ -->
   <section style="background:#F4F0E8;padding:clamp(70px,10vw,120px) 40px">
     <div style="max-width:860px;margin:0 auto">
-      <h2 class="rv" style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(30px,4.4vw,48px);line-height:1.1;color:#101A2B;text-align:center;margin-bottom:50px">{{ faqTitle }}</h2>
+      <h2 class="rv" style="font-family:'Spectral',Georgia,serif;font-weight:500;font-size:clamp(30px,4.4vw,48px);line-height:1.1;color:#101A2B;text-align:center;margin-bottom:50px">{{ faqTitle }}</h2>
       <div style="display:flex;flex-direction:column">
         <sc-for list="{{ faqs }}" as="f" hint-placeholder-count="6">
           <div class="rv" style="border-top:1px solid rgba(184,154,98,.35)">
@@ -538,7 +539,7 @@
   <!-- CONTACT FORM -->
   <section id="contacto" style="padding:clamp(70px,10vw,130px) 40px;max-width:920px;margin:0 auto">
     <div class="rv" style="text-align:center;margin-bottom:48px">
-      <h2 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(30px,4.6vw,52px);line-height:1.1;color:#101A2B;text-wrap:balance">{{ formTitle }}</h2>
+      <h2 style="font-family:'Spectral',Georgia,serif;font-weight:500;font-size:clamp(30px,4.6vw,52px);line-height:1.1;color:#101A2B;text-wrap:balance">{{ formTitle }}</h2>
       <div style="margin-top:30px;display:flex;flex-direction:column;align-items:center;gap:16px">
         <a href="{{ waLink }}" target="_blank" rel="noopener noreferrer" style="text-decoration:none;background:#B89A62;color:#0B0B0C;padding:15px 34px;border-radius:2px;font-size:13px;letter-spacing:.06em;text-transform:uppercase;font-weight:500">{{ ctaWa }}</a>
         <p style="font-size:13px;color:#55555a;letter-spacing:.02em">{{ orFill }}</p>
@@ -551,14 +552,9 @@
         <span id="err-name" style="font-size:12px;color:#C8453B;min-height:16px;display:block" aria-live="polite">{{ f_nameErr }}</span>
       </label>
       <label class="vx-flabel" style="display:flex;flex-direction:column;gap:7px">
-        <span style="font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#101A2B">{{ fEmail }} *</span>
-        <input class="vx-finput" name="email" value="{{ f_email }}" onInput="{{ onField }}" onBlur="{{ onBlur }}" type="email" aria-describedby="err-email" style="border:none;border-bottom:1px solid #B9B4AA;background:none;padding:9px 0;font-size:15px;font-family:inherit;color:#0B0B0C;width:100%" />
-        <span id="err-email" style="font-size:12px;color:#C8453B;min-height:16px;display:block" aria-live="polite">{{ f_emailErr }}</span>
-      </label>
-      <label class="vx-flabel" style="display:flex;flex-direction:column;gap:7px">
         <span style="font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#101A2B">{{ fPhone }} *</span>
         <div class="vx-phonewrap" style="display:flex;align-items:center;border-bottom:1px solid #B9B4AA;gap:6px">
-          <select class="vx-fselect" name="phoneCode" value="{{ f_phoneCode }}" onChange="{{ onField }}" aria-label="Código de país" style="border:none;background:none;padding:9px 0;font-size:14px;font-family:inherit;color:#0B0B0C;cursor:pointer;flex-shrink:0;width:auto;max-width:130px;min-width:0">
+          <select class="vx-fselect" name="phoneCode" value="{{ f_phoneCode }}" onChange="{{ onField }}" aria-label="{{ phoneCodeLabel }}" style="border:none;background:none;padding:9px 0;font-size:14px;font-family:inherit;color:#0B0B0C;cursor:pointer;flex-shrink:0;width:auto;max-width:130px;min-width:0">
             <sc-for list="{{ phoneCodes }}" as="pc"><option value="{{ pc.code }}">{{ pc.label }}</option></sc-for>
           </select>
           <span style="color:#B9B4AA;font-size:14px;flex-shrink:0">|</span>
@@ -566,27 +562,9 @@
         </div>
         <span id="err-phone" style="font-size:12px;color:#C8453B;min-height:16px;display:block" aria-live="polite">{{ f_phoneErr }}</span>
       </label>
-      <label class="vx-flabel" style="display:flex;flex-direction:column;gap:7px">
-        <span style="font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#101A2B">{{ fCountry }}</span>
-        <input class="vx-finput" name="country" value="{{ f_country }}" onInput="{{ onField }}" type="text" style="border:none;border-bottom:1px solid #B9B4AA;background:none;padding:9px 0;font-size:15px;font-family:inherit;color:#0B0B0C;width:100%" />
-      </label>
-      <label class="vx-flabel" style="display:flex;flex-direction:column;gap:7px">
+      <label class="vx-flabel" style="display:flex;flex-direction:column;gap:7px;grid-column:span 2">
         <span style="font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#101A2B">{{ fDest }}</span>
         <input class="vx-finput" name="dest" value="{{ f_dest }}" onInput="{{ onField }}" type="text" style="border:none;border-bottom:1px solid #B9B4AA;background:none;padding:9px 0;font-size:15px;font-family:inherit;color:#0B0B0C;width:100%" />
-      </label>
-      <label class="vx-flabel" style="display:flex;flex-direction:column;gap:7px">
-        <span style="font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#101A2B">{{ fDate }}</span>
-        <input class="vx-finput" name="date" value="{{ f_date }}" onInput="{{ onField }}" type="text" placeholder="{{ fDatePh }}" style="border:none;border-bottom:1px solid #B9B4AA;background:none;padding:9px 0;font-size:15px;font-family:inherit;color:#0B0B0C;width:100%" />
-      </label>
-      <label class="vx-flabel" style="display:flex;flex-direction:column;gap:7px">
-        <span style="font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#101A2B">{{ fType }}</span>
-        <select class="vx-fselect" name="type" value="{{ f_type }}" onChange="{{ onField }}" style="border:none;border-bottom:1px solid #B9B4AA;background:none;padding:9px 0;font-size:15px;font-family:inherit;color:#0B0B0C;width:100%">
-          <sc-for list="{{ tripTypes }}" as="o" hint-placeholder-count="8"><option value="{{ o }}">{{ o }}</option></sc-for>
-        </select>
-      </label>
-      <label class="vx-flabel" style="display:flex;flex-direction:column;gap:7px">
-        <span style="font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#101A2B">{{ fTravelers }}</span>
-        <input class="vx-finput" name="travelers" value="{{ f_travelers }}" onInput="{{ onField }}" type="number" min="1" style="border:none;border-bottom:1px solid #B9B4AA;background:none;padding:9px 0;font-size:15px;font-family:inherit;color:#0B0B0C;width:100%" />
       </label>
       <label class="vx-flabel" style="display:flex;flex-direction:column;gap:7px;grid-column:span 2">
         <span style="font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#101A2B">{{ fMessage }}</span>
@@ -610,7 +588,7 @@
     </video>
     <div style="position:absolute;inset:0;background:rgba(11,11,12,.6)"></div>
     <div class="rv" style="position:relative;z-index:2;padding:60px 40px;max-width:760px">
-      <h2 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(30px,5vw,56px);line-height:1.1;color:#FAF9F6;margin-bottom:22px">{{ finalTitle }}</h2>
+      <h2 style="font-family:'Spectral',Georgia,serif;font-weight:500;font-size:clamp(30px,5vw,56px);line-height:1.1;color:#FAF9F6;margin-bottom:22px">{{ finalTitle }}</h2>
       <p style="font-size:17px;line-height:1.7;color:rgba(244,240,232,.85);font-weight:300;margin-bottom:36px">{{ finalText }}</p>
       <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
         <a href="{{ waLink }}" target="_blank" rel="noopener noreferrer" style="text-decoration:none;background:#B89A62;color:#0B0B0C;padding:15px 30px;border-radius:2px;font-size:13px;letter-spacing:.06em;text-transform:uppercase;font-weight:500">{{ finalBtn1 }}</a>
@@ -625,7 +603,7 @@
       <div>
         <div style="display:flex;align-items:center;gap:10px;margin-bottom:18px">
           <span style="display:inline-flex;width:28px;height:28px;border:1.5px solid #F4F0E8;border-radius:50%;align-items:center;justify-content:center"><span style="width:8px;height:8px;background:#C8453B;transform:rotate(45deg);display:block"></span></span>
-          <span style="font-family:'Cormorant Garamond',serif;font-size:21px;letter-spacing:.16em;color:#F4F0E8"><span class="vx-logo-s">VIAREVEX</span></span>
+          <span style="font-family:'Spectral',Georgia,serif;font-size:21px;letter-spacing:.16em;color:#F4F0E8"><span class="vx-logo-s">VIAREVEX</span></span>
         </div>
         <p style="font-size:13.5px;line-height:1.7;color:#8a857c;max-width:340px;font-weight:300">{{ footerDesc }}</p>
       </div>
@@ -642,7 +620,7 @@
         <h4 style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#F4F0E8;margin-bottom:16px">{{ footerContact }}</h4>
         <div style="display:flex;flex-direction:column;gap:11px">
           <a href="{{ waLink }}" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:#B9B4AA;font-size:13.5px">WhatsApp · +52 56 4409 1087</a>
-          <a href="mailto:andrewamericas98@gmail.com" style="text-decoration:none;color:#B9B4AA;font-size:13.5px">andrewamericas98@gmail.com</a>
+          <a href="mailto:president@viarevex.net" style="text-decoration:none;color:#B9B4AA;font-size:13.5px">president@viarevex.net</a>
           <a href="https://www.instagram.com/viarevex" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:#B9B4AA;font-size:13.5px">Instagram</a>
           <a href="https://www.tiktok.com/@andrew_onboard" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:#B9B4AA;font-size:13.5px">TikTok</a>
         </div>
@@ -690,7 +668,7 @@
   <div onClick="{{ closeCookieModal }}" style="position:fixed;inset:0;z-index:95;background:rgba(11,11,12,.6);display:flex;align-items:center;justify-content:center;padding:24px;opacity:{{ cookieModalOpacity }};pointer-events:{{ cookieModalPointer }};transition:opacity .3s ease">
     <div onClick="{{ stop }}" role="dialog" aria-label="Cookie settings" style="background:#FAF9F6;max-width:540px;width:100%;max-height:86vh;overflow-y:auto;border-radius:3px;padding:36px">
       <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px">
-        <h3 style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:28px;color:#101A2B">{{ cookieModalTitle }}</h3>
+        <h3 style="font-family:'Spectral',Georgia,serif;font-weight:600;font-size:28px;color:#101A2B">{{ cookieModalTitle }}</h3>
         <button onClick="{{ closeCookieModal }}" aria-label="Close" style="background:none;border:none;font-size:26px;color:#55555a;cursor:pointer;line-height:1">×</button>
       </div>
       <p style="font-size:13.5px;color:#55555a;line-height:1.65;margin-bottom:24px">{{ cookieModalIntro }}</p>
@@ -716,7 +694,7 @@
   <div onClick="{{ closeLegal }}" style="position:fixed;inset:0;z-index:96;background:rgba(11,11,12,.65);display:flex;align-items:center;justify-content:center;padding:24px;opacity:{{ legalOpacity }};pointer-events:{{ legalPointer }};transition:opacity .3s ease">
     <div onClick="{{ stop }}" role="dialog" aria-label="Legal" style="background:#FAF9F6;max-width:680px;width:100%;max-height:86vh;overflow-y:auto;border-radius:3px;padding:42px">
       <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:18px">
-        <h3 style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:30px;color:#101A2B;max-width:80%">{{ legalTitle }}</h3>
+        <h3 style="font-family:'Spectral',Georgia,serif;font-weight:600;font-size:30px;color:#101A2B;max-width:80%">{{ legalTitle }}</h3>
         <button onClick="{{ closeLegal }}" aria-label="Close" style="background:none;border:none;font-size:28px;color:#55555a;cursor:pointer;line-height:1">×</button>
       </div>
       <p style="font-size:11.5px;color:#B89A62;letter-spacing:.1em;text-transform:uppercase;margin-bottom:24px">{{ legalDate }}</p>
@@ -761,21 +739,6 @@ class Component extends DCLogic {
     window.addEventListener('keydown', this._onKey);
 
     this.restartAuto();
-
-    // Custom cursor (desktop only)
-    const cur = document.getElementById('vx-cur');
-    if (cur && matchMedia('(pointer:fine)').matches) {
-      document.addEventListener('mousemove', e => {
-        cur.style.left = e.clientX + 'px';
-        cur.style.top = e.clientY + 'px';
-        if (!cur.classList.contains('show')) cur.classList.add('show');
-      }, {passive:true});
-      document.addEventListener('mouseover', e => {
-        if (e.target.closest('a,button')) cur.classList.add('big');
-        else cur.classList.remove('big');
-      });
-      document.addEventListener('mouseleave', () => cur.classList.remove('show'));
-    }
 
     // Hero title — word-by-word animation
     setTimeout(() => {
@@ -900,6 +863,8 @@ class Component extends DCLogic {
       cookieModalIntro:'Gestiona tus preferencias por categoría. Las cookies necesarias permanecen siempre activas. No se cargan cookies analíticas ni de marketing sin tu consentimiento.',
       toastSaved:'Preferencias guardadas.', toastWa:'Abriendo WhatsApp…',
       year: new Date().getFullYear(),
+      navPrev:'Anterior', navNext:'Siguiente', phoneCodeLabel:'Código de país',
+      marquee1:['Bali','Maldivas','Santorini','París','Dubái','Turquía','Cartagena','Suiza','Roma','Phuket','Río de Janeiro','Nueva York','Siem Reap','Washington'],
       tripTypes:['Vacaciones','Luna de miel','Familiar','Corporativo','Crucero','Vuelo privado','Multidestino','Otro'],
       errName:'Por favor indica tu nombre.', errEmail:'Introduce un correo válido.', errPhone:'Introduce un WhatsApp válido.', errPrivacy:'Debes aceptar la política de privacidad.',
       services:[
@@ -1030,6 +995,8 @@ class Component extends DCLogic {
       cookieModalIntro:'Manage your preferences by category. Necessary cookies remain always active. No analytics or marketing cookies load without your consent.',
       toastSaved:'Preferences saved.', toastWa:'Opening WhatsApp…',
       year: new Date().getFullYear(),
+      navPrev:'Previous', navNext:'Next', phoneCodeLabel:'Country code',
+      marquee1:['Bali','Maldives','Santorini','Paris','Dubai','Turkey','Cartagena','Switzerland','Rome','Phuket','Rio de Janeiro','New York','Siem Reap','Washington'],
       tripTypes:['Vacation','Honeymoon','Family','Corporate','Cruise','Private flight','Multi-destination','Other'],
       errName:'Please enter your name.', errEmail:'Enter a valid email.', errPhone:'Enter a valid WhatsApp number.', errPrivacy:'You must accept the privacy policy.',
       services:[
@@ -1112,69 +1079,71 @@ class Component extends DCLogic {
 
   legalContent(kind, lang) {
     const es = {
-      privacy: { title:'Política de Privacidad', date:'Versión 1.0 · Junio 2026', body:[
-        ['Responsable del tratamiento','Viarevex actúa como responsable del tratamiento de los datos facilitados a través de este sitio. Contacto: andrewamericas98@gmail.com.'],
-        ['Datos que recopilamos','El formulario puede recopilar nombre, correo, WhatsApp, país, destino, fechas, número de viajeros, tipo de viaje y el mensaje que decidas compartir.'],
-        ['Finalidades','Utilizamos tus datos para responder a tu solicitud, elaborar propuestas de viaje y, cuando sea necesario, cotizar o gestionar servicios con proveedores.'],
-        ['Comunicación con proveedores','Para cotizar o prestar servicios podemos compartir datos estrictamente necesarios con proveedores (aerolíneas, hoteles, aseguradoras, operadores, entre otros), incluidas transferencias internacionales cuando el viaje lo requiera.'],
-        ['Conservación y seguridad','Conservamos los datos el tiempo necesario para la finalidad indicada y aplicamos medidas razonables de seguridad.'],
-        ['Tus derechos','Puedes solicitar acceso, corrección o eliminación de tus datos escribiendo a andrewamericas98@gmail.com.'],
-        ['Datos de terceros y menores','Si facilitas datos de otras personas, declaras contar con su autorización. No dirigimos el servicio a menores sin consentimiento de su responsable legal.'],
-        ['Cambios','Podemos actualizar esta política; la versión vigente se publicará en este sitio.'],
-        ['Aviso','Esta política es un texto base y debe ser revisada por un profesional legal antes de su publicación definitiva.']
+      privacy: { title:'Política de Privacidad', date:'Versión 1.1 · Julio 2026', body:[
+        ['Responsable del tratamiento','Viarevex actúa como responsable del tratamiento de los datos facilitados a través de este sitio. Correo de contacto: president@viarevex.net.'],
+        ['Datos que recopilamos','A través del formulario podemos recopilar nombre completo, correo electrónico, número de WhatsApp, país de residencia, destino de interés, fechas estimadas, número de viajeros, tipo de viaje y el mensaje que elijas compartir.'],
+        ['Finalidades','Utilizamos tus datos exclusivamente para responder a tu solicitud, elaborar propuestas de viaje personalizadas y, cuando sea necesario, coordinar servicios con proveedores.'],
+        ['Comunicación con proveedores','Para cotizar o prestar los servicios solicitados podemos compartir los datos estrictamente necesarios con proveedores (aerolíneas, hoteles, aseguradoras, operadores turísticos, entre otros), incluidas transferencias internacionales cuando el viaje lo requiera.'],
+        ['Conservación y seguridad','Conservamos los datos durante el tiempo necesario para la finalidad indicada y aplicamos medidas razonables de seguridad técnica y organizativa para protegerlos.'],
+        ['Tus derechos','Puedes solicitar en cualquier momento el acceso, la rectificación, la cancelación o la oposición al tratamiento de tus datos escribiendo a president@viarevex.net.'],
+        ['Datos de terceros y menores','Si facilitas datos de otras personas, declaras contar con su autorización expresa. No prestamos servicios a menores de edad sin el consentimiento verificable de su tutor legal.'],
+        ['Cambios','Podemos actualizar esta política cuando sea necesario. La versión vigente estará publicada en este sitio con su fecha de actualización.']
       ]},
-      cookies: { title:'Política de Cookies', date:'Versión 1.0 · Junio 2026', body:[
-        ['Qué son','Las cookies son pequeños archivos almacenados en tu dispositivo para que el sitio funcione y, con tu consentimiento, para mejorar tu experiencia.'],
-        ['Necesarias','Siempre activas. Permiten el funcionamiento básico y recordar tus preferencias de consentimiento.'],
-        ['Preferencias','Recuerdan opciones como el idioma. Duración aproximada: hasta 12 meses.'],
-        ['Analíticas','Nos ayudarían a entender el uso del sitio de forma agregada. No se activan sin tu consentimiento.'],
-        ['Marketing','Permitirían medir campañas. No se activan sin tu consentimiento.'],
-        ['Cómo retirar el consentimiento','Puedes cambiar tus preferencias en cualquier momento desde “Preferencias de cookies” en el pie de página, o eliminar los datos locales borrando el almacenamiento de tu navegador.'],
-        ['Aviso','Actualmente no se cargan servicios analíticos ni de marketing; los mecanismos quedan preparados para una futura activación con consentimiento.']
+      cookies: { title:'Política de Cookies', date:'Versión 1.1 · Julio 2026', body:[
+        ['Qué son las cookies','Las cookies son pequeños archivos de texto que se almacenan en tu dispositivo cuando visitas un sitio web. Su finalidad es que el sitio funcione correctamente y, con tu consentimiento, mejorar tu experiencia de navegación.'],
+        ['Cookies necesarias','Siempre activas; no requieren consentimiento. Permiten el funcionamiento básico del sitio y recuerdan tus preferencias de privacidad.'],
+        ['Cookies de preferencias','Recuerdan opciones como el idioma seleccionado. Duración aproximada: hasta 12 meses. Solo se activan con tu consentimiento.'],
+        ['Cookies analíticas','Nos permiten entender cómo se usa el sitio de forma agregada y anónima para mejorarlo. Solo se activan con tu consentimiento.'],
+        ['Cookies de marketing','Permiten medir el rendimiento de campañas publicitarias. Solo se activan con tu consentimiento.'],
+        ['Cómo gestionar o retirar el consentimiento','Puedes cambiar tus preferencias en cualquier momento desde «Preferencias de cookies» en el pie de página, o eliminar los datos almacenados borrando el almacenamiento local de tu navegador.']
       ]},
-      terms: { title:'Términos y Condiciones', date:'Versión 1.0 · Junio 2026', body:[
-        ['Naturaleza del servicio','Viarevex ofrece asesoría y coordinación de servicios de viaje, actuando como intermediaria frente a proveedores independientes.'],
-        ['Cotizaciones y precios','Las cotizaciones son orientativas y pueden variar según disponibilidad, fechas y políticas de cada proveedor hasta su confirmación.'],
-        ['Pagos, cambios y cancelaciones','Los pagos, cambios, cancelaciones y reembolsos están sujetos a las condiciones de cada proveedor.'],
-        ['Responsabilidad del viajero','Es responsabilidad del viajero contar con pasaporte, visas, vacunas y requisitos migratorios vigentes. Viarevex orienta, pero no sustituye a las autoridades competentes.'],
-        ['Visas y migración','No garantizamos resultados migratorios ni aprobaciones de visa, que dependen de las autoridades correspondientes.'],
-        ['Vuelos privados','Las alternativas de aviación privada se coordinan mediante operadores y proveedores. Viarevex no opera ni es propietaria de aeronaves.'],
-        ['Asistencia 24/7','La asistencia aplica según el alcance del servicio contratado y la disponibilidad de proveedores. No constituye un servicio médico, policial o de emergencias públicas.'],
-        ['Limitación de responsabilidad','Dentro de lo permitido por la ley, la responsabilidad de Viarevex se limita a su función de asesoría y coordinación.'],
-        ['Aviso','Estos términos son un texto base y deben ser revisados por un profesional legal antes de su publicación definitiva.']
+      terms: { title:'Términos y Condiciones', date:'Versión 1.1 · Julio 2026', body:[
+        ['Naturaleza del servicio','Viarevex ofrece asesoría y coordinación de servicios de viaje, actuando como intermediaria frente a proveedores independientes (aerolíneas, hoteles, operadores, aseguradoras, entre otros). Viarevex no es parte de los contratos que el viajero celebra directamente con dichos proveedores y no asume las obligaciones de estos.'],
+        ['Cotizaciones y precios','Las cotizaciones tienen carácter orientativo y pueden variar según disponibilidad, fechas y políticas de cada proveedor hasta su confirmación por escrito. Los precios confirmados quedan sujetos a variaciones por tipo de cambio, impuestos o cargos imprevistos del proveedor.'],
+        ['Pagos, cambios y cancelaciones','Los pagos, cambios, cancelaciones y reembolsos se rigen por las condiciones específicas de cada proveedor. Viarevex no está obligada a reembolsar cantidades abonadas directamente a proveedores por cuenta del cliente.'],
+        ['Responsabilidad documental del viajero','Es responsabilidad exclusiva del viajero contar con pasaporte vigente, visas, certificados de vacunación, seguro de viaje y cualquier otro requisito migratorio o sanitario exigido por los destinos. Viarevex orienta, pero no sustituye a las autoridades competentes ni garantiza la admisión del viajero en ningún destino.'],
+        ['Pertenencias personales y equipaje','Viarevex no asume responsabilidad alguna por la pérdida, robo, daño o extravío de pertenencias personales, equipaje u objetos de valor durante el viaje. El viajero es el único responsable de la custodia y el cuidado de sus bienes. Se recomienda encarecidamente contratar un seguro de viaje que cubra estas contingencias.'],
+        ['Fuerza mayor y causas externas','Viarevex no se responsabiliza por cancelaciones, retrasos, modificaciones o perjuicios derivados de fenómenos naturales, condiciones climáticas adversas, pandemias, conflictos armados, huelgas, decisiones gubernamentales, fallas técnicas de proveedores u otras causas de fuerza mayor ajenas a su control.'],
+        ['Seguro de viaje','Recomendamos encarecidamente contratar un seguro de viaje integral antes de iniciar cualquier desplazamiento. Viarevex no asume responsabilidad por accidentes, enfermedades, evacuaciones médicas ni otros imprevistos cubiertos normalmente por seguros de viaje.'],
+        ['Visas y migración','No garantizamos resultados migratorios ni aprobaciones de visa, ya que estas dependen exclusivamente de las autoridades de cada país y escapan a nuestro control.'],
+        ['Vuelos privados','Las alternativas de aviación privada se coordinan a través de operadores certificados. Viarevex no opera ni es propietaria de aeronaves; la responsabilidad operativa recae en el operador correspondiente.'],
+        ['Asistencia 24/7','La asistencia aplica según el alcance del servicio contratado y la disponibilidad de los proveedores en cada momento. No constituye un servicio médico, policial ni de emergencias públicas.'],
+        ['Limitación de responsabilidad','En la máxima medida permitida por la ley, la responsabilidad de Viarevex se limita a su función de asesoría y coordinación. En ningún caso seremos responsables por daños indirectos, pérdida de ingresos, daño moral u otros perjuicios consecuentes no imputables directamente a nuestra gestión.'],
+        ['Modificación de los términos','Podemos actualizar estos términos en cualquier momento. La versión vigente estará disponible en este sitio con su fecha de actualización.']
       ]}
     };
     const en = {
-      privacy: { title:'Privacy Policy', date:'Version 1.0 · June 2026', body:[
-        ['Data controller','Viarevex acts as the controller of the data provided through this site. Contact: andrewamericas98@gmail.com.'],
-        ['Data we collect','The form may collect name, email, WhatsApp, country, destination, dates, number of travelers, trip type and the message you choose to share.'],
-        ['Purposes','We use your data to respond to your request, prepare travel proposals and, where necessary, quote or arrange services with providers.'],
-        ['Sharing with providers','To quote or deliver services we may share strictly necessary data with providers (airlines, hotels, insurers, operators, among others), including international transfers when the trip requires it.'],
-        ['Retention and security','We keep data for as long as necessary for the stated purpose and apply reasonable security measures.'],
-        ['Your rights','You may request access, correction or deletion of your data by writing to andrewamericas98@gmail.com.'],
-        ['Third parties and minors','If you provide data about other people, you declare you have their authorization. We do not direct the service to minors without their legal guardian\u2019s consent.'],
-        ['Changes','We may update this policy; the current version will be published on this site.'],
-        ['Notice','This policy is a base text and must be reviewed by a legal professional before final publication.']
+      privacy: { title:'Privacy Policy', date:'Version 1.1 · July 2026', body:[
+        ['Data controller','Viarevex acts as the controller of the data provided through this site. Contact email: president@viarevex.net.'],
+        ['Data we collect','Through the form we may collect full name, email address, WhatsApp number, country of residence, destination of interest, estimated dates, number of travelers, trip type and the message you choose to share.'],
+        ['Purposes','We use your data exclusively to respond to your request, prepare personalized travel proposals and, where necessary, coordinate services with providers.'],
+        ['Sharing with providers','To quote or deliver the requested services we may share strictly necessary data with providers (airlines, hotels, insurers, tour operators, among others), including international transfers when the trip requires it.'],
+        ['Retention and security','We retain data for as long as necessary for the stated purpose and apply reasonable technical and organizational security measures to protect it.'],
+        ['Your rights','You may at any time request access, rectification, cancellation or objection to the processing of your data by writing to president@viarevex.net.'],
+        ['Third parties and minors','If you provide data about other people, you declare you have their express authorization. We do not provide services to minors without verifiable consent from their legal guardian.'],
+        ['Changes','We may update this policy when necessary. The current version will be published on this site with its update date.']
       ]},
-      cookies: { title:'Cookie Policy', date:'Version 1.0 · June 2026', body:[
-        ['What they are','Cookies are small files stored on your device so the site works and, with your consent, to improve your experience.'],
-        ['Necessary','Always active. They enable basic functionality and remember your consent preferences.'],
-        ['Preferences','They remember choices such as language. Approximate duration: up to 12 months.'],
-        ['Analytics','They would help us understand site usage in aggregate. They are not activated without your consent.'],
-        ['Marketing','They would allow campaign measurement. They are not activated without your consent.'],
-        ['Withdrawing consent','You can change your preferences at any time from “Cookie preferences” in the footer, or remove local data by clearing your browser storage.'],
-        ['Notice','No analytics or marketing services currently load; the mechanisms are prepared for future activation with consent.']
+      cookies: { title:'Cookie Policy', date:'Version 1.1 · July 2026', body:[
+        ['What cookies are','Cookies are small text files stored on your device when you visit a website. Their purpose is to make the site work correctly and, with your consent, to improve your browsing experience.'],
+        ['Necessary cookies','Always active; no consent required. They enable basic site functionality and remember your privacy preferences.'],
+        ['Preference cookies','They remember choices such as the selected language. Approximate duration: up to 12 months. Only activated with your consent.'],
+        ['Analytics cookies','They allow us to understand how the site is used in an aggregate, anonymous way in order to improve it. Only activated with your consent.'],
+        ['Marketing cookies','They allow the performance of advertising campaigns to be measured. Only activated with your consent.'],
+        ['Managing or withdrawing consent','You can change your preferences at any time from "Cookie preferences" in the footer, or remove stored data by clearing your browser\'s local storage.']
       ]},
-      terms: { title:'Terms & Conditions', date:'Version 1.0 · June 2026', body:[
-        ['Nature of the service','Viarevex provides advisory and coordination of travel services, acting as an intermediary with independent providers.'],
-        ['Quotes and prices','Quotes are indicative and may vary based on availability, dates and each provider\u2019s policies until confirmed.'],
-        ['Payments, changes and cancellations','Payments, changes, cancellations and refunds are subject to each provider\u2019s conditions.'],
-        ['Traveler responsibility','It is the traveler\u2019s responsibility to hold valid passport, visas, vaccinations and immigration requirements. Viarevex guides but does not replace the competent authorities.'],
-        ['Visas and immigration','We do not guarantee immigration outcomes or visa approvals, which depend on the relevant authorities.'],
-        ['Private flights','Private aviation options are coordinated through operators and providers. Viarevex does not operate or own aircraft.'],
-        ['24/7 assistance','Assistance applies according to the scope of the contracted service and provider availability. It is not a medical, police or public emergency service.'],
-        ['Limitation of liability','To the extent permitted by law, Viarevex\u2019s liability is limited to its advisory and coordination role.'],
-        ['Notice','These terms are a base text and must be reviewed by a legal professional before final publication.']
+      terms: { title:'Terms & Conditions', date:'Version 1.1 · July 2026', body:[
+        ['Nature of the service','Viarevex provides travel advisory and coordination services, acting as an intermediary with independent providers (airlines, hotels, operators, insurers, among others). Viarevex is not a party to the contracts the traveler enters into directly with those providers and does not assume their obligations.'],
+        ['Quotes and prices','Quotes are indicative and may vary based on availability, dates and each provider\'s policies until confirmed in writing. Confirmed prices remain subject to exchange rate fluctuations, taxes or unforeseen provider charges.'],
+        ['Payments, changes and cancellations','Payments, changes, cancellations and refunds are governed by each provider\'s specific conditions. Viarevex is not obligated to refund amounts paid directly to providers on the client\'s behalf.'],
+        ['Traveler\'s documentation responsibility','It is the traveler\'s sole responsibility to hold a valid passport, visas, vaccination certificates, travel insurance and any other immigration or health requirements imposed by the destinations. Viarevex guides but does not replace the competent authorities or guarantee the traveler\'s admission to any destination.'],
+        ['Personal belongings and luggage','Viarevex accepts no responsibility for the loss, theft, damage or misplacement of personal belongings, luggage or valuables during the trip. The traveler is solely responsible for the custody and care of their belongings. It is strongly recommended to purchase travel insurance covering such contingencies.'],
+        ['Force majeure and external causes','Viarevex is not liable for cancellations, delays, modifications or losses arising from natural disasters, adverse weather conditions, pandemics, armed conflicts, strikes, government decisions, provider technical failures or other force majeure events beyond its control.'],
+        ['Travel insurance','We strongly recommend purchasing comprehensive travel insurance before starting any trip. Viarevex assumes no liability for accidents, illness, medical evacuations or other unforeseen events normally covered by travel insurance.'],
+        ['Visas and immigration','We do not guarantee immigration outcomes or visa approvals, as these depend exclusively on each country\'s authorities and are beyond our control.'],
+        ['Private flights','Private aviation options are coordinated through certified operators. Viarevex does not operate or own aircraft; operational liability rests with the relevant operator.'],
+        ['24/7 assistance','Assistance applies according to the scope of the contracted service and provider availability at any given time. It is not a medical, police or public emergency service.'],
+        ['Limitation of liability','To the fullest extent permitted by law, Viarevex\'s liability is limited to its advisory and coordination role. Under no circumstances shall we be liable for indirect damages, loss of income, emotional distress or other consequential losses not directly attributable to our management.'],
+        ['Changes to terms','We may update these terms at any time. The current version will be available on this site with its update date.']
       ]}
     };
     return (lang === 'es' ? es : en)[kind];
@@ -1237,20 +1206,17 @@ class Component extends DCLogic {
     e.preventDefault();
     const t = this.T(); const f = this.state.form;
     if (!f.name.trim()) return this.setState({ formError: t.errName });
-    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(f.email.trim())) return this.setState({ formError: t.errEmail });
     if (f.phone.replace(/[^\d]/g,'').length < 7) return this.setState({ formError: t.errPhone });
     if (!f.privacy) return this.setState({ formError: t.errPrivacy });
     this.setState({ formError: '' });
     const L = this.state.lang;
     const lines = L === 'es'
       ? ['Hola, Viarevex. Me gustaría recibir una asesoría.','',
-         'Nombre: ' + f.name, 'Correo: ' + f.email, 'WhatsApp: ' + f.phoneCode + ' ' + f.phone,
-         'País: ' + (f.country||'—'), 'Destino: ' + (f.dest||'—'), 'Fecha estimada: ' + (f.date||'—'),
-         'Viajeros: ' + (f.travelers||'—'), 'Tipo de viaje: ' + (f.type||'—'), 'Mensaje: ' + (f.message||'—')]
+         'Nombre: ' + f.name, 'WhatsApp: ' + f.phoneCode + ' ' + f.phone,
+         'Destino de interés: ' + (f.dest||'—'), 'Mensaje: ' + (f.message||'—')]
       : ['Hello, Viarevex. I would like to receive advisory.','',
-         'Name: ' + f.name, 'Email: ' + f.email, 'WhatsApp: ' + f.phoneCode + ' ' + f.phone,
-         'Country: ' + (f.country||'—'), 'Destination: ' + (f.dest||'—'), 'Dates: ' + (f.date||'—'),
-         'Travelers: ' + (f.travelers||'—'), 'Trip type: ' + (f.type||'—'), 'Message: ' + (f.message||'—')];
+         'Name: ' + f.name, 'WhatsApp: ' + f.phoneCode + ' ' + f.phone,
+         'Destination of interest: ' + (f.dest||'—'), 'Message: ' + (f.message||'—')];
     const url = 'https://wa.me/525644091087?text=' + encodeURIComponent(lines.join('\n'));
     this.showToast(t.toastWa);
     window.open(url, '_blank', 'noopener,noreferrer');
@@ -1369,7 +1335,7 @@ class Component extends DCLogic {
         if (!el) return;
         if (!legal) { el.innerHTML = ''; return; }
         el.innerHTML = legal.body.map(([h,p]) =>
-          '<h4 style="font-family:Cormorant Garamond,serif;font-weight:600;font-size:19px;color:#101A2B;margin:22px 0 8px">'
+          '<h4 style="font-family:Spectral,Georgia,serif;font-weight:600;font-size:19px;color:#101A2B;margin:22px 0 8px">'
           + h.replace(/</g,'&lt;') + '</h4><p style="margin:0">' + p.replace(/</g,'&lt;') + '</p>').join('');
       },
       headerRef: () => {},

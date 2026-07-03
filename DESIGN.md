@@ -14,33 +14,33 @@ colors:
   muted-deep: "#8a857c"
 typography:
   display:
-    fontFamily: "Cormorant Garamond, Georgia, serif"
+    fontFamily: "Spectral, Georgia, serif"
     fontSize: "clamp(40px, 6.6vw, 82px)"
     fontWeight: 500
     lineHeight: 1.02
     letterSpacing: "-0.01em"
   headline:
-    fontFamily: "Cormorant Garamond, Georgia, serif"
+    fontFamily: "Spectral, Georgia, serif"
     fontSize: "clamp(30px, 4.4vw, 52px)"
     fontWeight: 500
     lineHeight: 1.1
   title:
-    fontFamily: "Cormorant Garamond, Georgia, serif"
+    fontFamily: "Spectral, Georgia, serif"
     fontSize: "24px"
     fontWeight: 600
     lineHeight: 1.15
   body:
-    fontFamily: "Inter, system-ui, sans-serif"
+    fontFamily: "Figtree, system-ui, sans-serif"
     fontSize: "16.5px"
     fontWeight: 300
     lineHeight: 1.75
   body-sm:
-    fontFamily: "Inter, system-ui, sans-serif"
+    fontFamily: "Figtree, system-ui, sans-serif"
     fontSize: "14.5px"
     fontWeight: 300
     lineHeight: 1.65
   label:
-    fontFamily: "Inter, system-ui, sans-serif"
+    fontFamily: "Figtree, system-ui, sans-serif"
     fontSize: "12px"
     fontWeight: 400
     letterSpacing: "0.26em"
@@ -91,7 +91,7 @@ Viarevex's visual language is a perfectly printed travel brief: precise margins,
 
 The palette operates in two temperatures: the warm off-white of body surfaces and the cold depth of navy and near-black, held together by a single accent — a muted, travel-worn gold that reads like aged brass, not showroom shine. Sections alternate between light and dark fields, creating a rhythm of contraction and expansion that mirrors how a good journey actually unfolds: bright days, deep nights, no monotony.
 
-Typography carries the voice. Cormorant Garamond handles everything editorial — display headings, serial numbers, pull quotes — and Inter handles everything functional. Their contrast is absolute: one is a letter written by hand, the other is a label on well-made luggage. Neither apologizes for what it is.
+Typography carries the voice. Spectral handles everything editorial — display headings, pull quotes, and the manifesto — and Figtree handles everything functional. Their contrast is deliberate: one is a well-printed literary serif built for screen reading, the other is a precise humanist sans. Neither apologizes for what it is.
 
 This system explicitly rejects the visual grammar of booking platforms (price grids, star ratings, search bars), the excess of traditional luxury (gold wallpaper, baroque flourishes, chandeliers in every section), and the casualness of influencer travel content (vibrant color splashes, rounded everything, zero friction). The Velvet Itinerary is confident without shouting. Elegant without trying.
 
